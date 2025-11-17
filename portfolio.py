@@ -1464,17 +1464,15 @@ with col_left:
         unsafe_allow_html=True
     )
     st.write("""
-    Designed and developed an interactive personal portfolio website using **Streamlit**, showcasing my projects, skills, achievements and educational background.
+    Crafted a polished personal site in **Streamlit** as a single source of truth for my story, projects, and contact touchpoints.
 
-    Key features include:
-    - Animated hero section with a circular profile picture and gradient headers along with Experience, Achievements.
-    - Skill badges, project showcases along with the Github Repositories
-    - A vertical educational timeline
-    - Downloadable resume and aesthetic contact buttons for Social Platforms like Linkedin & Gmail
+    Highlights:
+    - Cinematic hero section with animated typography, profile portrait, and quick stats.
+    - Modular skills grid, project spotlight cards, and experience timeline for fast scanning.
+    - Built-in resume download plus branded CTAs for GitHub, LinkedIn, and email.
+    - Fully responsive layout with custom CSS that adapts to Streamlit light/dark themes.
 
-    The portfolio is fully responsive and easy to maintain, serving as a central hub for a professional representation.
-
-    **Tech Stack**: Python, Streamlit, HTML/CSS, PIL
+    **Tech Stack**: Python · Streamlit · HTML/CSS · PIL
     """)
 
 with col_right:
