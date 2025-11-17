@@ -1466,7 +1466,7 @@ with col_left:
     st.write("""
     Crafted a polished personal site in **Streamlit** as a single source of truth for my story, projects, and contact touchpoints.
 
-    Highlights:
+    Key features include:
     - Cinematic hero section with animated typography, profile portrait, and quick stats.
     - Modular skills grid, project spotlight cards, and experience timeline for fast scanning.
     - Built-in resume download plus branded CTAs for GitHub, LinkedIn, and email.
