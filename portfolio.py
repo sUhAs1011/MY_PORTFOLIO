@@ -1472,7 +1472,7 @@ with col_left:
     - Built-in resume download plus branded CTAs for GitHub, LinkedIn, and email.
     - Fully responsive layout with custom CSS that adapts to Streamlit light/dark themes.
 
-    **Tech Stack**: Python · Streamlit · HTML/CSS · PIL
+    **Tech Stack**: Python, Streamlit, HTML/CSS, PIL
     """)
 
 with col_right:
