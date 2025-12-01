@@ -773,9 +773,9 @@ with col1:
     st.markdown("<div class='subtitle'>CSE Student at PES University</div>", unsafe_allow_html=True)
     st.markdown("""
 <p style='font-size:18px; line-height:1.6;'>
-Final-year Computer Science student at PES University, passionate about Machine Learning and Natural Language Processing. 
-Recently interned at C3I, gaining hands-on experience in ML systems. 
-Actively exploring software engineering and always open to new challenges and collaborations.
+Final-year Computer Science student at PES University with a strong interest in Machine Learning, Natural Language Processing, and applied AI.
+Previously interned at C3I, where I gained hands-on experience building and deploying ML systems.
+I enjoy solving real-world problems, exploring software engineering, and collaborating on impactful projects.
 </p>
 """, unsafe_allow_html=True)
     st.markdown("</div>", unsafe_allow_html=True)
