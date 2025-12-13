@@ -707,7 +707,7 @@ p, div, .intro, .subtitle { color: var(--text-color) !important; }
 
 /* Headings and nav */
 h1, h2, h3, h4, h5, h6,
-.navbar-name,
+/*.navbar-name,*/
 .navbar-custom a { color: var(--text-color) !important; }
 
 /* Project links */
@@ -773,9 +773,9 @@ with col1:
     st.markdown("<div class='subtitle'>CSE Student at PES University</div>", unsafe_allow_html=True)
     st.markdown("""
 <p style='font-size:18px; line-height:1.6;'>
-Final-year Computer Science student at PES University, passionate about Machine Learning and Natural Language Processing. 
-Recently interned at C3I, gaining hands-on experience in ML systems. 
-Actively exploring software engineering and always open to new challenges and collaborations.
+Final-year Computer Science student at PES University with a strong interest in Machine Learning, Natural Language Processing, and applied AI.
+Previously interned at C3I, where I gained hands-on experience building and deploying ML systems.
+I enjoy solving real-world problems, exploring software engineering, and collaborating on impactful projects.
 </p>
 """, unsafe_allow_html=True)
     st.markdown("</div>", unsafe_allow_html=True)
@@ -911,20 +911,25 @@ with col2:
     st.header("👨‍💼 About Me")
     st.markdown("""
     <div style="font-size:18px; line-height:1.6; text-align: left;">
-        I’m <strong>Suhas Venkata</strong>, a Senior in Computer Science & Engineering at PES University. My passion lies in Machine learning and Deep learning, 
-        and I thrive on solving real-world problems through cutting-edge technologies.
+        I’m <strong>Suhas Venkata</strong>, a final-year Computer Science & Engineering student at PES University 
+        with a deep interest in <strong>Machine Learning, Deep Learning, and Natural Language Processing</strong>. 
+        I enjoy building AI systems that solve real-world problems and create meaningful impact.
     </div>    
     """, unsafe_allow_html=True)
     st.markdown("    ")
     st.markdown("""
     <div style="font-size:18px; line-height:1.6; text-align: left;">
-        During my internship at the Centre of Cognitive Computing and Computational Intelligence (C3I) in the Summer of 2025, I designed and deployed an end-to-end career advisory system using dual-tower Deep Structured Semantic Models and ChromaDB achieving highly accurate job–course matching.
+        During my internship at the <strong>Centre of Cognitive Computing and Computational Intelligence (C3I)</strong>, 
+        I designed and deployed an end-to-end <strong>career advisory system</strong> using dual-tower 
+        Deep Structured Semantic Models (DSSM) and ChromaDB, achieving highly accurate job–course matching.
     </div>    
     """, unsafe_allow_html=True)
     st.markdown("    ")
     st.markdown("""
     <div style="font-size:18px; line-height:1.6; text-align: left;">
-        I’m always eager to take on new challenges, collaborate across disciplines, and keep learning. If you're working on Natural Language Processing, Machine Learning, or AI-driven projects, I’d love to connect and build something impactful together.
+       I’m always excited to explore new technologies, take on challenging problems, and collaborate across domains. 
+        If you're working on <strong>AI-driven</strong> or <strong>ML/NLP-focused</strong> projects, 
+        I’d love to connect and build something impactful together.
     </div>    
     """, unsafe_allow_html=True)
 
@@ -1464,15 +1469,13 @@ with col_left:
         unsafe_allow_html=True
     )
     st.write("""
-    Designed and developed an interactive personal portfolio website using **Streamlit**, showcasing my projects, skills, achievements and educational background.
+    Crafted a polished personal site in **Streamlit** as a single source of truth for my story, projects, and contact touchpoints.
 
     Key features include:
-    - Animated hero section with a circular profile picture and gradient headers along with Experience, Achievements.
-    - Skill badges, project showcases along with the Github Repositories
-    - A vertical educational timeline
-    - Downloadable resume and aesthetic contact buttons for Social Platforms like Linkedin & Gmail
-
-    The portfolio is fully responsive and easy to maintain, serving as a central hub for a professional representation.
+    - Cinematic hero section with animated typography, profile portrait, and quick stats.
+    - Modular skills grid, project spotlight cards, and experience timeline for fast scanning.
+    - Built-in resume download plus branded CTAs for GitHub, LinkedIn, and email.
+    - Fully responsive layout with custom CSS that adapts to Streamlit light/dark themes.
 
     **Tech Stack**: Python, Streamlit, HTML/CSS, PIL
     """)
@@ -1827,32 +1830,74 @@ st.markdown("""
   }
 }
             
-/* ===== FORCE NAVBAR TEXT COLOR BASED ON LIGHT/DARK THEME ===== */
-
-/* Light mode = black text */
-@media (prefers-color-scheme: light){
+@media (prefers-color-scheme: light) {
+    .navbar-custom {
+        background: #ffffff !important;
+        border-bottom: 1px solid rgba(0,0,0,0.15);
+    }
     .navbar-custom a,
     .navbar-name {
         color: #000000 !important;
     }
 }
 
-/* Dark mode = white text */
-@media (prefers-color-scheme: dark){
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    .navbar-custom {
+        background: #0e1117 !important;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
     .navbar-custom a,
     .navbar-name {
-        color: #ffffff !important;
-    }
-}
-
-/* Fix navbar background in light mode so it does NOT blend */
-@media (prefers-color-scheme: light){
-    .navbar-custom{
-        background: #ffffff !important;
-        border-bottom: 1px solid #ccc !important;
+        color: #e5e7eb !important;
     }
 }
 
 
 </style>
 """, unsafe_allow_html=True)
+
+st.markdown("""
+<style>
+/* =========================================================
+   FINAL NAVBAR FIX — PLACE THIS AT VERY BOTTOM OF FILE
+   ========================================================= */
+
+/* LIGHT MODE */
+@media (prefers-color-scheme: light) {
+    .navbar-custom {
+        background-color: #ffffff !important;
+        border-bottom: 1px solid #d1d5db !important;
+    }
+
+    .navbar-custom a,
+    .navbar-name {
+        color: #000000 !important;
+    }
+
+    .navbar-custom a:hover {
+        color: #1d4ed8 !important;
+        background-color: rgba(29, 78, 216, 0.08) !important;
+    }
+}
+
+/* DARK MODE */
+@media (prefers-color-scheme: dark) {
+    .navbar-custom {
+        background-color: #0e1117 !important;
+        border-bottom: 1px solid rgba(255,255,255,0.08) !important;
+    }
+
+    .navbar-custom a,
+    .navbar-name {
+        color: #ffffff !important;
+    }
+
+    .navbar-custom a:hover {
+        color: #00C6FB !important;
+        background-color: rgba(0, 198, 251, 0.12) !important;
+    }
+}
+</style>
+""", unsafe_allow_html=True)
+
