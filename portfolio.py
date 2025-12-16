@@ -770,7 +770,7 @@ col1, col2 = st.columns([2, 1])
 with col1:
     st.markdown("<div class='hero-container'>", unsafe_allow_html=True)
     st.markdown("<div class='gradient-text'><span class='letter'>S</span><span class='letter'>u</span><span class='letter'>h</span><span class='letter'>a</span><span class='letter'>s</span> <span class='letter'>V</span><span class='letter'>e</span><span class='letter'>n</span><span class='letter'>k</span><span class='letter'>a</span><span class='letter'>t</span><span class='letter'>a</span> <span class='emoji'>👋</span></div>", unsafe_allow_html=True)
-    st.markdown("<div class='subtitle'>CSE Student at PES University</div>", unsafe_allow_html=True)
+    st.markdown("<div class='subtitle'>CSE Senior at PES University</div>", unsafe_allow_html=True)
     st.markdown("""
 <p style='font-size:18px; line-height:1.6;'>
 Final-year Computer Science student at PES University with a strong interest in Machine Learning, Natural Language Processing, and applied AI.
