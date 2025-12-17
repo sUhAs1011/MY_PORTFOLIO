@@ -1088,10 +1088,11 @@ ml_icon_map = {
     "Keras": "https://img.icons8.com/?size=100&id=XcSgtbIpgK6W&format=png&color=000000",
     "Seaborn": "https://cdn.worldvectorlogo.com/logos/seaborn-1.svg",
     "Selenium" : "https://img.icons8.com/?size=100&id=38553&format=png&color=000000",
-    "LLM": "https://img.icons8.com/?size=100&id=29a6ubG1s7cw&format=png&color=000000"
+    "LLM": "https://img.icons8.com/?size=100&id=29a6ubG1s7cw&format=png&color=000000",
+    "OpenCV": "https://img.icons8.com/?size=100&id=bpip0gGiBLT1&format=png&color=000000"
 }
 
-ml_tools = ["Scikit-learn", "Pandas", "NumPy", "NLTK", "Spacy", "PyTorch", "Mathplotlib", "Keras", "Seaborn", "Selenium","LLM"]
+ml_tools = ["Scikit-learn", "Pandas", "NumPy", "NLTK", "Spacy", "PyTorch", "Mathplotlib", "Keras", "Seaborn", "Selenium","LLM","OpenCV"]
 ml_cols = st.columns(3)
 
 for i, tool in enumerate(ml_tools):
