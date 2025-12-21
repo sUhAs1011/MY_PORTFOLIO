@@ -1613,8 +1613,7 @@ with col_left:
     - Integrated Prometheus and Grafana to monitor allowed vs blocked requests and Redis latency, enabling real-time observability.
     - Built an interactive Streamlit dashboard to test API keys, visualize rate-limit status, and analyze system behavior during live traffic. 
 
-    **Tech Stack:**  
-    Go, Redis, Docker, Prometheus, Grafana, Streamlit, REST APIs
+    **Tech Stack:** Go, Redis, Docker, Prometheus, Grafana, Streamlit, REST APIs
     """)
 
 with col_right:
