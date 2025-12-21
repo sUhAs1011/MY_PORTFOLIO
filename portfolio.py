@@ -1584,6 +1584,49 @@ with col_right:
     Tech Stack: Python, HTM, SHA-256, SDR
     """)
 
+# Distributed Rate Limiter
+st.markdown("---")
+col_left, col_right = st.columns([2, 1])
+
+with col_left:
+    st.markdown(
+        """
+        <h3>
+        <img src='https://img.icons8.com/?size=100&id=O6SWwpPIM0GB&format=png&color=000000'
+             style='width:35px; height:35px; vertical-align:middle; margin-right:8px;'/>
+         <a href='https://github.com/sUhAs1011/nimbusguard'
+            target='_blank' style='text-decoration: none; color: inherit;'>
+            NimbusGuard – Distributed Rate Limiting Service
+        </a>
+        </h3>
+        """,
+        unsafe_allow_html=True
+    )
+
+    st.write("""
+    Designed and implemented **NimbusGuard**, a production-grade **distributed rate limiting service**
+    to protect backend APIs from abuse and traffic spikes in multi-instance environments.
+
+    **Key features include:**
+    - Implemented a Redis-backed distributed Sliding Window rate limiter in Go, ensuring consistent request control across multiple service instances.
+
+- Used atomic Redis Lua scripts to guarantee concurrency safety and eliminate race conditions during high-traffic scenarios.
+
+- Integrated Prometheus and Grafana to monitor allowed vs blocked requests and Redis latency, enabling real-time observability.
+
+- Built an interactive Streamlit dashboard to test API keys, visualize rate-limit status, and analyze system behavior during live traffic. 
+
+    **Tech Stack:**  
+    Go, Redis, Docker, Prometheus, Grafana, Streamlit, REST APIs
+    """)
+
+with col_right:
+    st.image(
+        "nimbusguard_architecture.jpg",
+        caption="NimbusGuard – Distributed Rate Limiting Architecture",
+        use_container_width=True
+    )
+
 
 # --- Custom Footer with Styling ---
 st.markdown("""
