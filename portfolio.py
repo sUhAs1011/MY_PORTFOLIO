@@ -1607,14 +1607,11 @@ with col_left:
     Designed and implemented **NimbusGuard**, a production-grade **distributed rate limiting service**
     to protect backend APIs from abuse and traffic spikes in multi-instance environments.
 
-    **Key features include:**
+    Key features include:
     - Implemented a Redis-backed distributed Sliding Window rate limiter in Go, ensuring consistent request control across multiple service instances.
-
-- Used atomic Redis Lua scripts to guarantee concurrency safety and eliminate race conditions during high-traffic scenarios.
-
-- Integrated Prometheus and Grafana to monitor allowed vs blocked requests and Redis latency, enabling real-time observability.
-
-- Built an interactive Streamlit dashboard to test API keys, visualize rate-limit status, and analyze system behavior during live traffic. 
+    - Used atomic Redis Lua scripts to guarantee concurrency safety and eliminate race conditions during high-traffic scenarios.
+    - Integrated Prometheus and Grafana to monitor allowed vs blocked requests and Redis latency, enabling real-time observability.
+    - Built an interactive Streamlit dashboard to test API keys, visualize rate-limit status, and analyze system behavior during live traffic. 
 
     **Tech Stack:**  
     Go, Redis, Docker, Prometheus, Grafana, Streamlit, REST APIs
