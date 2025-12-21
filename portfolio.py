@@ -1590,7 +1590,7 @@ col_left, col_right = st.columns([2, 1])
 
 with col_left:
     st.markdown(
-        "<h3><a href='https://github.com/sUhAs1011/NIMBUSGUARD_DISTRIBUTED_RATE_LIMITING_SERVICE-' target='_blank' style='text-decoration: none; color: inherit;'>🛡️ NimbusGuard – Distributed Rate Limiting Service </a></h3>",
+        "<h3><a href='https://github.com/sUhAs1011/NIMBUSGUARD_DISTRIBUTED_RATE_LIMITING_SERVICE' target='_blank' style='text-decoration: none; color: inherit;'>🛡️ NimbusGuard – Distributed Rate Limiting Service </a></h3>",
         unsafe_allow_html=True
     )
 
