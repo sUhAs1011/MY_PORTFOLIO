@@ -1591,16 +1591,11 @@ col_left, col_right = st.columns([2, 1])
 with col_left:
     st.markdown(
         """
-        <h3>
-        <img src='https://img.icons8.com/?size=100&id=O6SWwpPIM0GB&format=png&color=000000'
-             style='width:35px; height:35px; vertical-align:middle; margin-right:8px;'/>
-         <a href='https://github.com/sUhAs1011/nimbusguard'
-            target='_blank' style='text-decoration: none; color: inherit;'>
-            NimbusGuard – Distributed Rate Limiting Service
-        </a>
-        </h3>
+        "<h3><a href='https://github.com/sUhAs1011/NIMBUSGUARD_DISTRIBUTED_RATE_LIMITING_SERVICE' target='_blank' style='text-decoration: none; color: inherit;'>🛡️ NimbusGuard – Distributed Rate Limiting Service </a></h3>",
+        unsafe_allow_html=True
         """,
         unsafe_allow_html=True
+        
     )
 
     st.write("""
