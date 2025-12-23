@@ -4,7 +4,7 @@ import base64
 from io import BytesIO
 
 # --- PAGE CONFIG ---
-st.set_page_config(page_title="Suhas Venkata · Portfolio", page_icon="suhas.jpg", layout="wide")
+st.set_page_config(page_title="Suhas Venkata Karamalaputti · Portfolio", page_icon="suhas.jpg", layout="wide")
 
 # Add viewport meta tag for mobile responsiveness
 st.markdown("""
@@ -748,7 +748,7 @@ h3 a { color: var(--text-color) !important; font-weight: 700; }
 st.markdown("""
 <div class="navbar-custom">
     <div class="navbar-top">
-        <div class="navbar-name">Suhas Venkata</div>
+        <div class="navbar-name">Suhas Venkata Karamalaputti</div>
     </div>
     <div class="navbar-links" id="navbar-links">
         <a href="#about">👨‍💼 About Me</a>
@@ -911,7 +911,7 @@ with col2:
     st.header("👨‍💼 About Me")
     st.markdown("""
     <div style="font-size:18px; line-height:1.6; text-align: left;">
-        I’m <strong>Suhas Venkata</strong>, a final-year Computer Science & Engineering student at PES University 
+        I’m <strong>Suhas Venkata Karamalaputti</strong>, a final-year Computer Science & Engineering student at PES University 
         with a deep interest in <strong>Machine Learning, Deep Learning, and Natural Language Processing</strong>. 
         I enjoy building AI systems that solve real-world problems and create meaningful impact.
     </div>    
@@ -1618,7 +1618,7 @@ with col_right:
 # --- Custom Footer with Styling ---
 st.markdown("""
     <div style='text-align: center; padding-top: 20px; font-size: 25px; font-weight: 500; color: #ffffff;'>
-        Made by Suhas Venkata with ❤️
+        Made by Suhas Venkata Karamalaputti with ❤️
     </div>
     <div style='text-align: center; padding-top: 0px; font-size: 20px; font-weight: 500; color: #ffffff;'>
         Using Streamlit and Python
