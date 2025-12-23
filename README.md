@@ -22,7 +22,7 @@
    ```
 
 ### Web Interface of My Portfolio
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/6897fcbd-6d4c-45b5-9246-d056a86b3612" />
+![portfolio](https://github.com/user-attachments/assets/fc7ac7bc-5aa9-458d-a368-1e65018d36ca)
 
 
 
