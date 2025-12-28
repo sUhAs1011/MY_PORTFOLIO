@@ -969,7 +969,7 @@ buttons_html = """
   <a href="mailto:suhas.karamalaputti@gmail.com" class="contact-button">
     <img src="https://img.icons8.com/?size=100&id=qyRpAggnV0zH&format=png&color=FFFFFF" class="contact-icon">Email
   </a>
-  <a href="https://www.linkedin.com/in/suhas-venkata/" target="_blank" class="contact-button">
+  <a href="https://www.linkedin.com/in/suhas-venkata-karamalaputti/" target="_blank" class="contact-button">
     <img src="https://img.icons8.com/?size=100&id=13930&format=png&color=FFFFFF" class="contact-icon">LinkedIn
   </a>
   <a href="https://github.com/sUhAs1011" target="_blank" class="contact-button">
