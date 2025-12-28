@@ -1671,7 +1671,7 @@ with col_right:
     - **SHA‑256** frame hashing and verification to ensure tamper-evident, forensic reliability of CCTV footage.
     - Decision engine with dashboard interface that fuses anomaly scores and integrity checks, providing real-time alerts, visualization, and forensic reporting.
     
-    Tech Stack: Python, HTM, SHA-256, SDR
+    Tech Stack: Python, HTM, SHA-256, SDR, Streamlit, FastAPI, SQLite
     """)
 
 # Distributed Rate Limiter
