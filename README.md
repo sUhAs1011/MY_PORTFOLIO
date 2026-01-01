@@ -1,7 +1,7 @@
 # My Portfolio
 
 - Hello All, this is a portfolio I made during my summer break between my junior and the senior year. This is my personal web interface portfolio which I created using streamlit and PIL which are GUI frameworks in python.I deployed this website with the help of https://streamlit.io/cloud and deployed it.
-- Please visit the website [https://suhas-1011-portfolio.streamlit.app/](https://suhas-venkata.streamlit.app/) and please look into my portfolio.
+- Please visit the website https://suhas-venkata.streamlit.app/](https://suhas-venkata-karamalaputti.streamlit.app/) and please look into my portfolio.
 
 ### Features
 - Responsive skill grid with hover effects
