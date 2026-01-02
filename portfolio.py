@@ -1009,8 +1009,8 @@ with col2:
     st.markdown("    ")
     st.markdown("""
     <div style="font-size:18px; line-height:1.6; text-align: left;">
-        During my internship at the <strong>Centre of Cognitive Computing and Computational Intelligence (C3I)</strong>, 
-        I designed and deployed an end-to-end <strong>career advisory system</strong> using dual-tower 
+        During the summer of 2025 I did my internship at the <strong>Centre of Cognitive Computing and Computational Intelligence (C3I)</strong>,where  
+        I designed and implemented an end-to-end <strong>career advisory system</strong> using dual-tower 
         Deep Structured Semantic Models (DSSM) and ChromaDB, achieving highly accurate job–course matching.
     </div>    
     """, unsafe_allow_html=True)
