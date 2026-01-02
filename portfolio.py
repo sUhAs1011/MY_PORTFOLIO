@@ -1301,7 +1301,7 @@ st.markdown("""
       <h3>B.Tech CSE</h3>
       <p>PES University</p>
       <p>🗓️ 2022 - Present</p>
-      <p>CGPA : 8.06</p>
+      <p>CGPA : 8.12</p>
     </div>
   </div>
 
