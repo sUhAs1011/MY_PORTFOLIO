@@ -1441,7 +1441,7 @@ with col1:
     - Applied OCR & Ollama to patient histories leading to faster clinical decisions, predicting adverse drug-drug reactions & recommending treatments.
     - Recommend personalized treatment plans based on patient's history 
 
-    **Tech Stack**: Python, Streamlit, IPFS, Multi-Chain Blockchain
+    **Tech Stack**: Python, Streamlit, IPFS, Multi-Chain Blockchain, Ollama
     """)
 
 with col2:
