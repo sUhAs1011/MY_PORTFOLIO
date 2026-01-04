@@ -1441,7 +1441,7 @@ with col1:
     - Applied OCR & Ollama to patient histories leading to faster clinical decisions, predicting adverse drug-drug reactions & recommending treatments.
     - Recommend personalized treatment plans based on patient's history 
 
-    **Tech Stack**: Python, Streamlit, IPFS, Multi-Chain Blockchain, Ollama
+    **Tech Stack**: Python · Streamlit · IPFS · Multi-Chain Blockchain · Ollama
     """)
 
 with col2:
@@ -1478,7 +1478,7 @@ with col_right:
     - Configured the Arduino IDE and implemented serial communication to ensure seamless system performance and real-time responsiveness.
     - Achieved near-instant detection **< 100 ms** with real-time serial communication, ensuring quick & reliable security alerts.
 
-    **Tech Stack**: C++, Arduino, Ultrasonic Sensor, GSM Module, SoftwareSerial.h
+    **Tech Stack**: C++ · Arduino · Ultrasonic Sensor · GSM Module · SoftwareSerial.h
     """)
 
 
@@ -1501,7 +1501,7 @@ with col_left:
 
     This solution streamlines legal compliance and enhances accessibility to complex regulatory frameworks.
 
-    **Tech Stack**: Python, Sentence Transformers, MongoDB, Streamlit
+    **Tech Stack**: Python · Sentence Transformers · MongoDB · Streamlit
     """)
 
 with col_right:
@@ -1538,7 +1538,7 @@ with col_right:
     - Implemented **dynamic IP handling** to support both localhost and distributed multi-system deployments.
     - Enabled execution of remote shell commands and ensured seamless file transfers across networked devices.
 
-    **Tech Stack**: Python, UDP, Socket Programming, SSL, File Handling
+    **Tech Stack**: Python · UDP · Socket Programming · SSL · File Handling
     """)
 
 
@@ -1568,7 +1568,7 @@ with col_left:
     - Built-in resume download plus branded CTAs for GitHub, LinkedIn, and email.
     - Fully responsive layout with custom CSS that adapts to Streamlit light/dark themes.
 
-    **Tech Stack**: Python, Streamlit, HTML/CSS, PIL
+    **Tech Stack**: Python · Streamlit · HTML · CSS · PIL
     """)
 
 with col_right:
@@ -1604,7 +1604,7 @@ with col_right:
     - Developed a Streamlit web application as a user-friendly frontend interface, facilitating interactive skill gap analysis and course recommendations.
     - Provided intelligent course suggestions directly addressing identified skill gaps relevant to a specific job position, leveraging the pre-computed mappings.
     
-    **Tech Stack**: Python, Sentence Transformers, ChromaDB, DSSM, Streamlit, Tesseract 
+    **Tech Stack**: Python · Sentence Transformers · ChromaDB · DSSM · Streamlit · Tesseract 
     """)
 
 # Distributed Cluster Simulator
@@ -1634,7 +1634,7 @@ with col_left:
     - Dockerized for portability and easy deployment and Real-time cluster health and pod scheduling visualization via Streamlit.
 
 
-    **Tech Stack**: Python, Streamlit, Docker, Node.js, REST APIs, JSON
+    **Tech Stack**: Python · Streamlit · Docker · Node.js · RestAPI · JSON
     """)
 
 with col_right:
@@ -1694,7 +1694,7 @@ with col_left:
     - Integrated Prometheus and Grafana to monitor allowed vs blocked requests and Redis latency, enabling real-time observability.
     - Built an interactive Streamlit dashboard to test API keys, visualize rate-limit status, and analyze system behavior during live traffic. 
 
-    **Tech Stack:** Go, Redis, Docker, Prometheus, Grafana, Streamlit, REST APIs
+    **Tech Stack**: Go · Redis · Docker · Prometheus · Grafana · Streamlit · RestAPI
     """)
 
 with col_right:
