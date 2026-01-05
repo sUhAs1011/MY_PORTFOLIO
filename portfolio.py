@@ -863,7 +863,7 @@ with col1:
     unsafe_allow_html=True)
     st.markdown("<div class='subtitle'>CSE Senior at PES University</div>", unsafe_allow_html=True)
     st.markdown("""<p style='font-size:18px; line-height:1.6;'>
-Final-year Computer Science & Engineering student at PES University, currently working as an Intern – Project Engineer at Elfonze Technologies. 
+Final-year Computer Science & Engineering student at PES University, currently working as a Project Engineer at Elfonze Technologies. 
 Strong interest in Machine Learning, Natural Language Processing, and applied AI, with hands-on experience building and deploying ML systems. 
 Previously interned at C3I, where I worked on end-to-end AI solutions. 
 I enjoy solving real-world problems, exploring software engineering, and collaborating on impactful projects.
