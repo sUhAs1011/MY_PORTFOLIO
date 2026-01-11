@@ -1143,10 +1143,11 @@ db_icon_map = {
     "MySQL": "https://img.icons8.com/?size=100&id=9nLaR5KFGjN0&format=png&color=000000",
     "MongoDB": "https://img.icons8.com/?size=100&id=74402&format=png&color=000000",
     "ChromaDB": "https://miro.medium.com/v2/resize:fit:1044/1*d2XUNgrLw7687CDfXx9-Dw.png",
-    "SQLite": "https://img.icons8.com/?size=100&id=yjSayFwWHyCo&format=png&color=000000"
+    "SQLite": "https://img.icons8.com/?size=100&id=yjSayFwWHyCo&format=png&color=000000",
+    "PostgreSQL": "https://raw.githubusercontent.com/docker-library/docs/01c12653951b2fe592c1f93a13b4e289ada0e3a1/postgres/logo.png"
 }
 
-db_tools = ["MySQL", "MongoDB", "ChromaDB", "SQLite"]
+db_tools = ["MySQL", "MongoDB", "ChromaDB", "SQLite","PostgreSQL"]
 db_cols = st.columns(3)
 
 for i, tool in enumerate(db_tools):
