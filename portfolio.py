@@ -1142,10 +1142,11 @@ st.markdown("#### 🗄️ Databases")
 db_icon_map = {
     "MySQL": "https://img.icons8.com/?size=100&id=9nLaR5KFGjN0&format=png&color=000000",
     "MongoDB": "https://img.icons8.com/?size=100&id=74402&format=png&color=000000",
-    "ChromaDB": "https://miro.medium.com/v2/resize:fit:1044/1*d2XUNgrLw7687CDfXx9-Dw.png"  
+    "ChromaDB": "https://miro.medium.com/v2/resize:fit:1044/1*d2XUNgrLw7687CDfXx9-Dw.png",
+    "SQLite": "https://img.icons8.com/?size=100&id=yjSayFwWHyCo&format=png&color=000000"
 }
 
-db_tools = ["MySQL", "MongoDB", "ChromaDB"]
+db_tools = ["MySQL", "MongoDB", "ChromaDB", "SQLite"]
 db_cols = st.columns(3)
 
 for i, tool in enumerate(db_tools):
