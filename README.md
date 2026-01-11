@@ -22,7 +22,8 @@
    ```
 
 ### Web Interface of My Portfolio
-![portfolio](https://github.com/user-attachments/assets/fc7ac7bc-5aa9-458d-a368-1e65018d36ca)
+![portfolio](https://github.com/user-attachments/assets/d9b14e13-be2f-49f8-b068-a1131f987e02)
+
 
 
 
