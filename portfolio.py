@@ -1635,7 +1635,7 @@ with col_left:
     - Dockerized for portability and easy deployment and Real-time cluster health and pod scheduling visualization via Streamlit.
 
 
-    **Tech Stack**: Python · Streamlit · Docker · Node.js · RestAPI · JSON
+    **Tech Stack**: Python · Streamlit · Docker · Node.js · RestAPI · FastAPI · JSON
     """)
 
 with col_right:
