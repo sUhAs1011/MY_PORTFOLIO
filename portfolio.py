@@ -1453,7 +1453,7 @@ with col1:
     """)
 
 with col2:
-    st.image("healthcare.jpg", caption="Healthcare Blockchain System", use_container_width=True)
+    st.image("healthcare.jpg", caption="BlockChain Powered AI Healthcare System", use_container_width=True)
 
 
 # Alarm Burglar System with image on the left and content on the right
