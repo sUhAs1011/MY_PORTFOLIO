@@ -1632,7 +1632,7 @@ with col_left:
         <h3>
         <img src='https://img.icons8.com/?size=100&id=7pFfikEfVGOV&format=png&color=000000' 
                  style='width:35px; height:35px; vertical-align:middle; margin-right:8px;'/>
-         <a href='https://github.com/sUhAs1011/UE22CS351B-Distributed_Systems_Cluster_Simulation_Framework' 
+         <a href='https://github.com/sUhAs1011/UE22CS351B_DISTRIBUTED_SYSTEMS_CLUSTER_SIMULATION_FRAMEWORK' 
                target='_blank' style='text-decoration: none; color: inherit;'>
                Distributed Systems Cluster Simulator Framework
         </a>
