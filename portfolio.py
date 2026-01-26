@@ -1496,7 +1496,14 @@ col_left, col_right = st.columns([2, 1])
 
 with col_left:
     st.markdown(
-        "<h3><a href='https://github.com/sUhAs1011/UE22CS342B-NLP_Mini_Project-' target='_blank' style='text-decoration: none; color: inherit;'>⚖️ LegalBot: AI-Powered Regulatory Mining Intelligence Bot </a></h3>",
+        """<h3>
+        <img src='https://img.icons8.com/?size=100&id=vkfmsvBD0PPO&format=png&color=000000' 
+                 style='width:30px; height:30px; vertical-align:middle; margin-right:8px;'/>
+        <a href='https://github.com/sUhAs1011/UE22CS342B_AI_POWERED_REGULATORY_MINING_INTELLIGENCE_BOT' 
+               target='_blank' style='text-decoration: none; color: inherit;'>
+               LegalBot: AI-Powered Regulatory Mining Intelligence Bot 
+        </a>
+        </h3>""",
         unsafe_allow_html=True
     )
     st.write("""
