@@ -1669,7 +1669,7 @@ with col_right:
         <h3>
             <img src='https://img.icons8.com/?size=100&id=3wl52ZDVBgG0&format=png&color=000000' 
                  style='width:28px; height:26px; vertical-align:middle; margin-right:8px;'/>
-            <a href='https://github.com/sUhAs1011/Detection_And_Mitigation_of_Replay_Attack_in_CCTV_Systems' 
+            <a href='https://github.com/sUhAs1011/DETECTION_AND_MITIGATION_OF_REPLAY_ATTACK_IN_CCTV_SYSTEMS' 
                target='_blank' style='text-decoration: none; color: inherit;'>
                Detection and Mitigation of Replay Attack in CCTV Systems
             </a>
