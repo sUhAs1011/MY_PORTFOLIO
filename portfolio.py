@@ -1461,7 +1461,7 @@ st.markdown("---")
 col_left, col_right = st.columns([1, 2])
 
 with col_left:
-    st.image("arduino.jpg", caption="IoT Enabled Arduino-Based Security System", use_container_width=True)
+    st.image("arduino.jpg", caption="IoT-Enabled Arduino-Based Security System", use_container_width=True)
 
 with col_right:
     st.markdown(
