@@ -1009,7 +1009,7 @@ with col2:
     st.markdown("    ")
     st.markdown("""
     <div style="font-size:18px; line-height:1.6; text-align: left;">
-        Previously, during my internship at the Centre of Cognitive Computing and Computational Intelligence (C3I), 
+        Previously interned at the Centre of Cognitive Computing and Computational Intelligence (C3I),during which
         I designed and implemented an end-to-end career advisory system using dual-tower Deep Structured Semantic Models (DSSM) and ChromaDB, 
         enabling highly accurate job–course matching.
     """, unsafe_allow_html=True)
