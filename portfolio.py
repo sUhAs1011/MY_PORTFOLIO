@@ -1469,7 +1469,7 @@ with col_right:
         <h3>
             <img src="https://img.icons8.com/?size=100&id=8thlDCUHuqaK&format=png&color=000000" 
                  width="35" style="vertical-align:middle; margin-right:10px;">
-            <a href='https://github.com/sUhAs1011/UE22CS251B-IoT-Enabled-Arduino-Based-Intruder-Detection-and-Alert-System' 
+            <a href='https://github.com/sUhAs1011/UE22CS251B-IOT_ENABLED_ARDUINO_BASED_INTRUDER_DETECTION_AND_ALERT_SYSTEM' 
                target='_blank' style='text-decoration: none; color: inherit;'>
                IoT-Enabled Arduino-Based Intruder Detection and Alert System
             </a>
@@ -1535,7 +1535,7 @@ with col_right:
         <h3>
             <img src='https://img.icons8.com/?size=100&id=NIaxM8D5w6rv&format=png&color=FFFFFF' 
                  style='width:35px; height:35px; vertical-align:middle; margin-right:8px;'/>
-            <a href='https://github.com/sUhAs1011/UE22CS252B-Cloud-File-Transfer-System-using-UDP-' 
+            <a href='https://github.com/sUhAs1011/UE22CS252B_CLOUD_FILE_TRANSFER_SYSTEM_USING_UDP' 
                target='_blank' style='text-decoration: none; color: inherit;'>
                Cloud File Transfer System using UDP
             </a>
@@ -1567,7 +1567,7 @@ with col_left:
         <h3>
         <img src='https://img.icons8.com/?size=100&id=ognMDWHTIaDL&format=png&color=000000' 
                  style='width:40px; height:40px; vertical-align:middle; margin-right:8px;'/>
-        <a href='https://github.com/sUhAs1011/My_Portfolio' 
+        <a href='https://github.com/sUhAs1011/MY_PORTFOLIO' 
                target='_blank' style='text-decoration: none; color: inherit;'>
                Interactive Personal Portfolio Website using Streamlit
         </a>
@@ -1602,7 +1602,7 @@ with col_right:
         <h3>
             <img src='https://img.icons8.com/?size=100&id=fLrxgaxCrjaZ&format=png&color=FFFFFF' 
                  style='width:30px; height:30px; vertical-align:middle; margin-right:8px;'/>
-            <a href='https://github.com/sUhAs1011/AI-Powered-Skill-Gap-Analysis-Reskilling-for-Employment-Trends' 
+            <a href='https://github.com/sUhAs1011/AI_POWERED_SKILL_GAP_ANALYSIS_RESKILLING_FOR_EMPLOYMENT_TRENDS' 
                target='_blank' style='text-decoration: none; color: inherit;'>
                AI-Powered Career Skill Gap Analysis & Recommendation
             </a>
