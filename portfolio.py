@@ -1453,7 +1453,7 @@ with col1:
     """)
 
 with col2:
-    st.image("healthcare.jpg", caption="BlockChain Powered AI Healthcare System", use_container_width=True)
+    st.image("healthcare.jpg", caption="Blockchain Powered AI Healthcare System", use_container_width=True)
 
 
 # Alarm Burglar System with image on the left and content on the right
@@ -1461,7 +1461,7 @@ st.markdown("---")
 col_left, col_right = st.columns([1, 2])
 
 with col_left:
-    st.image("arduino.jpg", caption="Arduino-Based Security System", use_container_width=True)
+    st.image("arduino.jpg", caption="IoT Enabled Arduino-Based Security System", use_container_width=True)
 
 with col_right:
     st.markdown(
