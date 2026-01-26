@@ -1430,7 +1430,14 @@ col1, col2 = st.columns([2, 1])
 
 with col1:
     st.markdown(
-        "<h3><a href='https://github.com/sUhAs1011/HoC2_PS9_Hash_Bros' target='_blank' style='text-decoration: none; color: inherit;'>⚕️ Blockchain-Powered AI Healthcare Insights</a></h3>",
+        "<h3>
+        <img src='https://img.icons8.com/?size=100&id=51845&format=png&color=000000' 
+                 style='width:40px; height:40px; vertical-align:middle; margin-right:8px;'/>
+        <a href='https://github.com/sUhAs1011/BLOCKCHAIN_POWERED_AI_HEALTHCARE_INSIGHTS' 
+               target='_blank' style='text-decoration: none; color: inherit;'>
+               Blockchain-Powered AI Healthcare Insights
+        </a>
+        </h3>",
         unsafe_allow_html=True
     )
 
@@ -1508,7 +1515,7 @@ with col_left:
 with col_right:
     st.image("chatbot.jpg", caption="LegalBot - AI Chatbot for Mining Compliance", use_container_width=True)
 
-# Cloud Storage with image on the left and content on the right
+# Cloud File Transfer with image on the left and content on the right
 st.markdown("---")
 col_left, col_right = st.columns([1, 2])
 
@@ -1553,7 +1560,7 @@ with col_left:
         <h3>
         <img src='https://img.icons8.com/?size=100&id=ognMDWHTIaDL&format=png&color=000000' 
                  style='width:40px; height:40px; vertical-align:middle; margin-right:8px;'/>
-         <a href='https://github.com/sUhAs1011/My_Portfolio' 
+        <a href='https://github.com/sUhAs1011/My_Portfolio' 
                target='_blank' style='text-decoration: none; color: inherit;'>
                Interactive Personal Portfolio Website using Streamlit
         </a>
