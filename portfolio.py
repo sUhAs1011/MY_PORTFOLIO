@@ -1432,7 +1432,7 @@ with col1:
     st.markdown(
         """<h3>
         <img src='https://img.icons8.com/?size=100&id=51845&format=png&color=000000' 
-                 style='width:40px; height:40px; vertical-align:middle; margin-right:8px;'/>
+                 style='width:30px; height:30px; vertical-align:middle; margin-right:8px;'/>
         <a href='https://github.com/sUhAs1011/BLOCKCHAIN_POWERED_AI_HEALTHCARE_INSIGHTS' 
                target='_blank' style='text-decoration: none; color: inherit;'>
                Blockchain-Powered AI Healthcare Insights
