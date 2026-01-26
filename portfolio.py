@@ -1601,7 +1601,7 @@ with col_right:
         """
         <h3>
             <img src='https://img.icons8.com/?size=100&id=fLrxgaxCrjaZ&format=png&color=FFFFFF' 
-                 style='width:35px; height:35px; vertical-align:middle; margin-right:8px;'/>
+                 style='width:30px; height:30px; vertical-align:middle; margin-right:8px;'/>
             <a href='https://github.com/sUhAs1011/AI-Powered-Skill-Gap-Analysis-Reskilling-for-Employment-Trends' 
                target='_blank' style='text-decoration: none; color: inherit;'>
                AI-Powered Career Skill Gap Analysis & Recommendation
