@@ -4,7 +4,7 @@ import base64
 from io import BytesIO
 
 # --- PAGE CONFIG ---
-st.set_page_config(page_title="Suhas Venkata Karamalaputti · Portfolio", page_icon="suhas.jpg", layout="wide")
+st.set_page_config(page_title="Suhas Venkata Karamalaputt · Portfolio", page_icon="suhas.jpg", layout="wide")
 
 # Add viewport meta tag for mobile responsiveness
 st.markdown("""
