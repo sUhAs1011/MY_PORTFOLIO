@@ -1737,7 +1737,7 @@ with col_right:
     st.markdown(
         """
         <h3>
-            <img src='https://img.icons8.com/?size=100&id=3wl52ZDVBgG0&format=png&color=000000' 
+            <img src='https://img.icons8.com/?size=100&id=M16ic8QWK8x6&format=png&color=000000' 
                  style='width:28px; height:26px; vertical-align:middle; margin-right:8px;'/>
             <a href='https://github.com/sUhAs1011/TRACEOPS' 
                target='_blank' style='text-decoration: none; color: inherit;'>
