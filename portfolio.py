@@ -1748,13 +1748,13 @@ with col_right:
         unsafe_allow_html=True
     )
     st.write("""
-    Replay attacks on CCTV systems exploit vulnerabilities by retransmitting recorded footage to bypass live monitoring
+    TraceOps is a multi-agent incident investigation system that automates root-cause analysis by correlating logs, configurations, and repository context to speed up production incident resolution.
     Key features include:
-    - Multi-agent architecture for specialized reasoning, where ingestion, investigation, and analysis agents collaborate to understand system failures from multiple perspectives.
-    - Context-grounded log and config analysis using repository metadata and runtime artifacts, enabling precise identification of misconfigurations, regressions, and dependency issues.
-    - Root-cause inference and fix-plan generation, producing step-by-step remediation suggestions grounded in observed evidence rather than heuristic guesses.
-    - Traceability-driven decision engine that links symptoms to causes with explainable reasoning, supporting faster triage, auditability, and developer trust through structured incident reports and visual summaries.
-
+    - Multi-agent reasoning pipeline for log ingestion, contextual analysis, and incident investigation.
+    - Context-aware root-cause detection using configuration and codebase grounding.
+    - Automated fix-plan generation with explainable, evidence-backed recommendations.
+    - Decision dashboard providing incident summaries, traceability, and actionable alerts.
+    
     **Tech Stack**: Python · MCP · LangGraph · Ollama · Streamlit
     """)
 
