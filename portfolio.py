@@ -1749,6 +1749,7 @@ with col_right:
     )
     st.write("""
     TraceOps is a multi-agent incident investigation system that automates root-cause analysis by correlating logs, configurations, and repository context to speed up production incident resolution.
+    
     Key features include:
     - Multi-agent reasoning pipeline for log ingestion, contextual analysis, and incident investigation.
     - Context-aware root-cause detection using configuration and codebase grounding.
