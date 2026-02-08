@@ -1388,7 +1388,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 st.write("""
-Achieved 2nd place for building a multi-agent Agentic AI incident investigation system.
+Achieved 2nd place for building a multi-agent Agentic AI incident investigation system using **MCP** and **Ollama.
 
 """)
 
