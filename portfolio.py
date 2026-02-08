@@ -1380,7 +1380,7 @@ Received **Distinction Scholarship** of ₹ 2000 for achieving SGPA above **7.75
 st.markdown("""
 <div style="display: flex; justify-content: space-between; align-items: center;">
     <div style="display: flex; align-items: center; gap: 8px;">
-        <img src="https://img.icons8.com/?size=100&id=WHRLQdbEXQ16&format=png&color=000000" 
+        <img src="https://img.icons8.com/?size=100&id=YOfa3pzgqoin&format=png&color=000000" 
              alt="Google Cloud Icon" width="30" height="30">
         <h3 style="margin: 0;">Encode-AI Agentathon</h3>
     </div>
@@ -1388,7 +1388,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 st.write("""
-Achieved 2nd place for building a multi-agent Agentic AI incident investigation system using **MCP** and **Ollama.
+Achieved 2nd place for building a multi-agent Agentic AI incident investigation system using **MCP** and **Ollama**.
 
 """)
 
