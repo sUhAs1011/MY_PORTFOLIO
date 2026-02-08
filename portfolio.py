@@ -1376,19 +1376,19 @@ st.write("""
 Received **Distinction Scholarship** of ₹ 2000 for achieving SGPA above **7.75** in **Semesters 2–6** at **PES University**.
 """)
 
-# Google Agentic AI Day
+# Encode AI Agentathon
 st.markdown("""
 <div style="display: flex; justify-content: space-between; align-items: center;">
     <div style="display: flex; align-items: center; gap: 8px;">
         <img src="https://img.icons8.com/?size=100&id=WHRLQdbEXQ16&format=png&color=000000" 
              alt="Google Cloud Icon" width="30" height="30">
-        <h3 style="margin: 0;">Google Cloud Agentic AI Day</h3>
+        <h3 style="margin: 0;">Encode-AI Agentathon</h3>
     </div>
 </div>
 """, unsafe_allow_html=True)
 
 st.write("""
-Participated in **Google Cloud Agentic AI Day**, contributing an innovative idea to harness Agentic AI for real-world problem solving.
+Achieved 2nd place for building a multi-agent Agentic AI incident investigation system.
 
 """)
 
@@ -1402,21 +1402,6 @@ st.write("""
 Top 6 out of 50+ teams in **Heal-O-Code Hackathon**. Built a healthcare decision support tool using **Multi-Chain Blockchain** and **Ollama** for better drug recommendation.
 """)
 
-# Kaggle Achievements
-st.markdown("""
-<div style="display: flex; justify-content: space-between; align-items: center;">
-    <div style="display: flex; align-items: center; gap: 8px;">
-        <img src="https://img.icons8.com/?size=100&id=s1rM4KTx2Huf&format=png&color=000000" 
-             alt="Kaggle Icon" width="30" height="30">
-        <h3 style="margin: 0;">Kaggle Hackathon</h3>
-    </div>
-</div>
-""", unsafe_allow_html=True)
-
-st.write("""
-Ranked in the top 30% on Hackerrank college hackathons for **Data Analytics** and **Machine Learning coursework**.
-
-""")
 st.markdown("</div>", unsafe_allow_html=True)
 
 # --- PROJECTS SECTION ---
