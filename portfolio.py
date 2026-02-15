@@ -1402,6 +1402,21 @@ st.write("""
 Top 6 out of 50+ teams in **Heal-O-Code Hackathon**. Built a healthcare decision support tool using **Multi-Chain Blockchain** and **Ollama** for better drug recommendation.
 """)
 
+# Anveshana
+st.markdown("""
+<div style="display: flex; justify-content: space-between; align-items: center;">
+    <div style="display: flex; align-items: center; gap: 8px;">
+        <img src="https://icons8.com/icon/aXWPb8Jc52kh/medal" 
+             alt="Google Cloud Icon" width="30" height="30">
+        <h3 style="margin: 0;">Anveshana 2026</h3>
+    </div>
+</div>
+""", unsafe_allow_html=True)
+
+st.write("""
+Ranked Top 11 out of 170 Capstone Teams for Detecting and Mitigating Replay Attacks in CCTV systems.
+
+""")
 st.markdown("</div>", unsafe_allow_html=True)
 
 # --- PROJECTS SECTION ---
