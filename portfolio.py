@@ -1406,7 +1406,7 @@ Top 6 out of 50+ teams in **Heal-O-Code Hackathon**. Built a healthcare decision
 st.markdown("""
 <div style="display: flex; justify-content: space-between; align-items: center;">
     <div style="display: flex; align-items: center; gap: 8px;">
-        <img src="https://icons8.com/icon/aXWPb8Jc52kh/medal" 
+        <img src="https://img.icons8.com/?size=100&id=aXWPb8Jc52kh&format=png&color=000000" 
              alt="Google Cloud Icon" width="30" height="30">
         <h3 style="margin: 0;">Anveshana 2026</h3>
     </div>
