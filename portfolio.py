@@ -1570,33 +1570,34 @@ achievements = [
         "title": "MRD Scholarship",
         "icon": "🎓",
         "desc": "Awarded the prestigious <strong>MRD Scholarship</strong> in 1st Semester by <strong>PES University</strong>, receiving a 20% tuition fee reimbursement in recognition of academic excellence.",
-        "tag": "Academic Excellence"
+        "tag": "Merit-Based Scholarship"
     },
     {
         "title": "Distinction Scholarship",
         "icon": "🏅",
         "desc": "Received <strong>Distinction Scholarship</strong> of ₹ 2000 for achieving SGPA above <strong>7.75</strong> in <strong>Semesters 2–6</strong> at <strong>PES University</strong>.",
-        "tag": "Scholarship"
+        "tag": "Consistent Academic Performance"
     },
     {
         "title": "Encode-AI Agentathon",
         "icon": "🥈",
         "desc": "Achieved 2nd place for building a multi-agent Agentic AI incident investigation system using <strong>MCP</strong> and <strong>Ollama</strong>.",
-        "tag": "Hackathon Win"
+        "tag": "Hackathon Runner-Up"
     },
     {
         "title": "Heal-O-Code Hackathon",
         "icon": "🩺",
         "desc": "Top 6 out of 50+ teams. Built a healthcare decision support tool using <strong>Multi-Chain Blockchain</strong> and <strong>Ollama</strong> for better drug recommendation.",
-        "tag": "Finalist"
+        "tag": "Top 6 Finish"
     },
     {
         "title": "Anveshana 2026",
         "icon": "🔍",
         "desc": "Ranked Top 11 out of 170 Capstone Teams for Detecting and Mitigating Replay Attacks in CCTV systems.",
-        "tag": "Top 11"
+        "tag": "Top 11 Finish"
     }
 ]
+
 
 # Generate Grid HTML
 achievements_html = '<div class="achievements-grid">'
