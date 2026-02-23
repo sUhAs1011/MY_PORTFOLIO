@@ -1931,7 +1931,7 @@ st.markdown("---")
 col_left, col_right = st.columns([1, 2])
 
 with col_left:
-    st.image("TraceOps.jpg", caption="TraceOps", use_container_width=True)
+    st.image("traceops.jpg", caption="TraceOps", use_container_width=True)
 
 with col_right:
     st.markdown(
