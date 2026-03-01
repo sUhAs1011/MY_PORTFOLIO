@@ -1108,34 +1108,6 @@ for i, lang in enumerate(prog_langs):
             unsafe_allow_html=True
         )
 
-# --- Web Development Sub-section ---
-st.markdown("#### 🌐 Web Development")
-
-# Icon URLs for Web Dev
-webdev_icon_map = {
-    "HTML": "https://img.icons8.com/?size=100&id=20909&format=png&color=000000",
-    "CSS": "https://img.icons8.com/?size=100&id=21278&format=png&color=000000",
-    "JavaScript": "https://static.vecteezy.com/system/resources/previews/027/127/463/non_2x/javascript-logo-javascript-icon-transparent-free-png.png",
-    "Streamlit": "https://img.icons8.com/?size=100&id=Rffi8qeb2fK5&format=png&color=000000",
-    "SpringBoot": "https://img.icons8.com/?size=100&id=90519&format=png&color=000000"
-}
-
-webdev_tools = ["HTML", "CSS", "JavaScript", "Streamlit","SpringBoot"]
-webdev_cols = st.columns(3)
-
-for i, tool in enumerate(webdev_tools):
-    with webdev_cols[i % 3]:
-        st.markdown(
-            f"""
-            <div class='skill-box' style="text-align:center; padding:10px;">
-                <img src="{webdev_icon_map[tool]}" alt="{tool} icon" style="width:40px; height:40px; margin-bottom:10px;" />
-                <div class='skill-text' style="font-weight:bold;">{tool}</div>
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
-
-
 # --- Databases Sub-section ---
 st.markdown("#### 🗄️ Databases") 
 
