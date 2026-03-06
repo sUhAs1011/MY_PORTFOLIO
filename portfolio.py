@@ -1543,10 +1543,10 @@ achievements = [
         "tag": "Merit-Based Scholarship"
     },
     {
-        "title": "Distinction Scholarship",
-        "icon": "🏅",
-        "desc": "Received <strong>Distinction Scholarship</strong> of ₹ 2000 for achieving SGPA above <strong>7.75</strong> in <strong>Semesters 2–6</strong> at <strong>PES University</strong>.",
-        "tag": "Consistent Academic Performance"
+        "title": "Anveshana 2026",
+        "icon": "🔍",
+        "desc": "Ranked Top 11 out of 170 Capstone Teams for Detecting and Mitigating Replay Attacks in CCTV systems.",
+        "tag": "Top 11 Finish"
     },
     {
         "title": "Encode-AI Agentathon",
@@ -1561,10 +1561,10 @@ achievements = [
         "tag": "Top 6 Finish"
     },
     {
-        "title": "Anveshana 2026",
-        "icon": "🔍",
-        "desc": "Ranked Top 11 out of 170 Capstone Teams for Detecting and Mitigating Replay Attacks in CCTV systems.",
-        "tag": "Top 11 Finish"
+        "title": "Distinction Scholarship",
+        "icon": "🏅",
+        "desc": "Received <strong>Distinction Scholarship</strong> of ₹ 2000 for achieving SGPA above <strong>7.75</strong> in <strong>Semesters 2–6</strong> at <strong>PES University</strong>.",
+        "tag": "Consistent Academic Performance"
     }
 ]
 
