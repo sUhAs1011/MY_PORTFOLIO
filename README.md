@@ -22,7 +22,7 @@
    ```
 
 ### Web Interface of My Portfolio
-<img width="1920" height="1200" alt="Screenshot (23)" src="https://github.com/user-attachments/assets/bae964b8-8e6b-413d-9d13-3c9cc14dc263" />
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/9a7ea6d6-b461-42dc-bcf5-92f356e38228" />
 
 
 
