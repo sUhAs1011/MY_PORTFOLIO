@@ -1784,10 +1784,10 @@ with col_right:
     Analyzing job trends, mapping skill gaps, and recommending targeted reskilling programs across different employment sectors.
 
     Key features include:
-    - Extracted skills from user resumes using Tesseract OCR and matched them with job requirements via ChromaDB and all-MiniLM-L6-v2 embeddings.
-    - Built a Deep Structured Semantic Model (DSSM) in PyTorch to map semantic relationships and dynamically prioritize high-demand missing skills.
-    - Developed a Streamlit web application to provide interactive skill-gap analysis and course recommendations adapted to the user's learning style.
-    - Integrated Ollama (LLaMA 3) to generate personalized rationale for courses and visualized step-by-step learning journeys using interactive graphs.
+    - Parsed resumes with **Tesseract OCR** and matched skills to job requirements using **ChromaDB** embeddings.
+    - Engineered a **PyTorch DSSM** to map semantic relationships and prioritize high-demand missing skills.
+    - Built an interactive **Streamlit** dashboard for skill gap analysis and learning-style-adapted course recommendations.
+    - Integrated **Ollama (LLaMA 3)** to generate course rationales and mapped learning roadmaps via interactive graphs.
     
     **Tech Stack**: Python · PyTorch · Sentence Transformers · ChromaDB · DSSM · Streamlit · Ollama · Tesseract OCR
     """)
