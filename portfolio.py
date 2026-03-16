@@ -1735,29 +1735,29 @@ with col_left:
     st.markdown(
         """
         <h3>
-        <img src='https://img.icons8.com/?size=100&id=ognMDWHTIaDL&format=png&color=000000' 
+        <img src='https://img.icons8.com/?size=100&id=2QfCaN1Zfmqf&format=png&color=000000' 
                  style='width:40px; height:40px; vertical-align:middle; margin-right:8px;'/>
-        <a href='https://github.com/sUhAs1011/MY_PORTFOLIO' 
+        <a href='https://github.com/sUhAs1011' 
                target='_blank' style='text-decoration: none; color: inherit;'>
-               Interactive Personal Portfolio Website using Streamlit
+               Kalpana AI – Mental Health Peer Support Platform
         </a>
         </h3>""",
         unsafe_allow_html=True
     )
     st.write("""
-    Crafted a polished personal site in **Streamlit** as a single source of truth for my story, projects, and contact touchpoints.
+    Developed **Kalpana AI**, an AI-powered platform designed to support individuals experiencing emotional distress through empathetic conversations and peer support.
 
     Key features include:
-    - Cinematic hero section with animated typography, profile portrait, and quick stats.
-    - Modular skills grid, project spotlight cards, and experience timeline for fast scanning.
-    - Built-in resume download plus branded CTAs for GitHub, LinkedIn, and email.
-    - Fully responsive layout with custom CSS that adapts to Streamlit light/dark themes.
+    - Dual-agent architecture with a Listener AI for empathetic conversations and a Clinical Mapper for emotional risk analysis.
+    - Voice-enabled interaction supporting multilingual speech-to-text and text-to-speech communication.
+    - Peer matchmaking system using semantic embeddings and vector search to connect users with similar lived experiences.
+    - Crisis safety layer that detects high-risk conversations and redirects users to emergency resources.
 
-    **Tech Stack**: Python · Streamlit · HTML · CSS · PIL
+    **Tech Stack**: Python · FastAPI · React · Ollama · Pinecone
     """)
 
 with col_right:
-    st.image("portfolio.jpg", caption="Interactive Streamlit Portfolio", use_container_width=True)
+    st.image("kalpana.jpg", caption="Kalpana AI – Peer Support Platform", use_container_width=True)
 
 # Analyzing job posting trends, skill gaps, and recommend reskilling programs in  employment sectors
 st.markdown("---")
