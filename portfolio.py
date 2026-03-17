@@ -1537,10 +1537,10 @@ st.header("🏆 Achievements")
 
 achievements = [
     {
-        "title": "MRD Scholarship",
-        "icon": "🎓",
-        "desc": "Awarded the prestigious <strong>MRD Scholarship</strong> in 1st Semester by <strong>PES University</strong>, receiving a 20% tuition fee reimbursement in recognition of academic excellence.",
-        "tag": "Merit-Based Scholarship"
+    "title": "HealthHack Hackathon",
+    "icon": "🧠",
+    "desc": "Secured a <strong>Top 8 position</strong> among 80+ registered teams at <strong>HealthHack 4.0</strong> for building Kalpana AI, an AI-driven mental health peer support platform.",
+    "tag": "Hackathon Achievement"
     },
     {
         "title": "Anveshana 2026",
@@ -1559,6 +1559,12 @@ achievements = [
         "icon": "🩺",
         "desc": "Top 6 out of 50+ teams. Built a healthcare decision support tool using <strong>Multi-Chain Blockchain</strong> and <strong>Ollama</strong> for better drug recommendation.",
         "tag": "Top 6 Finish"
+    },
+    {
+        "title": "MRD Scholarship",
+        "icon": "🎓",
+        "desc": "Awarded the prestigious <strong>MRD Scholarship</strong> in 1st Semester by <strong>PES University</strong>, receiving a 20% tuition fee reimbursement in recognition of academic excellence.",
+        "tag": "Merit-Based Scholarship"
     },
     {
         "title": "Distinction Scholarship",
