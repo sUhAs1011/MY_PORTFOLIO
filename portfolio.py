@@ -1242,16 +1242,16 @@ experience_data = [
     ]
     },
 
-    {
-        "role": "Summer Research Intern",
-        "company": "Centre of Cognitive Computing and Computational Intelligence",
-        "date": "June 2025 - August 2025",
-        "location": "Bengaluru, Karnataka",
-        "description": [
-            "Architected a scalable career advisory platform using <strong>Deep Structured Semantic Model (DSSM)</strong> and <strong>ChromaDB</strong> to process <strong>1,00,000+</strong> embeddings, optimizing training with negative sampling to handle <strong>30,000+</strong> job-course pairs with sub-second response times.",
-            "Built an interactive <strong>Streamlit</strong> dashboard integrating a <strong>Tesseract</strong>-based NLP pipeline for multi-format resume parsing, delivering personalized skill gap analysis and course recommendations via <strong>Cosine-Similarity</strong> matching."
-        ]
-    }
+   {
+    "role": "Summer Research Intern",
+    "company": "Centre of Cognitive Computing and Computational Intelligence",
+    "date": "June 2025 - August 2025",
+    "location": "Bengaluru, Karnataka",
+    "description": [
+        "Engineered an end-to-end AI career advisory and recommendation system using Dual-Tower DSSM to align candidate profiles with real-time market demand, enabling high-precision skill gap identification across resumes, job descriptions, and courses.",
+        "Architected a semantic search engine with PyTorch and ChromaDB to map resumes, jobs, and UN SDGs into a shared 128D latent space, integrating Ollama-powered XAI for reasoning and automating personalized reskilling roadmaps using Temporal Skill Decay and DAG-based learning pathways."
+    ]
+}
 ]
 
 experience_html = ""
