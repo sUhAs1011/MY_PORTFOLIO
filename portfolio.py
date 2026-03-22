@@ -1242,7 +1242,7 @@ experience_data = [
     ]
     },
 
-   {
+  {
     "role": "Summer Research Intern",
     "company": "Centre of Cognitive Computing and Computational Intelligence",
     "date": "June 2025 - August 2025",
