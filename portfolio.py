@@ -1537,25 +1537,25 @@ st.header("🏆 Achievements")
 
 achievements = [
     {
-    "title": "HealthHack 4.0 Hackathon",
+    "title": "HealthHack Hackathon",
     "icon": "🧠",
     "desc": "Secured a <strong>Top 8 position</strong> among 80+ registered teams at <strong>HealthHack 4.0</strong> for building Kalpana AI, an AI-driven mental health peer support platform.",
     "tag": "Hackathon Achievement"
     },
     {
-        "title": "Anveshana 3.0 2026",
+        "title": "Anveshana 2026",
         "icon": "🔍",
         "desc": "Ranked Top 11 out of 170 Capstone Teams for Detecting and Mitigating Replay Attacks in CCTV systems.",
         "tag": "Top 11 Finish"
     },
     {
-        "title": "Encode-AI Agentathon 2.0",
+        "title": "Encode-AI Agentathon",
         "icon": "🥈",
         "desc": "Achieved 2nd place for building a multi-agent Agentic AI incident investigation system using <strong>MCP</strong> and <strong>Ollama</strong>.",
         "tag": "Hackathon Runner-Up"
     },
     {
-        "title": "Heal-O-Code 2.0 Hackathon",
+        "title": "Heal-O-Code Hackathon",
         "icon": "🩺",
         "desc": "Top 6 out of 50+ teams. Built a healthcare decision support tool using <strong>Multi-Chain Blockchain</strong> and <strong>Ollama</strong> for better drug recommendation.",
         "tag": "Top 6 Finish"
