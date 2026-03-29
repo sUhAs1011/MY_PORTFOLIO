@@ -1536,12 +1536,12 @@ st.markdown("   ")
 st.header("🏆 Achievements")
 
 achievements = [
-    {
-        "title": "Praxis Hackathon",
-        "icon": "🤖",
-        "desc": "Secured a <strong>Top 7 position</strong> among 50+ teams at <strong>Praxis Hackathon</strong> for building an AI-Powered Personal Booking Agent using <strong>LangGraph</strong>. The system understands user intent, maintains conversational context, resolves scheduling conflicts, and confirms bookings through a structured agentic workflow.",
-        "tag": "Top 7 Finish"
-    },
+   {
+    "title": "Praxis Hackathon",
+    "icon": "🤖",
+    "desc": "Secured a <strong>Top 7 position</strong> among 50+ teams at <strong>Praxis Hackathon</strong> for building an AI-powered booking agent using <strong>LangGraph</strong> with intent understanding and automated scheduling.",
+    "tag": "Top 7 Finish"
+},
     {
         "title": "HealthHack Hackathon",
         "icon": "🧠",
