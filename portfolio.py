@@ -1539,7 +1539,7 @@ achievements = [
    {
     "title": "Praxis Hackathon",
     "icon": "🤖",
-    "desc": "Secured a <strong>Top 7 position</strong> among 50+ teams at <strong>Praxis Hackathon</strong> for building an AI-powered booking agent using <strong>LangGraph</strong> with intent understanding and automated scheduling.",
+    "desc": "Secured a <strong>Top 7 position</strong> among 50+ teams at <strong>Praxis Hackathon</strong> for building an AI-powered booking agent using <strong>LangGraph</strong>.",
     "tag": "Top 7 Finish"
 },
     {
