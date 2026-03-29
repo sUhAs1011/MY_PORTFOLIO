@@ -1537,10 +1537,16 @@ st.header("🏆 Achievements")
 
 achievements = [
     {
-    "title": "HealthHack Hackathon",
-    "icon": "🧠",
-    "desc": "Secured a <strong>Top 8 position</strong> among 80+ registered teams at <strong>HealthHack 4.0</strong> for building Kalpana AI, an AI-driven mental health peer support platform.",
-    "tag": "Hackathon Achievement"
+        "title": "Praxis Hackathon",
+        "icon": "🤖",
+        "desc": "Secured a <strong>Top 7 position</strong> among 50+ teams at <strong>Praxis Hackathon</strong> for building an AI-Powered Personal Booking Agent using <strong>LangGraph</strong>. The system understands user intent, maintains conversational context, resolves scheduling conflicts, and confirms bookings through a structured agentic workflow.",
+        "tag": "Top 7 Finish"
+    },
+    {
+        "title": "HealthHack Hackathon",
+        "icon": "🧠",
+        "desc": "Secured a <strong>Top 8 position</strong> among 80+ registered teams at <strong>HealthHack 4.0</strong> for building Kalpana AI, an AI-driven mental health peer support platform.",
+        "tag": "Hackathon Achievement"
     },
     {
         "title": "Anveshana 2026",
@@ -1573,7 +1579,6 @@ achievements = [
         "tag": "Consistent Academic Performance"
     }
 ]
-
 
 # Generate Grid HTML
 achievements_html = '<div class="achievements-grid">'
