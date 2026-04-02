@@ -1627,8 +1627,8 @@ Designed and developed a secure, scalable system to extract actionable insights 
 
 Key features include:
 - Integrated **IPFS + multi-chain blockchain** to store prescriptions with unique CIDs, ensuring data integrity, traceability, and decentralized access.
-- Built an OCR pipeline using **Gemini API** to extract drug names and dosages from prescriptions (images/PDFs) for structured analysis.
-- Implemented **LLM-based drug interaction analysis (Ollama)** to detect adverse drug-drug interactions and suggest safer alternatives.
+- Built an OCR pipeline using **Gemini API** to extract drug names and dosages from prescriptions for structured analysis.
+- Implemented **LLM-based drug interaction analysis** to detect adverse drug-drug interactions and suggest safer alternatives.
 - Developed an end-to-end system with **Flask backend + Streamlit UI** enabling upload, analysis, and real-time clinical insights.
 
 **Tech Stack**: Python · Flask · Streamlit · IPFS · Blockchain · Ollama · Gemini API
