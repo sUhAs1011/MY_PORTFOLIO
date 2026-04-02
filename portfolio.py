@@ -1881,7 +1881,7 @@ with col_left:
                  style='width:30px; height:30px; vertical-align:middle; margin-right:8px;'/>
         <a href='https://github.com/sUhAs1011/AI_PERSONAL_ASSISTANT' 
                target='_blank' style='text-decoration: none; color: inherit;'>
-               AI_POWERED_PERSONAL_BOOKING_AGENT_USING_LANG_GRAPH
+               AI Powered Personal Booking Agent Using LangGraph
         </a>
         </h3>""",
         unsafe_allow_html=True
@@ -1897,13 +1897,13 @@ with col_left:
     - Integrated Prometheus and Grafana to monitor allowed vs blocked requests and Redis latency, enabling real-time observability.
     - Built an interactive Streamlit dashboard to test API keys, visualize rate-limit status, and analyze system behavior during live traffic. 
 
-    **Tech Stack**: Python · Go · Redis · Docker · Prometheus · Grafana · Streamlit · RestAPI
+    **Tech Stack**: Python · Ollama · React · MCP · LangGraph · FastAPI
     """)
 
 with col_right:
     st.image(
         "ai_personal_assistant.jpg",
-        caption="AI",
+        caption="Personal Booking System Using LangGraph",
         use_container_width=True
     )
 
