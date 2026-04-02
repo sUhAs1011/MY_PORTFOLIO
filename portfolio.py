@@ -1879,9 +1879,9 @@ with col_left:
         """<h3>
         <img src='https://img.icons8.com/?size=100&id=lsZBoVE2zMo3&format=png&color=000000' 
                  style='width:30px; height:30px; vertical-align:middle; margin-right:8px;'/>
-        <a href='https://github.com/sUhAs1011/NIMBUSGUARD_DISTRIBUTED_RATE_LIMITING_SERVICE' 
+        <a href='https://github.com/sUhAs1011/AI_PERSONAL_ASSISTANT' 
                target='_blank' style='text-decoration: none; color: inherit;'>
-               NimbusGuard – Distributed Rate Limiting Service 
+               AI_POWERED_PERSONAL_BOOKING_AGENT_USING_LANG_GRAPH
         </a>
         </h3>""",
         unsafe_allow_html=True
@@ -1903,7 +1903,7 @@ with col_left:
 with col_right:
     st.image(
         "ai_personal_assistant.jpg",
-        caption="NimbusGuard – Distributed Rate Limiting Architecture",
+        caption="AI",
         use_container_width=True
     )
 
