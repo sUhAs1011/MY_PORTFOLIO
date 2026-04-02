@@ -1886,7 +1886,7 @@ with col_left:
         </h3>""",
         unsafe_allow_html=True
     )
-st.write("""
+    st.write("""
 Built an **Intelligent Personal Assistant**, an LLM-powered conversational system for scheduling and calendar automation.
 
 Key features include:
