@@ -1877,7 +1877,7 @@ col_left, col_right = st.columns([2, 1])
 with col_left:
     st.markdown(
         """<h3>
-        <img src='https://img.icons8.com/?size=100&id=lsZBoVE2zMo3&format=png&color=000000' 
+        <img src='https://img.icons8.com/?size=100&id=nkGDoqzPxYM3&format=png&color=000000' 
                  style='width:30px; height:30px; vertical-align:middle; margin-right:8px;'/>
         <a href='https://github.com/sUhAs1011/AI_PERSONAL_ASSISTANT' 
                target='_blank' style='text-decoration: none; color: inherit;'>
