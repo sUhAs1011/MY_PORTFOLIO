@@ -1689,17 +1689,16 @@ with col_left:
         unsafe_allow_html=True
     )
     st.write("""
-    Developed an intelligent legal chatbot to respond to text-based queries related to **Acts, Rules, and Regulations** in the mining industry.
+    Designed and developed an **AI-powered regulatory intelligence bot** to analyze mining laws, detect conflicts, and assist in compliance decision-making.
 
-    Key features include:
-    - Analyzed and interpreted mining laws to deliver precise legal responses based on user input.
-    - Utilized **Sentence Transformer models** and **cosine similarity** to match user queries with the most relevant legal provisions.
-    - Identified contradictions between overlapping laws and suggested alternative documents when conflicts were found.
+Key features include:
+- Built an NLP pipeline to preprocess and store mining law documents in MongoDB for efficient retrieval and semantic search.
+- Implemented **SentenceTransformer-based semantic search** to fetch relevant legal sections based on user queries.
+- Developed a conflict detection system to identify contradictions across regulations and suggest alternative compliant actions.
+- Created an interactive chatbot interface using Streamlit for real-time querying, risk assessment, and regulatory insights.
 
-    This solution streamlines legal compliance and enhances accessibility to complex regulatory frameworks.
-
-    **Tech Stack**: Python · Sentence Transformers · MongoDB · Streamlit
-    """)
+**Tech Stack**: Python · SentenceTransformers · MongoDB · NLP · Streamlit
+""")
 
 with col_right:
     st.image("chatbot.jpg", caption="LegalBot - AI Chatbot for Mining Compliance", use_container_width=True)
