@@ -1886,19 +1886,17 @@ with col_left:
         </h3>""",
         unsafe_allow_html=True
     )
+st.write("""
+Built an **Intelligent Personal Assistant**, an LLM-powered conversational system for scheduling and calendar automation.
 
-    st.write("""
-    Designed and implemented **NimbusGuard**, a production-grade **distributed rate limiting service**
-    to protect backend APIs from abuse and traffic spikes in multi-instance environments.
+Key features include:
+- Designed a LangGraph-based agent enabling dynamic tool-calling and multi-step reasoning for booking and queries.
+- Integrated MCP-based calendar services with conflict detection and Human-in-the-Loop (HITL) resolution.
+- Implemented cache-first queries for fast retrieval of event details like duration, location, and availability.
+- Developed a React + FastAPI system with real-time chat and robust backend validation.
 
-    Key features include:
-    - Implemented a Redis-backed distributed Sliding Window rate limiter in Go, ensuring consistent request control across multiple service instances.
-    - Used atomic Redis Lua scripts to guarantee concurrency safety and eliminate race conditions during high-traffic scenarios.
-    - Integrated Prometheus and Grafana to monitor allowed vs blocked requests and Redis latency, enabling real-time observability.
-    - Built an interactive Streamlit dashboard to test API keys, visualize rate-limit status, and analyze system behavior during live traffic. 
-
-    **Tech Stack**: Python · Ollama · React · MCP · LangGraph · FastAPI
-    """)
+**Tech Stack**: Python · FastAPI · LangGraph · LangChain · Groq · React · SQLite · MCP
+""")
 
 with col_right:
     st.image(
