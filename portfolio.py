@@ -1623,15 +1623,16 @@ with col1:
     )
 
     st.write("""
-    Designed and developed a secure, scalable system to extract actionable insights from **Electronic Health Records (EHRs)**.
+Designed and developed a secure, scalable system to extract actionable insights from **Electronic Health Records (EHRs)**.
 
-    Key features include:
-    - Extracted insights from IPFS-stored EHR’s using unique blockchain ID’s to ensuring data integrity & traceability. 
-    - Applied OCR & Ollama to patient histories leading to faster clinical decisions, predicting adverse drug-drug reactions & recommending treatments.
-    - Recommend personalized treatment plans based on patient's history 
+Key features include:
+- Integrated **IPFS + multi-chain blockchain** to store prescriptions with unique CIDs, ensuring data integrity, traceability, and decentralized access.
+- Built an OCR pipeline using **Gemini API** to extract drug names and dosages from prescriptions (images/PDFs) for structured analysis.
+- Implemented **LLM-based drug interaction analysis (Ollama)** to detect adverse drug-drug interactions and suggest safer alternatives.
+- Developed an end-to-end system with **Flask backend + Streamlit UI** enabling upload, analysis, and real-time clinical insights.
 
-    **Tech Stack**: Python · Streamlit · IPFS · Multi-Chain Blockchain · Ollama
-    """)
+**Tech Stack**: Python · Flask · Streamlit · IPFS · Blockchain · Ollama · Gemini API
+""")
 
 with col2:
     st.image("healthcare.jpg", caption="Blockchain Powered AI Healthcare System", use_container_width=True)
