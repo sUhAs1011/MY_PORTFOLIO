@@ -1902,7 +1902,7 @@ with col_left:
 
 with col_right:
     st.image(
-        "ai_personal_assitant.jpg",
+        "ai_personal_assistant.jpg",
         caption="NimbusGuard – Distributed Rate Limiting Architecture",
         use_container_width=True
     )
