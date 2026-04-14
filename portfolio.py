@@ -1183,7 +1183,7 @@ tool_icon_map = {
     "Jupyter": "https://img.icons8.com/?size=100&id=J0SgMWzAxqFj&format=png&color=000000",  # Using generic Jupyter icon
     "Google Colab": "https://img.icons8.com/?size=100&id=lOqoeP2Zy02f&format=png&color=000000",
     "Github": "https://img.icons8.com/?size=100&id=SzgQDfObXUbA&format=png&color=000000",
-    "AntiGravity": "https://antigravity.google/press"
+    "AntiGravity": "https://antigravity.google/assets/image/brand/antigravity-icon__full-color.png"
 }
 
 tools_list = list(tool_icon_map.keys())
