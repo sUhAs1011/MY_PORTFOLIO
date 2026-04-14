@@ -1182,7 +1182,8 @@ tool_icon_map = {
     "CursorAI": "https://img.icons8.com/?size=100&id=DiGZkjCzyZXn&format=png&color=000000",
     "Jupyter": "https://img.icons8.com/?size=100&id=J0SgMWzAxqFj&format=png&color=000000",  # Using generic Jupyter icon
     "Google Colab": "https://img.icons8.com/?size=100&id=lOqoeP2Zy02f&format=png&color=000000",
-    "Github": "https://img.icons8.com/?size=100&id=SzgQDfObXUbA&format=png&color=000000"
+    "Github": "https://img.icons8.com/?size=100&id=SzgQDfObXUbA&format=png&color=000000",
+    "AntiGravity": "https://antigravity.google/press"
 }
 
 tools_list = list(tool_icon_map.keys())
