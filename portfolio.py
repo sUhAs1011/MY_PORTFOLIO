@@ -1582,7 +1582,7 @@ achievements = [
     {
     "title": "ICICT 2026",
     "icon": "📄",
-    "desc": "Presented a research paper titled <strong>“Detection and Mitigation of Replay Attacks in CCTV Systems”</strong> at the <strong>9th International Conference on Inventive Computation Technologies (ICICT 2026)</strong>, held in Nepal. The work focuses on securing surveillance systems using <strong>Hierarchical Temporal Memory (HTM)</strong> and <strong>Perceptual Hashing with SHA-256</strong> for real-time attack detection and mitigation.",
+    "desc": "Presented a research paper titled <strong>“Detection and Mitigation of Replay Attacks in CCTV Systems”</strong> at 9th International Conference ICICT.",
     "tag": "International Research Presentation"
     }
     
