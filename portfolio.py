@@ -1578,7 +1578,14 @@ achievements = [
         "icon": "🏅",
         "desc": "Received <strong>Distinction Scholarship</strong> of ₹ 2000 for achieving SGPA above <strong>7.75</strong> in <strong>Semesters 2–6</strong> at <strong>PES University</strong>.",
         "tag": "Consistent Academic Performance"
+    },
+    {
+    "title": "ICICT 2026",
+    "icon": "📄",
+    "desc": "Presented a research paper titled <strong>“Detection and Mitigation of Replay Attacks in CCTV Systems”</strong> at the <strong>9th International Conference on Inventive Computation Technologies (ICICT 2026)</strong>, held in Nepal. The work focuses on securing surveillance systems using <strong>Hierarchical Temporal Memory (HTM)</strong> and <strong>Perceptual Hashing with SHA-256</strong> for real-time attack detection and mitigation.",
+    "tag": "International Research Presentation"
     }
+    
 ]
 
 # Generate Grid HTML
