@@ -1578,6 +1578,12 @@ achievements = [
         "icon": "🏅",
         "desc": "Received <strong>Distinction Scholarship</strong> of ₹ 2000 for achieving SGPA above <strong>7.75</strong> in <strong>Semesters 2–6</strong> at <strong>PES University</strong>.",
         "tag": "Consistent Academic Performance"
+    },
+    {
+    "title": "ICICT 2026",
+    "icon": "📄",
+    "desc": "Presented a research paper titled <strong>“Detection and Mitigation of Replay Attacks in CCTV Systems”</strong> at 9th International Conference ICICT.",
+    "tag": "International Research Presentation"
     }
     
 ]
