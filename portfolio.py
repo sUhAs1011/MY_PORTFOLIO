@@ -999,8 +999,7 @@ with col2:
     st.header("👨‍💼 About Me")
     st.markdown("""
     <div style="font-size:18px; line-height:1.6; text-align: left;">
-        I’m <strong>Suhas Venkata Karamalaputti</strong>, a final-year Computer Science & Engineering student at PES University, currently working as a <strong>Project Engineer Intern</strong> at Elfonze Technologies. 
-        I have a strong interest in Machine Learning, Deep Learning, and Natural Language Processing, and I enjoy building AI systems that address real-world challenges and create meaningful impact.
+       I’m Suhas Venkata Karamalaputti, a final-year Computer Science & Engineering student at PES University, currently working as a Software Engineer Intern at Epsilon. I have a strong interest in Machine Learning, Deep Learning, and Natural Language Processing, and I enjoy building AI systems that solve real-world problems and create meaningful impact.
     </div>    
     """, unsafe_allow_html=True)
     st.markdown("    ")
