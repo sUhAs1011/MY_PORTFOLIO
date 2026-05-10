@@ -863,10 +863,7 @@ with col1:
     unsafe_allow_html=True)
     st.markdown("<div class='subtitle'>CSE Senior at PES University | Software Engineer Intern at Epsilon</div>", unsafe_allow_html=True)
     st.markdown("""<p style='font-size:18px; line-height:1.6;'>
-Final-year Computer Science & Engineering student at PES University, currently working as a Software Engineer Intern at Epsilon. 
-Strong interest in Machine Learning, Natural Language Processing, and applied AI, with hands-on experience building and deploying ML systems. 
-Previously interned at C3I, where I worked on end-to-end AI solutions. 
-I enjoy solving real-world problems, exploring software engineering, and collaborating on impactful projects.
+Final-year Computer Science & Engineering student at PES University, currently working as a Software Engineer Intern at Epsilon. Previously worked as a Software Engineering Intern at Elfonze Technologies and as a Summer Research Intern at C3I, contributing to end-to-end AI and software solutions. Passionate about Machine Learning, Natural Language Processing, and applied AI, with hands-on experience building ML systems and solving real-world problems through software engineering and research-driven projects.
 </p>
 """, unsafe_allow_html=True)
     st.markdown("</div>", unsafe_allow_html=True)
