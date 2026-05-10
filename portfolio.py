@@ -1010,9 +1010,7 @@ with col2:
     st.markdown("    ")
     st.markdown("""
     <div style="font-size:18px; line-height:1.6; text-align: left;">
-       I’m always excited to explore new technologies, take on challenging problems, and collaborate across domains. 
-        If you're working on <strong>AI-driven</strong> or <strong>ML/NLP-focused</strong> projects, 
-        I’d love to connect and build something impactful together.
+       I’m always excited to explore new technologies, take on challenging problems, and collaborate across domains. If you're working on AI-driven or ML/NLP-focused projects, I’d love to connect and build something impactful together.
     </div>    
     """, unsafe_allow_html=True)
 
