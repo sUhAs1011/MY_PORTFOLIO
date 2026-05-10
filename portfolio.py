@@ -1224,16 +1224,16 @@ st.markdown("    ")
 st.header("💼 Experience")
 
 experience_data = [
-    {
-    "role": "Project Engineer Intern",
-    "company": "Elfonze Technologies Pvt. Ltd.",
-    "date": "January 2026 - Present",
-    "location": "Bengaluru, Karnataka",
-    "description": [
-        "Developing an <strong>end-to-end enterprise ticketing system</strong> with complete lifecycle management including ticket creation, assignment, approvals, SLA tracking, escalation, resolution, and closure.",
-        "Designed <strong>role-based access control</strong> and workflow automation for Employees, Agents, Team Leads, and Admins, along with dashboards for SLA compliance, resolution time, and agent performance analytics."
-    ]
-    },
+ {
+  "role": "Software Engineering Intern",
+  "company": "Elfonze Technologies Pvt. Ltd.",
+  "date": "January 2026 - April 2026",
+  "location": "Bengaluru, Karnataka",
+  "description": [
+    "Developed AI-driven and full-stack enterprise applications, including a semantic document retrieval system using vector embeddings, Annoy, FastAPI, and intelligent search workflows for efficient enterprise knowledge access.",
+    "Built scalable business platforms including a travel expense management system and an enterprise ticketing workflow solution with role-based access control, SLA tracking, workflow automation, analytics dashboards, and real-time operational monitoring."
+  ]
+},
 
   {
     "role": "Summer Research Intern",
