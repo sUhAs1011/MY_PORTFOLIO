@@ -1005,9 +1005,7 @@ with col2:
     st.markdown("    ")
     st.markdown("""
     <div style="font-size:18px; line-height:1.6; text-align: left;">
-        Previously interned at the Centre of Cognitive Computing and Computational Intelligence (C3I),during which
-        I designed and implemented an end-to-end career advisory system using dual-tower Deep Structured Semantic Models (DSSM) and ChromaDB, 
-        enabling highly accurate job–course matching.
+        Previously, I worked as a Software Engineering Intern at Elfonze Technologies, where I developed AI-driven and full-stack enterprise applications, including a semantic document retrieval system, a travel expense management platform, and a scalable ticketing workflow system.
     """, unsafe_allow_html=True)
     st.markdown("    ")
     st.markdown("""
