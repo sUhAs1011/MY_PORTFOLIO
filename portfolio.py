@@ -1574,7 +1574,7 @@ achievements = [
     {
     "title": "ICICT 2026",
     "icon": "📄",
-    "desc": "Presented a research paper titled <strong>“Detection and Mitigation of Replay Attacks in CCTV Systems”</strong> at 9th International Conference ICICT.",
+    "desc": "Published a research paper titled <strong>“Detection and Mitigation of Replay Attacks in CCTV Systems”</strong> at 9th International Conference ICICT.",
     "tag": "International Research Presentation"
     }
     
