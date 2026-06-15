@@ -2,6 +2,14 @@ import streamlit as st
 from PIL import Image, ImageEnhance, ImageFilter
 import base64
 from io import BytesIO
+import os
+import shutil
+
+# Ensure static directory exists and contains the resume for static serving
+if not os.path.exists("static"):
+    os.makedirs("static")
+if os.path.exists("new_resume.pdf"):
+    shutil.copy("new_resume.pdf", "static/new_resume.pdf")
 
 # --- PAGE CONFIG ---
 st.set_page_config(page_title="Suhas Venkata Karamalaputti · Portfolio", page_icon="suhas.jpg", layout="wide")
@@ -985,7 +993,6 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-import base64
 buttons_html = """
 <div class="button-row">
   <label for="modal-resume" class="contact-button">
@@ -1007,15 +1014,15 @@ buttons_html = """
   <div class="cert-modal-overlay">
     <label for="modal-resume" class="cert-modal-backdrop-close"></label>
     <div class="resume-modal-content">
-      <iframe src="data:application/pdf;base64,{resume_b64}#view=FitH" class="resume-iframe"></iframe>
+      <iframe src="/static/new_resume.pdf#view=FitH" class="resume-iframe"></iframe>
       <div class="resume-actions">
-        <a href="data:application/pdf;base64,{resume_b64}" download="Suhas_Resume.pdf" class="cert-modal-close-btn" style="background-color: #10B981; border-color: #10B981; color: white !important;">Download PDF</a>
+        <a href="/static/new_resume.pdf" download="Suhas_Resume.pdf" class="cert-modal-close-btn" style="background-color: #10B981; border-color: #10B981; color: white !important;">Download PDF</a>
         <label for="modal-resume" class="cert-modal-close-btn">Close Viewer</label>
       </div>
     </div>
   </div>
 </div>
-""".format(resume_b64=base64.b64encode(open("new_resume.pdf","rb").read()).decode())
+"""
 st.markdown(buttons_html, unsafe_allow_html=True)
 
 
