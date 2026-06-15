@@ -5,14 +5,77 @@ from io import BytesIO
 import os
 import shutil
 
+# Ensure directories are resolved relative to this script's directory (CWD agnostic)
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+
 # Ensure static directory exists and contains the resume for static serving
-if not os.path.exists("static"):
-    os.makedirs("static")
-if os.path.exists("new_resume.pdf"):
-    shutil.copy("new_resume.pdf", "static/new_resume.pdf")
+static_dir = os.path.join(SCRIPT_DIR, "static")
+if not os.path.exists(static_dir):
+    os.makedirs(static_dir)
+
+resume_src = os.path.join(SCRIPT_DIR, "new_resume.pdf")
+resume_dst = os.path.join(static_dir, "new_resume.pdf")
+if os.path.exists(resume_src):
+    try:
+        shutil.copy(resume_src, resume_dst)
+    except Exception:
+        pass
+
+# Ensure projects directory exists inside the project repository
+projects_dir = os.path.join(SCRIPT_DIR, "projects")
+if not os.path.exists(projects_dir):
+    os.makedirs(projects_dir)
+
+# Parent projects folder in case they are located in the parent directory (workspace root)
+parent_dir = os.path.dirname(SCRIPT_DIR)
+parent_projects_dir = os.path.join(parent_dir, "projects")
+
+project_images = [
+    "healthcare.jpg",
+    "arduino.jpg",
+    "chatbot.jpg",
+    "udp.jpg",
+    "kalpana.jpg",
+    "career.jpg",
+    "node_simulator.jpg",
+    "cctv.jpg",
+    "ai_personal_assistant.jpg",
+    "traceops.jpg"
+]
+
+for img in project_images:
+    dest_path = os.path.join(projects_dir, img)
+    if not os.path.exists(dest_path):
+        # 1. Try to find in parent projects directory (if moved outside by mistake)
+        src_parent = os.path.join(parent_projects_dir, img)
+        if os.path.exists(src_parent):
+            try:
+                shutil.move(src_parent, dest_path)
+            except Exception:
+                pass
+        else:
+            # 2. Try to find in script directory
+            src_root = os.path.join(SCRIPT_DIR, img)
+            if os.path.exists(src_root):
+                try:
+                    shutil.move(src_root, dest_path)
+                except Exception:
+                    pass
+
+# Wrap st.image to automatically resolve paths inside projects_dir (CWD agnostic)
+_original_st_image = st.image
+def robust_st_image(image, *args, **kwargs):
+    if isinstance(image, str) and (image.startswith("projects/") or image.startswith("projects\\")):
+        filename = os.path.basename(image)
+        resolved_path = os.path.join(projects_dir, filename)
+        if os.path.exists(resolved_path):
+            image = resolved_path
+    return _original_st_image(image, *args, **kwargs)
+st.image = robust_st_image
 
 # --- PAGE CONFIG ---
-st.set_page_config(page_title="Suhas Venkata Karamalaputti · Portfolio", page_icon="suhas.jpg", layout="wide")
+favicon_path = os.path.join(SCRIPT_DIR, "suhas.jpg")
+st.set_page_config(page_title="Suhas Venkata Karamalaputti · Portfolio", page_icon=favicon_path if os.path.exists(favicon_path) else "suhas.jpg", layout="wide")
 
 # Add viewport meta tag for mobile responsiveness
 st.markdown("""
@@ -68,7 +131,7 @@ def load_and_base64_image(file_path):
         st.error(f"Error: {file_path} not found. Please ensure the image is in the correct directory.")
         return None # Return None if file is not found
 
-img_b64 = load_and_base64_image("profile.jpg")
+img_b64 = load_and_base64_image(os.path.join(SCRIPT_DIR, "profile.jpg"))
 
 # --- CUSTOM STYLES ---
 st.markdown("""
@@ -1035,7 +1098,7 @@ col1, col2 = st.columns([1.25, 2])
 
 with col1:
     from PIL import Image
-    img = Image.open("linked.jpg")
+    img = Image.open(os.path.join(SCRIPT_DIR, "linked.jpg"))
     img = ImageEnhance.Sharpness(img).enhance(1.8)
     img = ImageEnhance.Contrast(img).enhance(1.4)
     img = ImageEnhance.Color(img).enhance(1.2)
@@ -1834,8 +1897,9 @@ for item in achievements:
     cert_path = item.get("cert_path")
     if cert_path:
         import os
-        if os.path.exists(cert_path):
-            cert_b64 = load_and_base64_image(cert_path)
+        full_cert_path = os.path.join(SCRIPT_DIR, cert_path)
+        if os.path.exists(full_cert_path):
+            cert_b64 = load_and_base64_image(full_cert_path)
             content_html = f'<img src="data:image/png;base64,{cert_b64}" class="cert-modal-img">'
         else:
             # Fallback if path is set but file not found
@@ -1910,7 +1974,7 @@ Key features include:
 """)
 
 with col2:
-    st.image("healthcare.jpg", caption="Blockchain Powered AI Healthcare System", use_container_width=True)
+    st.image("projects/healthcare.jpg", caption="Blockchain Powered AI Healthcare System", use_container_width=True)
 
 
 # Alarm Burglar System with image on the left and content on the right
@@ -1918,7 +1982,7 @@ st.markdown("---")
 col_left, col_right = st.columns([1, 2])
 
 with col_left:
-    st.image("arduino.jpg", caption="IoT-Enabled Arduino-Based Security System", use_container_width=True)
+    st.image("projects/arduino.jpg", caption="IoT-Enabled Arduino-Based Security System", use_container_width=True)
 
 with col_right:
     st.markdown(
@@ -1976,14 +2040,14 @@ Key features include:
 """)
 
 with col_right:
-    st.image("chatbot.jpg", caption="LegalBot - AI Chatbot for Mining Compliance", use_container_width=True)
+    st.image("projects/chatbot.jpg", caption="LegalBot - AI Chatbot for Mining Compliance", use_container_width=True)
 
 # Cloud File Transfer with image on the left and content on the right
 st.markdown("---")
 col_left, col_right = st.columns([1, 2])
 
 with col_left:
-    st.image("udp.jpg", caption="Cloud File Transfer System using UDP", use_container_width=True)
+    st.image("projects/udp.jpg", caption="Cloud File Transfer System using UDP", use_container_width=True)
 
 with col_right:
     st.markdown(
@@ -2043,14 +2107,14 @@ with col_left:
     """)
 
 with col_right:
-    st.image("kalpana.jpg", caption="Kalpana AI – Peer Support Platform", use_container_width=True)
+    st.image("projects/kalpana.jpg", caption="Kalpana AI – Peer Support Platform", use_container_width=True)
 
 # Analyzing job posting trends, skill gaps, and recommend reskilling programs in  employment sectors
 st.markdown("---")
 col_left, col_right = st.columns([1, 2])
 
 with col_left:
-    st.image("career.jpg", caption="AI-Powered Career Copilot", use_container_width=True)
+    st.image("projects/career.jpg", caption="AI-Powered Career Copilot", use_container_width=True)
 
 with col_right:
     st.markdown(
@@ -2109,7 +2173,7 @@ with col_left:
     """)
 
 with col_right:
-    st.image("node_simulator.jpg", caption="Distributed Systems Cluster Simulator", use_container_width=True)
+    st.image("projects/node_simulator.jpg", caption="Distributed Systems Cluster Simulator", use_container_width=True)
 
 
 # Detection And Mitigation Of Replay Attack in CCTV systems
@@ -2117,7 +2181,7 @@ st.markdown("---")
 col_left, col_right = st.columns([1, 2])
 
 with col_left:
-    st.image("cctv.jpg", caption="Replay Attack Detection And Mitigation in CCTV Systems", use_container_width=True)
+    st.image("projects/cctv.jpg", caption="Replay Attack Detection And Mitigation in CCTV Systems", use_container_width=True)
 
 with col_right:
     st.markdown(
@@ -2175,7 +2239,7 @@ Key features include:
 
 with col_right:
     st.image(
-        "ai_personal_assistant.jpg",
+        "projects/ai_personal_assistant.jpg",
         caption="Personal Booking System Using LangGraph",
         use_container_width=True
     )
@@ -2185,7 +2249,7 @@ st.markdown("---")
 col_left, col_right = st.columns([1, 2])
 
 with col_left:
-    st.image("traceops.jpg", caption="TraceOps - AI Incident Response Agent", use_container_width=True)
+    st.image("projects/traceops.jpg", caption="TraceOps - AI Incident Response Agent", use_container_width=True)
 
 with col_right:
     st.markdown(
@@ -2585,7 +2649,7 @@ st.markdown("""
 /* Floating Back to Top Button */
 .back-to-top {
     position: fixed;
-    bottom: 30px;
+    bottom: 90px;
     right: 30px;
     width: 50px;
     height: 50px;
