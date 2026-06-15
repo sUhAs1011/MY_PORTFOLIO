@@ -288,6 +288,7 @@ body {
 .content-section {
     padding-top: 5px; /* Adjust based on navbar height + desired spacing */
     margin-bottom: 40px; /* Add some space between sections */
+    scroll-margin-top: 140px; /* Prevent fixed navbar from covering top content */
 }
 
 /* Add extra padding for mobile navbar */
@@ -955,15 +956,41 @@ st.markdown("""
     height: 18px;
   }
 }
+
+/* Resume Viewer Modal Styles */
+.resume-modal-content {
+  width: 90vw;
+  max-width: 1000px;
+  height: 85vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+.resume-iframe {
+  width: 100%;
+  height: 75vh;
+  border: 2px solid rgba(0, 198, 251, 0.4);
+  border-radius: 8px;
+  box-shadow: 0 0 30px rgba(0, 198, 251, 0.25);
+  background-color: #fff;
+  margin-bottom: 15px;
+}
+.resume-actions {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
 </style>
 """, unsafe_allow_html=True)
 
 import base64
 buttons_html = """
 <div class="button-row">
-  <a href="data:application/pdf;base64,{resume_b64}" download="Suhas_Resume.pdf" class="contact-button">
+  <label for="modal-resume" class="contact-button">
     <img src="https://img.icons8.com/?size=100&id=32541&format=png&color=FFFFFF" class="contact-icon">Resume
-  </a>
+  </label>
   <a href="mailto:suhas.karamalaputti@gmail.com" class="contact-button">
     <img src="https://img.icons8.com/?size=100&id=qyRpAggnV0zH&format=png&color=FFFFFF" class="contact-icon">Email
   </a>
@@ -973,6 +1000,20 @@ buttons_html = """
   <a href="https://github.com/sUhAs1011" target="_blank" class="contact-button">
     <img src="https://img.icons8.com/?size=100&id=SzgQDfObXUbA&format=png&color=000000" class="contact-icon">GitHub
   </a>
+</div>
+
+<div class="cert-modals-container">
+  <input type="checkbox" id="modal-resume" class="cert-modal-toggle">
+  <div class="cert-modal-overlay">
+    <label for="modal-resume" class="cert-modal-backdrop-close"></label>
+    <div class="resume-modal-content">
+      <iframe src="data:application/pdf;base64,{resume_b64}#view=FitH" class="resume-iframe"></iframe>
+      <div class="resume-actions">
+        <a href="data:application/pdf;base64,{resume_b64}" download="Suhas_Resume.pdf" class="cert-modal-close-btn" style="background-color: #10B981; border-color: #10B981; color: white !important;">Download PDF</a>
+        <label for="modal-resume" class="cert-modal-close-btn">Close Viewer</label>
+      </div>
+    </div>
+  </div>
 </div>
 """.format(resume_b64=base64.b64encode(open("new_resume.pdf","rb").read()).decode())
 st.markdown(buttons_html, unsafe_allow_html=True)
@@ -1432,6 +1473,173 @@ st.markdown("""
     border: 1px solid rgba(0, 198, 251, 0.2);
 }
 
+/* --- Achievements Certificate Modal Popups --- */
+.achievement-card {
+    cursor: pointer; /* Change cursor to pointer for the clickable cards */
+}
+
+.cert-modals-container {
+    display: contents;
+}
+
+/* Hide checkboxes */
+.cert-modal-toggle {
+    display: none;
+}
+
+/* Modal Overlay Styling */
+.cert-modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(10, 15, 30, 0.93); /* Dark blue/black transparent background */
+    z-index: 999999; /* Higher than Streamlit default components */
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(8px);
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Show modal overlay when checkbox is checked */
+.cert-modal-toggle:checked + .cert-modal-overlay {
+    display: flex;
+}
+
+/* Backdrop close label covering background */
+.cert-modal-backdrop-close {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: default;
+    z-index: 1;
+}
+
+/* Modal Content Container */
+.cert-modal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 900px;
+    height: 100%;
+    max-height: 95vh;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 2;
+}
+
+/* Image scaling - fit screen fully, no scroll */
+.cert-modal-img {
+    max-width: 100%;
+    max-height: 70vh; /* Scale so it doesn't exceed height and leaves space for the close button */
+    object-fit: contain;
+    border-radius: 12px;
+    border: 3px solid rgba(0, 198, 251, 0.5);
+    box-shadow: 0 0 40px rgba(0, 198, 251, 0.35);
+    margin-bottom: 20px;
+    background-color: #0e1117;
+}
+
+/* Close button style */
+.cert-modal-close-btn {
+    display: inline-block;
+    padding: 12px 28px;
+    background-color: #111827;
+    border: 2px solid #00C6FB;
+    color: #fff !important;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 198, 251, 0.2);
+    user-select: none;
+    text-decoration: none !important;
+}
+
+.cert-modal-close-btn:hover {
+    background: linear-gradient(90deg, #005BEA, #00C6FB);
+    border-color: #00C6FB;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 198, 251, 0.5);
+}
+
+.cert-modal-close-btn:active {
+    transform: translateY(0);
+}
+
+/* Fallback Card Style for missing certificates */
+.cert-modal-fallback-card {
+    background: linear-gradient(145deg, #111827, #1f2937);
+    border: 2px solid #00C6FB;
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 10px 40px rgba(0, 198, 251, 0.25);
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cert-modal-fallback-badge {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    background: rgba(0, 198, 251, 0.1);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgba(0, 198, 251, 0.3);
+    box-shadow: 0 0 20px rgba(0, 198, 251, 0.2);
+}
+
+.cert-modal-fallback-title {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.cert-modal-fallback-desc {
+    font-size: 1.1rem;
+    color: #d1d5db;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.cert-modal-fallback-tag {
+    background: rgba(0, 198, 251, 0.15);
+    color: #00C6FB;
+    padding: 6px 18px;
+    border-radius: 25px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    border: 1px solid rgba(0, 198, 251, 0.3);
+    margin-bottom: 15px;
+}
+
+.cert-modal-fallback-status {
+    color: #10B981;
+    font-size: 0.95rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
 /* --- Experience Section CSS --- */
 .experience-card {
     background: #111827;
@@ -1533,49 +1741,65 @@ achievements = [
     "title": "Praxis Hackathon",
     "icon": "📅",
     "desc": "Secured a <strong>Top 7 position</strong> among 50+ teams at <strong>Praxis Hackathon</strong> for building an AI-powered booking agent using <strong>LangGraph</strong>.",
-    "tag": "Top 7 Finish"
+    "tag": "Top 7 Finish",
+    "id": "praxis",
+    "cert_path": "certificates/praxis.jpg"
 },
     {
         "title": "HealthHack Hackathon",
         "icon": "🧠",
         "desc": "Secured a <strong>Top 8 position</strong> among 80+ registered teams at <strong>HealthHack 4.0</strong> for building Kalpana AI, an AI-driven mental health peer support platform.",
-        "tag": "Hackathon Achievement"
+        "tag": "Hackathon Achievement",
+        "id": "healthhack",
+        "cert_path": "certificates/healthhack.jpg"
     },
     {
         "title": "Encode-AI Agentathon",
         "icon": "🥈",
         "desc": "Achieved 2nd place for building a multi-agent Agentic AI incident investigation system using <strong>MCP</strong> and <strong>Ollama</strong>.",
-        "tag": "Hackathon Runner-Up"
+        "tag": "Hackathon Runner-Up",
+        "id": "encode",
+        "cert_path": "certificates/encode.jpg"
     },
     {
         "title": "Heal-O-Code Hackathon",
         "icon": "🩺",
         "desc": "Top 6 out of 50+ teams. Built a healthcare decision support tool using <strong>Multi-Chain Blockchain</strong> and <strong>Ollama</strong> for better drug recommendation.",
-        "tag": "Top 6 Finish"
+        "tag": "Top 6 Finish",
+        "id": "healocode",
+        "cert_path": "certificates/healocode.jpg"
     },
         {
         "title": "Anveshana 2026",
         "icon": "🔍",
         "desc": "Ranked Top 11 out of 170 Capstone Teams for Detecting and Mitigating Replay Attacks in CCTV systems.",
-        "tag": "Top 11 Finish"
+        "tag": "Top 11 Finish",
+        "id": "anveshana",
+        "cert_path": "certificates/anveshana.jpg"
     },
     {
         "title": "MRD Scholarship",
         "icon": "🎓",
         "desc": "Awarded the prestigious <strong>MRD Scholarship</strong> in 1st Semester by <strong>PES University</strong>, receiving a 20% tuition fee reimbursement in recognition of academic excellence.",
-        "tag": "Merit-Based Scholarship"
+        "tag": "Merit-Based Scholarship",
+        "id": "mrd",
+        "cert_path": "certificates/mrd.jpg"
     },
     {
         "title": "Distinction Scholarship",
         "icon": "🏅",
         "desc": "Received <strong>Distinction Scholarship</strong> of ₹ 2000 for achieving SGPA above <strong>7.75</strong> in <strong>Semesters 2–6</strong> at <strong>PES University</strong>.",
-        "tag": "Consistent Academic Performance"
+        "tag": "Consistent Academic Performance",
+        "id": "distinction",
+        "cert_path": "certificates/distinction.jpg"
     },
     {
     "title": "ICICT 2026",
     "icon": "📄",
     "desc": "Published a research paper titled <strong>“Detection and Mitigation of Replay Attacks in CCTV Systems”</strong> at 9th International Conference ICICT.",
-    "tag": "International Research Presentation"
+    "tag": "International Research Presentation",
+    "id": "icict",
+    "cert_path": "certificates/ieee_icict.jpg"
     }
     
 ]
@@ -1585,16 +1809,60 @@ achievements_html = '<div class="achievements-grid">'
 
 for item in achievements:
     achievements_html += f"""
-<div class="achievement-card">
+<label for="modal-{item['id']}" class="achievement-card">
     <div class="achievement-header">
         <div class="achievement-icon-wrapper">{item['icon']}</div>
         <div class="achievement-title-text">{item['title']}</div>
     </div>
     <div class="achievement-description-text">{item['desc']}</div>
     <div class="achievement-tag">{item['tag']}</div>
-</div>
+</label>
 """
 
+achievements_html += '</div>'
+
+# Append checkboxes and modals at the bottom wrapped in a container block to bypass markdown formatting
+achievements_html += '<div class="cert-modals-container">'
+for item in achievements:
+    cert_path = item.get("cert_path")
+    if cert_path:
+        import os
+        if os.path.exists(cert_path):
+            cert_b64 = load_and_base64_image(cert_path)
+            content_html = f'<img src="data:image/png;base64,{cert_b64}" class="cert-modal-img">'
+        else:
+            # Fallback if path is set but file not found
+            content_html = f"""
+            <div class="cert-modal-fallback-card">
+                <div class="cert-modal-fallback-badge">{item['icon']}</div>
+                <h2 class="cert-modal-fallback-title">{item['title']}</h2>
+                <div class="cert-modal-fallback-desc">{item['desc']}</div>
+                <div class="cert-modal-fallback-tag">{item['tag']}</div>
+                <div class="cert-modal-fallback-status">✓ Verified Achievement</div>
+            </div>
+            """
+    else:
+        # Fallback card for achievements without certificate images
+        content_html = f"""
+        <div class="cert-modal-fallback-card">
+            <div class="cert-modal-fallback-badge">{item['icon']}</div>
+            <h2 class="cert-modal-fallback-title">{item['title']}</h2>
+            <div class="cert-modal-fallback-desc">{item['desc']}</div>
+            <div class="cert-modal-fallback-tag">{item['tag']}</div>
+            <div class="cert-modal-fallback-status">✓ Verified Achievement</div>
+        </div>
+        """
+
+    achievements_html += f"""
+<input type="checkbox" id="modal-{item['id']}" class="cert-modal-toggle">
+<div class="cert-modal-overlay">
+    <label for="modal-{item['id']}" class="cert-modal-backdrop-close"></label>
+    <div class="cert-modal-content">
+        {content_html}
+        <label for="modal-{item['id']}" class="cert-modal-close-btn">Close Certificate</label>
+    </div>
+</div>
+"""
 achievements_html += '</div>'
 
 st.markdown(achievements_html, unsafe_allow_html=True)
@@ -2252,6 +2520,148 @@ st.markdown("""
         background-color: rgba(0, 198, 251, 0.12) !important;
     }
 }
+
+/* =========================================================
+   GLOWING HOVER BORDERS & BACK TO TOP BUTTON
+   ========================================================= */
+
+/* Border Beam Animation */
+@keyframes border-beam {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.skill-box {
+    position: relative;
+    overflow: hidden !important;
+    z-index: 1;
+    border: 1px solid rgba(0, 198, 251, 0.08) !important;
+}
+
+.skill-box::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px; /* Large enough for longer experience cards */
+    height: 400px;
+    background: conic-gradient(from 0deg, transparent 50%, #005BEA, #00C6FB, transparent 85%);
+    transform: translate(-50%, -50%) rotate(0deg);
+    z-index: -2;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.skill-box:hover::after {
+    opacity: 1;
+    animation: border-beam 4s linear infinite;
+}
+
+/* Inner Background cover to mask the conic gradient and create the 1.5px border outline */
+.skill-box::before {
+    content: '';
+    position: absolute;
+    top: 1.5px;
+    left: 1.5px;
+    right: 1.5px;
+    bottom: 1.5px;
+    z-index: -1;
+    transition: background-color 0.3s ease;
+    background-color: #111827;
+    border-radius: 9px;
+}
+
+.skill-box:hover::before {
+    background-color: #0d131f;
+}
+
+/* Floating Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: rgba(17, 24, 39, 0.85);
+    border: 2px solid rgba(0, 198, 251, 0.4);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff !important;
+    text-decoration: none !important;
+    font-size: 20px;
+    font-weight: 700;
+    box-shadow: 0 4px 15px rgba(0, 198, 251, 0.2);
+    z-index: 99999;
+    transition: all 0.3s ease;
+    opacity: 0.6;
+    backdrop-filter: blur(5px);
+    cursor: pointer;
+}
+
+.back-to-top:hover {
+    opacity: 1;
+    transform: translateY(-5px);
+    background: linear-gradient(90deg, #005BEA, #00C6FB);
+    border-color: #00C6FB;
+    box-shadow: 0 6px 20px rgba(0, 198, 251, 0.6);
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+}
+
+/* Cut bottom empty space in Streamlit */
+.main .block-container {
+    padding-bottom: 3rem !important;
+}
 </style>
 """, unsafe_allow_html=True)
 
+st.markdown('<a href="#home" class="back-to-top">↑</a>', unsafe_allow_html=True)
+
+# --- SCROLL PROGRESS BAR ---
+st.markdown("""
+<div id="scroll-progress-bar" style="
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 4px;
+    background: linear-gradient(90deg, #005BEA, #00C6FB);
+    z-index: 10001;
+    box-shadow: 0 0 10px rgba(0, 198, 251, 0.8), 0 0 5px rgba(0, 91, 234, 0.5);
+    transition: width 0.08s ease-out;
+"></div>
+
+<script>
+(function() {
+    function initProgressBar() {
+        const progressBar = document.getElementById('scroll-progress-bar');
+        const scrollContainer = document.querySelector('[data-testid="stAppViewContainer"]') || window;
+        
+        if (!scrollContainer) {
+            setTimeout(initProgressBar, 200);
+            return;
+        }
+
+        const target = scrollContainer === window ? document.documentElement : scrollContainer;
+
+        scrollContainer.addEventListener('scroll', () => {
+            const scrollTop = target.scrollTop !== undefined ? target.scrollTop : window.pageYOffset;
+            const scrollHeight = target.scrollHeight !== undefined ? target.scrollHeight : document.documentElement.scrollHeight;
+            const clientHeight = target.clientHeight !== undefined ? target.clientHeight : window.innerHeight;
+            
+            const totalScroll = scrollHeight - clientHeight;
+            const scrollPercentage = totalScroll > 0 ? (scrollTop / totalScroll) * 100 : 0;
+            
+            progressBar.style.width = scrollPercentage + '%';
+        });
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initProgressBar);
+    } else {
+        initProgressBar();
+    }
+})();
+</script>
+""", unsafe_allow_html=True)
