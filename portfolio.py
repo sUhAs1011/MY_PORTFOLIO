@@ -2098,18 +2098,6 @@ st.markdown("""
 
 st.header("🚀 Projects")
 
-# Copy all project images to static directory for direct HTML serving
-static_dir = os.path.join(SCRIPT_DIR, "static")
-if os.path.exists(projects_dir) and os.path.exists(static_dir):
-    for f in os.listdir(projects_dir):
-        src_file = os.path.join(projects_dir, f)
-        dst_file = os.path.join(static_dir, f)
-        if os.path.isfile(src_file) and not os.path.exists(dst_file):
-            try:
-                shutil.copy(src_file, dst_file)
-            except Exception:
-                pass
-
 projects_list = [
     {
         "layout": "right",
@@ -2119,17 +2107,15 @@ projects_list = [
         "image": "healthcare.jpg",
         "caption": "Blockchain Powered AI Healthcare System",
         "tech_stack": "Python · Flask · Streamlit · IPFS · Blockchain · Ollama · Gemini API",
-        "description": """
-        <p class="project-desc">
-            Designed and developed a secure, scalable system to extract actionable insights from <strong>Electronic Health Records (EHRs)</strong>.
-        </p>
-        <ul class="project-desc" style="padding-left: 20px; margin-bottom: 15px;">
-            <li>Integrated <strong>IPFS + multi-chain blockchain</strong> to store prescriptions with unique CIDs, ensuring data integrity, traceability, and decentralized access.</li>
-            <li>Built an OCR pipeline using <strong>Gemini API</strong> to extract drug names and dosages from prescriptions for structured analysis.</li>
-            <li>Implemented <strong>LLM-based drug interaction analysis</strong> to detect adverse drug-drug interactions and suggest safer alternatives.</li>
-            <li>Developed an end-to-end system with <strong>Flask backend + Streamlit UI</strong> enabling upload, analysis, and real-time clinical insights.</li>
-        </ul>
-        """
+        "description": """<p class="project-desc">
+Designed and developed a secure, scalable system to extract actionable insights from <strong>Electronic Health Records (EHRs)</strong>.
+</p>
+<ul class="project-desc" style="padding-left: 20px; margin-bottom: 15px;">
+<li>Integrated <strong>IPFS + multi-chain blockchain</strong> to store prescriptions with unique CIDs, ensuring data integrity, traceability, and decentralized access.</li>
+<li>Built an OCR pipeline using <strong>Gemini API</strong> to extract drug names and dosages from prescriptions for structured analysis.</li>
+<li>Implemented <strong>LLM-based drug interaction analysis</strong> to detect adverse drug-drug interactions and suggest safer alternatives.</li>
+<li>Developed an end-to-end system with <strong>Flask backend + Streamlit UI</strong> enabling upload, analysis, and real-time clinical insights.</li>
+</ul>"""
     },
     {
         "layout": "left",
@@ -2139,17 +2125,15 @@ projects_list = [
         "image": "arduino.jpg",
         "caption": "IoT-Enabled Arduino-Based Security System",
         "tech_stack": "C++ · Arduino · Ultrasonic Sensor · GSM Module · SoftwareSerial.h",
-        "description": """
-        <p class="project-desc">
-            Engineered a <strong>Real-Time Intrusion Detection System</strong> using Arduino, designed to enhance home security through automated alerts and physical deterrents.
-        </p>
-        <ul class="project-desc" style="padding-left: 20px; margin-bottom: 15px;">
-            <li>Utilized an <strong>ultrasonic sensor</strong> to detect unauthorized entry, triggering a red LED, buzzer alarm, and <strong>GSM-based alert notifications</strong>.</li>
-            <li>Programmed using <strong>C++</strong> with SoftwareSerial.h to manage GSM module communication.</li>
-            <li>Configured the Arduino IDE and implemented serial communication to ensure seamless system performance and real-time responsiveness.</li>
-            <li>Achieved near-instant detection <strong>&lt; 100 ms</strong> with real-time serial communication, ensuring quick &amp; reliable security alerts.</li>
-        </ul>
-        """
+        "description": """<p class="project-desc">
+Engineered a <strong>Real-Time Intrusion Detection System</strong> using Arduino, designed to enhance home security through automated alerts and physical deterrents.
+</p>
+<ul class="project-desc" style="padding-left: 20px; margin-bottom: 15px;">
+<li>Utilized an <strong>ultrasonic sensor</strong> to detect unauthorized entry, triggering a red LED, buzzer alarm, and <strong>GSM-based alert notifications</strong>.</li>
+<li>Programmed using <strong>C++</strong> with SoftwareSerial.h to manage GSM module communication.</li>
+<li>Configured the Arduino IDE and implemented serial communication to ensure seamless system performance and real-time responsiveness.</li>
+<li>Achieved near-instant detection <strong>&lt; 100 ms</strong> with real-time serial communication, ensuring quick &amp; reliable security alerts.</li>
+</ul>"""
     },
     {
         "layout": "right",
@@ -2159,17 +2143,15 @@ projects_list = [
         "image": "chatbot.jpg",
         "caption": "LegalBot - AI Chatbot for Mining Compliance",
         "tech_stack": "Python · SentenceTransformers · MongoDB · NLP · Streamlit",
-        "description": """
-        <p class="project-desc">
-            Designed and developed an <strong>AI-powered regulatory intelligence bot</strong> to analyze mining laws, detect conflicts, and assist in compliance decision-making.
-        </p>
-        <ul class="project-desc" style="padding-left: 20px; margin-bottom: 15px;">
-            <li>Built an NLP pipeline to preprocess and store mining law documents in MongoDB for efficient retrieval and semantic search.</li>
-            <li>Implemented <strong>SentenceTransformer-based semantic search</strong> to fetch relevant legal sections based on user queries.</li>
-            <li>Developed a conflict detection system to identify contradictions across regulations and suggest alternative compliant actions.</li>
-            <li>Created an interactive chatbot interface using Streamlit for real-time querying, risk assessment, and regulatory insights.</li>
-        </ul>
-        """
+        "description": """<p class="project-desc">
+Designed and developed an <strong>AI-powered regulatory intelligence bot</strong> to analyze mining laws, detect conflicts, and assist in compliance decision-making.
+</p>
+<ul class="project-desc" style="padding-left: 20px; margin-bottom: 15px;">
+<li>Built an NLP pipeline to preprocess and store mining law documents in MongoDB for efficient retrieval and semantic search.</li>
+<li>Implemented <strong>SentenceTransformer-based semantic search</strong> to fetch relevant legal sections based on user queries.</li>
+<li>Developed a conflict detection system to identify contradictions across regulations and suggest alternative compliant actions.</li>
+<li>Created an interactive chatbot interface using Streamlit for real-time querying, risk assessment, and regulatory insights.</li>
+</ul>"""
     },
     {
         "layout": "left",
@@ -2179,17 +2161,15 @@ projects_list = [
         "image": "udp.jpg",
         "caption": "Cloud File Transfer System using UDP",
         "tech_stack": "Python · UDP · Socket Programming · SSL · File Handling",
-        "description": """
-        <p class="project-desc">
-            Built a secure, network-based <strong>Cloud File Transfer System</strong> using <strong>Python</strong> and <strong>UDP</strong> (User Datagram Protocol), enabling efficient file transfer and command execution across systems.
-        </p>
-        <ul class="project-desc" style="padding-left: 20px; margin-bottom: 15px;">
-            <li>Developed a <strong>client-server architecture</strong> using Python <strong>socket programming</strong> for file upload, download, and listing operations.</li>
-            <li>Integrated <strong>SSL certificates</strong> for secure communication between client and server.</li>
-            <li>Implemented <strong>dynamic IP handling</strong> to support both localhost and distributed multi-system deployments.</li>
-            <li>Enabled execution of remote shell commands and ensured seamless file transfers across networked devices.</li>
-        </ul>
-        """
+        "description": """<p class="project-desc">
+Built a secure, network-based <strong>Cloud File Transfer System</strong> using <strong>Python</strong> and <strong>UDP</strong> (User Datagram Protocol), enabling efficient file transfer and command execution across systems.
+</p>
+<ul class="project-desc" style="padding-left: 20px; margin-bottom: 15px;">
+<li>Developed a <strong>client-server architecture</strong> using Python <strong>socket programming</strong> for file upload, download, and listing operations.</li>
+<li>Integrated <strong>SSL certificates</strong> for secure communication between client and server.</li>
+<li>Implemented <strong>dynamic IP handling</strong> to support both localhost and distributed multi-system deployments.</li>
+<li>Enabled execution of remote shell commands and ensured seamless file transfers across networked devices.</li>
+</ul>"""
     },
     {
         "layout": "right",
@@ -2199,17 +2179,15 @@ projects_list = [
         "image": "kalpana.jpg",
         "caption": "Kalpana AI – Peer Support Platform",
         "tech_stack": "Python · FastAPI · React · Ollama · Pinecone",
-        "description": """
-        <p class="project-desc">
-            Developed <strong>Kalpana AI</strong>, an AI-powered platform designed to support individuals experiencing emotional distress through empathetic conversations and peer support.
-        </p>
-        <ul class="project-desc" style="padding-left: 20px; margin-bottom: 15px;">
-            <li>Dual-agent architecture with a Listener AI for empathetic conversations and a Clinical Mapper for emotional risk analysis.</li>
-            <li>Voice-enabled interaction supporting multilingual speech-to-text and text-to-speech communication.</li>
-            <li>Peer matchmaking system using semantic embeddings and vector search to connect users with similar lived experiences.</li>
-            <li>Crisis safety layer that detects high-risk conversations and redirects users to emergency resources.</li>
-        </ul>
-        """
+        "description": """<p class="project-desc">
+Developed <strong>Kalpana AI</strong>, an AI-powered platform designed to support individuals experiencing emotional distress through empathetic conversations and peer support.
+</p>
+<ul class="project-desc" style="padding-left: 20px; margin-bottom: 15px;">
+<li>Dual-agent architecture with a Listener AI for empathetic conversations and a Clinical Mapper for emotional risk analysis.</li>
+<li>Voice-enabled interaction supporting multilingual speech-to-text and text-to-speech communication.</li>
+<li>Peer matchmaking system using semantic embeddings and vector search to connect users with similar lived experiences.</li>
+<li>Crisis safety layer that detects high-risk conversations and redirects users to emergency resources.</li>
+</ul>"""
     },
     {
         "layout": "left",
@@ -2219,17 +2197,15 @@ projects_list = [
         "image": "career.jpg",
         "caption": "AI-Powered Career Copilot",
         "tech_stack": "Python · PyTorch · Sentence Transformers · ChromaDB · DSSM · Streamlit · Ollama · Tesseract OCR",
-        "description": """
-        <p class="project-desc">
-            Analyzing job trends, mapping skill gaps, and recommending targeted reskilling programs across different employment sectors.
-        </p>
-        <ul class="project-desc" style="padding-left: 20px; margin-bottom: 15px;">
-            <li>Parsed resumes with <strong>Tesseract OCR</strong> and matched skills to job requirements using <strong>ChromaDB</strong> embeddings.</li>
-            <li>Engineered a <strong>PyTorch DSSM</strong> to map semantic relationships and prioritize high-demand missing skills.</li>
-            <li>Built an interactive <strong>Streamlit</strong> dashboard for skill gap analysis and learning-style-adapted course recommendations.</li>
-            <li>Integrated <strong>Ollama (LLaMA 3)</strong> to generate course rationales and mapped learning roadmaps via interactive graphs.</li>
-        </ul>
-        """
+        "description": """<p class="project-desc">
+Analyzing job trends, mapping skill gaps, and recommending targeted reskilling programs across different employment sectors.
+</p>
+<ul class="project-desc" style="padding-left: 20px; margin-bottom: 15px;">
+<li>Parsed resumes with <strong>Tesseract OCR</strong> and matched skills to job requirements using <strong>ChromaDB</strong> embeddings.</li>
+<li>Engineered a <strong>PyTorch DSSM</strong> to map semantic relationships and prioritize high-demand missing skills.</li>
+<li>Built an interactive <strong>Streamlit</strong> dashboard for skill gap analysis and learning-style-adapted course recommendations.</li>
+<li>Integrated <strong>Ollama (LLaMA 3)</strong> to generate course rationales and mapped learning roadmaps via interactive graphs.</li>
+</ul>"""
     },
     {
         "layout": "right",
@@ -2239,17 +2215,15 @@ projects_list = [
         "image": "node_simulator.jpg",
         "caption": "Distributed Systems Cluster Simulator",
         "tech_stack": "Python · Streamlit · Docker · Node.js · RestAPI · FastAPI · JSON",
-        "description": """
-        <p class="project-desc">
-            Designed and implemented a distributed systems simulation framework using <strong>Docker</strong> and <strong>API-server</strong>.
-        </p>
-        <ul class="project-desc" style="padding-left: 20px; margin-bottom: 15px;">
-            <li>API Server: A centralized control unit for node management, pod scheduling, and health monitoring.</li>
-            <li>Cluster Nodes: Virtualized computing units that periodically send heartbeat signals to the <strong>API-Server</strong>.</li>
-            <li>Pods: Deployable units simulated on nodes, which require specific CPU resources.</li>
-            <li>Dockerized for portability and easy deployment and Real-time cluster health and pod scheduling visualization via Streamlit.</li>
-        </ul>
-        """
+        "description": """<p class="project-desc">
+Designed and implemented a distributed systems simulation framework using <strong>Docker</strong> and <strong>API-server</strong>.
+</p>
+<ul class="project-desc" style="padding-left: 20px; margin-bottom: 15px;">
+<li>API Server: A centralized control unit for node management, pod scheduling, and health monitoring.</li>
+<li>Cluster Nodes: Virtualized computing units that periodically send heartbeat signals to the <strong>API-Server</strong>.</li>
+<li>Pods: Deployable units simulated on nodes, which require specific CPU resources.</li>
+<li>Dockerized for portability and easy deployment and Real-time cluster health and pod scheduling visualization via Streamlit.</li>
+</ul>"""
     },
     {
         "layout": "left",
@@ -2259,17 +2233,15 @@ projects_list = [
         "image": "cctv.jpg",
         "caption": "Replay Attack Detection And Mitigation in CCTV Systems",
         "tech_stack": "Python · HTM · Optical Flow · SDR · SHA-256 · Streamlit · FastAPI · SQLite",
-        "description": """
-        <p class="project-desc">
-            Replay attacks on CCTV systems exploit vulnerabilities by retransmitting recorded footage to bypass live monitoring.
-        </p>
-        <ul class="project-desc" style="padding-left: 20px; margin-bottom: 15px;">
-            <li><strong>Optical flow–based motion analysis</strong> with <strong>SDR</strong> encoding to capture temporal motion patterns in a compact and interpretable form.</li>
-            <li><strong>Hierarchical Temporal Memory (HTM)</strong> model for lightweight, real-time anomaly detection of unusual motion sequences.</li>
-            <li><strong>SHA‑256</strong> frame hashing and verification to ensure tamper-evident, forensic reliability of CCTV footage.</li>
-            <li>Decision engine with dashboard interface that fuses anomaly scores and integrity checks, providing real-time alerts, visualization, and forensic reporting.</li>
-        </ul>
-        """
+        "description": """<p class="project-desc">
+Replay attacks on CCTV systems exploit vulnerabilities by retransmitting recorded footage to bypass live monitoring.
+</p>
+<ul class="project-desc" style="padding-left: 20px; margin-bottom: 15px;">
+<li><strong>Optical flow–based motion analysis</strong> with <strong>SDR</strong> encoding to capture temporal motion patterns in a compact and interpretable form.</li>
+<li><strong>Hierarchical Temporal Memory (HTM)</strong> model for lightweight, real-time anomaly detection of unusual motion sequences.</li>
+<li><strong>SHA‑256</strong> frame hashing and verification to ensure tamper-evident, forensic reliability of CCTV footage.</li>
+<li>Decision engine with dashboard interface that fuses anomaly scores and integrity checks, providing real-time alerts, visualization, and forensic reporting.</li>
+</ul>"""
     },
     {
         "layout": "right",
@@ -2279,17 +2251,15 @@ projects_list = [
         "image": "ai_personal_assistant.jpg",
         "caption": "Personal Booking System Using LangGraph",
         "tech_stack": "Python · FastAPI · LangGraph · LangChain · Groq · React · SQLite · MCP",
-        "description": """
-        <p class="project-desc">
-            Built an <strong>Intelligent Personal Assistant</strong>, an LLM-powered conversational system for scheduling and calendar automation.
-        </p>
-        <ul class="project-desc" style="padding-left: 20px; margin-bottom: 15px;">
-            <li>Designed a LangGraph-based agent enabling dynamic tool-calling and multi-step reasoning for booking and queries.</li>
-            <li>Integrated MCP-based calendar services with conflict detection and Human-in-the-Loop (HITL) resolution.</li>
-            <li>Implemented cache-first queries for fast retrieval of event details like duration, location, and availability.</li>
-            <li>Developed a React + FastAPI system with real-time chat and robust backend validation.</li>
-        </ul>
-        """
+        "description": """<p class="project-desc">
+Built an <strong>Intelligent Personal Assistant</strong>, an LLM-powered conversational system for scheduling and calendar automation.
+</p>
+<ul class="project-desc" style="padding-left: 20px; margin-bottom: 15px;">
+<li>Designed a LangGraph-based agent enabling dynamic tool-calling and multi-step reasoning for booking and queries.</li>
+<li>Integrated MCP-based calendar services with conflict detection and Human-in-the-Loop (HITL) resolution.</li>
+<li>Implemented cache-first queries for fast retrieval of event details like duration, location, and availability.</li>
+<li>Developed a React + FastAPI system with real-time chat and robust backend validation.</li>
+</ul>"""
     },
     {
         "layout": "left",
@@ -2299,39 +2269,46 @@ projects_list = [
         "image": "traceops.jpg",
         "caption": "TraceOps - AI Incident Response Agent",
         "tech_stack": "Python · MCP · LangGraph · Ollama · Streamlit",
-        "description": """
-        <p class="project-desc">
-            TraceOps is a multi-agent incident investigation system that automates root-cause analysis by correlating logs, configurations, and repository context to speed up production incident resolution.
-        </p>
-        <ul class="project-desc" style="padding-left: 20px; margin-bottom: 15px;">
-            <li>Multi-agent reasoning pipeline for log ingestion, contextual analysis, and incident investigation.</li>
-            <li>Context-aware root-cause detection using configuration and codebase grounding.</li>
-            <li>Automated fix-plan generation with explainable, evidence-backed recommendations.</li>
-            <li>Decision dashboard providing incident summaries, traceability, and actionable alerts.</li>
-        </ul>
-        """
+        "description": """<p class="project-desc">
+TraceOps is a multi-agent incident investigation system that automates root-cause analysis by correlating logs, configurations, and repository context to speed up production incident resolution.
+</p>
+<ul class="project-desc" style="padding-left: 20px; margin-bottom: 15px;">
+<li>Multi-agent reasoning pipeline for log ingestion, contextual analysis, and incident investigation.</li>
+<li>Context-aware root-cause detection using configuration and codebase grounding.</li>
+<li>Automated fix-plan generation with explainable, evidence-backed recommendations.</li>
+<li>Decision dashboard providing incident summaries, traceability, and actionable alerts.</li>
+</ul>"""
     }
 ]
 
 for i, proj in enumerate(projects_list):
     layout_class = "image-left" if proj["layout"] == "left" else "image-right"
     
-    html = f"""
-    <div class="project-card {layout_class}">
-        <div class="project-image-col">
-            <img src="/static/{proj['image']}" alt="{proj['title']}">
-            <div class="project-image-caption">{proj['caption']}</div>
-        </div>
-        <div class="project-content-col">
-            <h3 class="project-title">
-                <img src="{proj['icon']}" alt="icon">
-                <a href="{proj['url']}" target="_blank">{proj['title']}</a>
-            </h3>
-            {proj['description']}
-            <div class="project-tech-stack"><strong>Tech Stack</strong>: {proj['tech_stack']}</div>
-        </div>
-    </div>
-    """
+    # Dynamically load and base64 encode the project image
+    img_path = os.path.join(projects_dir, proj["image"])
+    img_b64 = load_and_base64_image(img_path)
+    img_src = f"data:image/png;base64,{img_b64}" if img_b64 else ""
+    
+    # Process description to strip all leading whitespace from every line,
+    # preventing Markdown from parsing it as a code block.
+    description_html = "\n".join([line.strip() for line in proj['description'].split("\n")])
+    
+    # Flushed-left HTML block to prevent markdown pre/code block parsing
+    html = f"""<div class="project-card {layout_class}">
+<div class="project-image-col">
+<img src="{img_src}" alt="{proj['title']}">
+<div class="project-image-caption">{proj['caption']}</div>
+</div>
+<div class="project-content-col">
+<h3 class="project-title">
+<img src="{proj['icon']}" alt="icon">
+<a href="{proj['url']}" target="_blank">{proj['title']}</a>
+</h3>
+{description_html}
+<div class="project-tech-stack"><strong>Tech Stack</strong>: {proj['tech_stack']}</div>
+</div>
+</div>"""
+
     st.markdown(html, unsafe_allow_html=True)
     if i < len(projects_list) - 1:
         st.markdown("---")
