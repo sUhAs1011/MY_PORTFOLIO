@@ -1092,38 +1092,108 @@ st.markdown(buttons_html, unsafe_allow_html=True)
 
 # --- ABOUT ME ---
 st.markdown("<div id='about' class='content-section'>", unsafe_allow_html=True)
-st.markdown("   ")
 
-col1, col2 = st.columns([1.25, 2])
+# Prepare base64 image for linked.jpg to have full control over alignment and scaling
+try:
+    from PIL import Image, ImageEnhance, ImageFilter
+    linked_img = Image.open(os.path.join(SCRIPT_DIR, "linked.jpg"))
+    linked_img = ImageEnhance.Sharpness(linked_img).enhance(1.8)
+    linked_img = ImageEnhance.Contrast(linked_img).enhance(1.4)
+    linked_img = ImageEnhance.Color(linked_img).enhance(1.2)
+    linked_img = linked_img.filter(ImageFilter.SHARPEN)
+    
+    buffered = BytesIO()
+    linked_img.save(buffered, format="JPEG", quality=95)
+    linked_b64 = base64.b64encode(buffered.getvalue()).decode()
+except Exception as e:
+    linked_b64 = None
 
-with col1:
-    from PIL import Image
-    img = Image.open(os.path.join(SCRIPT_DIR, "linked.jpg"))
-    img = ImageEnhance.Sharpness(img).enhance(1.8)
-    img = ImageEnhance.Contrast(img).enhance(1.4)
-    img = ImageEnhance.Color(img).enhance(1.2)
-    img = img.filter(ImageFilter.SHARPEN)
-
-    st.image(img, use_container_width=True)  # ensures correct rendering for local file
-
-with col2:
-    st.header("👨‍💼 About Me")
-    st.markdown("""
-    <div style="font-size:18px; line-height:1.6; text-align: left;">
-       I’m Suhas Venkata Karamalaputti, a final-year Computer Science & Engineering student at PES University, currently working as a Software Engineer Intern at Epsilon. I have a strong interest in Machine Learning, Deep Learning, and Natural Language Processing, and I enjoy building AI systems that solve real-world problems and create meaningful impact.
-    </div>    
-    """, unsafe_allow_html=True)
-    st.markdown("    ")
-    st.markdown("""
-    <div style="font-size:18px; line-height:1.6; text-align: left;">
-        Previously, I worked as a Software Engineering Intern at Elfonze Technologies, where I developed AI-driven and full-stack enterprise applications, including a semantic document retrieval system, a travel expense management platform, and a scalable ticketing workflow system.
-    """, unsafe_allow_html=True)
-    st.markdown("    ")
-    st.markdown("""
-    <div style="font-size:18px; line-height:1.6; text-align: left;">
-       I’m always excited to explore new technologies, take on challenging problems, and collaborate across domains. If you're working on AI-driven or ML/NLP-focused projects, I’d love to connect and build something impactful together.
-    </div>    
-    """, unsafe_allow_html=True)
+if linked_b64:
+    about_html = f"""
+    <style>
+    .about-flex-container {{
+        display: flex;
+        align-items: flex-start;
+        gap: 40px;
+        margin-top: 20px;
+    }}
+    .about-image-col {{
+        flex: 1.25;
+        min-width: 0;
+    }}
+    .about-image-col img {{
+        width: 100%;
+        height: auto;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+        object-fit: cover;
+        transition: all 0.3s ease;
+    }}
+    .about-image-col img:hover {{
+        transform: scale(1.02);
+        box-shadow: 0 8px 30px rgba(0, 198, 251, 0.3);
+    }}
+    .about-text-col {{
+        flex: 2;
+        min-width: 0;
+    }}
+    .about-header-text {{
+        font-size: 2rem;
+        font-weight: 700;
+        margin-top: 0 !important;
+        margin-bottom: 20px !important;
+    }}
+    .about-paragraph {{
+        font-size: 18px;
+        line-height: 1.6;
+        text-align: left;
+        margin-bottom: 15px;
+    }}
+    @media screen and (max-width: 768px) {{
+        .about-flex-container {{
+            flex-direction: column;
+            gap: 20px;
+        }}
+        .about-image-col {{
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+        }}
+        .about-text-col {{
+            width: 100%;
+        }}
+        .about-header-text {{
+            text-align: center;
+        }}
+    }}
+    </style>
+    <div class="about-flex-container">
+        <div class="about-image-col">
+            <img src="data:image/jpeg;base64,{linked_b64}" alt="About Me Photo">
+        </div>
+        <div class="about-text-col">
+            <h2 class="about-header-text">👨‍💼 About Me</h2>
+            <div class="about-paragraph">
+                I’m Suhas Venkata Karamalaputti, a final-year Computer Science & Engineering student at PES University, currently working as a Software Engineer Intern at Epsilon. I have a strong interest in Machine Learning, Deep Learning, and Natural Language Processing, and I enjoy building AI systems that solve real-world problems and create meaningful impact.
+            </div>
+            <div class="about-paragraph">
+                Previously, I worked as a Software Engineering Intern at Elfonze Technologies, where I developed AI-driven and full-stack enterprise applications, including a semantic document retrieval system, a travel expense management platform, and a scalable ticketing workflow system.
+            </div>
+            <div class="about-paragraph">
+                I’m always excited to explore new technologies, take on challenging problems, and collaborate across domains. If you're working on AI-driven or ML/NLP-focused projects, I’d love to connect and build something impactful together.
+            </div>
+        </div>
+    </div>
+    """
+    st.markdown(about_html, unsafe_allow_html=True)
+else:
+    # Fallback to standard columns if image loading fails
+    col1, col2 = st.columns([1.25, 2])
+    with col1:
+        st.write("Image load failed")
+    with col2:
+        st.header("👨‍💼 About Me")
+        st.write("I’m Suhas Venkata Karamalaputti...")
 
 st.markdown("</div>", unsafe_allow_html=True)
 
