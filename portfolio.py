@@ -1995,6 +1995,43 @@ st.markdown("""
     transform: scale(1.02) !important;
     box-shadow: 0 8px 25px rgba(0, 198, 251, 0.25) !important;
 }
+
+/* Force top alignment and dynamic flex scaling on any screen size */
+#projects [data-testid="stHorizontalBlock"] {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    gap: 40px !important;
+    align-items: flex-start !important;
+}
+
+#projects [data-testid="column"] {
+    width: auto !important;
+    min-width: 0 !important;
+}
+
+/* Image Column (1.25 ratio) */
+#projects [data-testid="column"]:has([data-testid="stImage"]),
+#projects [data-testid="column"]:has(.stImage) {
+    flex: 1.25 !important;
+}
+
+/* Text Content Column (2 ratio) */
+#projects [data-testid="column"]:not(:has([data-testid="stImage"])):not(:has(.stImage)) {
+    flex: 2 !important;
+}
+
+/* tablet/mobile responsiveness: stack columns below 768px */
+@media screen and (max-width: 768px) {
+    #projects [data-testid="stHorizontalBlock"] {
+        flex-direction: column !important;
+        gap: 20px !important;
+    }
+    #projects [data-testid="column"] {
+        width: 100% !important;
+        flex: 1 1 100% !important;
+    }
+}
 </style>
 """, unsafe_allow_html=True)
 
