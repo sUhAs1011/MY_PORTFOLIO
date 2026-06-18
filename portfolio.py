@@ -1471,9 +1471,21 @@ st.markdown("""
 /* --- New Achievements Grid CSS --- */
 .achievements-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 25px;
     margin-top: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    .achievements-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .achievements-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 .achievement-card {
