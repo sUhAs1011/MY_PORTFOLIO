@@ -1976,11 +1976,33 @@ st.markdown("</div>", unsafe_allow_html=True)
 # --- PROJECTS SECTION ---
 st.markdown("<div id='projects' class='content-section'>", unsafe_allow_html=True)
 st.markdown("   ")
+
+# CSS overrides to align project headers and make images look premium and consistent
+st.markdown("""
+<style>
+#projects h3 {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+#projects [data-testid="stImage"] img,
+#projects .stImage img {
+    border-radius: 12px !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15) !important;
+    transition: all 0.3s ease !important;
+}
+#projects [data-testid="stImage"] img:hover,
+#projects .stImage img:hover {
+    transform: scale(1.02) !important;
+    box-shadow: 0 8px 25px rgba(0, 198, 251, 0.25) !important;
+}
+</style>
+""", unsafe_allow_html=True)
+
 st.header("🚀 Projects")
 
 
 # --- Blockchain Healthcare Project with Image ---
-col1, col2 = st.columns([2, 1])
+col1, col2 = st.columns([2, 1.25])
 
 with col1:
     st.markdown(
@@ -2013,7 +2035,7 @@ with col2:
 
 # Alarm Burglar System with image on the left and content on the right
 st.markdown("---")
-col_left, col_right = st.columns([1, 2])
+col_left, col_right = st.columns([1.25, 2])
 
 with col_left:
     st.image("projects/arduino.jpg", caption="IoT-Enabled Arduino-Based Security System", use_container_width=True)
@@ -2047,7 +2069,7 @@ with col_right:
 
 # LegalBot with image on the right and content on the left
 st.markdown("---")
-col_left, col_right = st.columns([2, 1])
+col_left, col_right = st.columns([2, 1.25])
 
 with col_left:
     st.markdown(
@@ -2078,7 +2100,7 @@ with col_right:
 
 # Cloud File Transfer with image on the left and content on the right
 st.markdown("---")
-col_left, col_right = st.columns([1, 2])
+col_left, col_right = st.columns([1.25, 2])
 
 with col_left:
     st.image("projects/udp.jpg", caption="Cloud File Transfer System using UDP", use_container_width=True)
@@ -2113,7 +2135,7 @@ with col_right:
 
 # Portfolio Project with image on the right and content on the left
 st.markdown("---")
-col_left, col_right = st.columns([2, 1])
+col_left, col_right = st.columns([2, 1.25])
 
 with col_left:
     st.markdown(
@@ -2145,7 +2167,7 @@ with col_right:
 
 # Analyzing job posting trends, skill gaps, and recommend reskilling programs in  employment sectors
 st.markdown("---")
-col_left, col_right = st.columns([1, 2])
+col_left, col_right = st.columns([1.25, 2])
 
 with col_left:
     st.image("projects/career.jpg", caption="AI-Powered Career Copilot", use_container_width=True)
@@ -2178,7 +2200,7 @@ with col_right:
 
 # Distributed Cluster Simulator
 st.markdown("---")
-col_left, col_right = st.columns([2, 1])
+col_left, col_right = st.columns([2, 1.25])
 
 with col_left:
     st.markdown(
@@ -2212,7 +2234,7 @@ with col_right:
 
 # Detection And Mitigation Of Replay Attack in CCTV systems
 st.markdown("---")
-col_left, col_right = st.columns([1, 2])
+col_left, col_right = st.columns([1.25, 2])
 
 with col_left:
     st.image("projects/cctv.jpg", caption="Replay Attack Detection And Mitigation in CCTV Systems", use_container_width=True)
@@ -2245,7 +2267,7 @@ with col_right:
 
 # Distributed Rate Limiter
 st.markdown("---")
-col_left, col_right = st.columns([2, 1])
+col_left, col_right = st.columns([2, 1.25])
 
 with col_left:
     st.markdown(
@@ -2280,7 +2302,7 @@ with col_right:
 
 # TraceOps
 st.markdown("---")
-col_left, col_right = st.columns([1, 2])
+col_left, col_right = st.columns([1.25, 2])
 
 with col_left:
     st.image("projects/traceops.jpg", caption="TraceOps - AI Incident Response Agent", use_container_width=True)
