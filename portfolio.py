@@ -145,7 +145,19 @@ def load_and_process_about_image(file_path):
     img = img.filter(ImageFilter.SHARPEN)
     return img
 
+@st.cache_data
+def load_and_base64_pdf(file_path):
+    try:
+        if os.path.exists(file_path):
+            with open(file_path, "rb") as f:
+                return base64.b64encode(f.read()).decode()
+    except Exception:
+        pass
+    return ""
+
 img_b64 = load_and_base64_image(os.path.join(SCRIPT_DIR, "profile.jpg"))
+resume_b64 = load_and_base64_pdf(os.path.join(SCRIPT_DIR, "new_resume.pdf"))
+resume_src = f"data:application/pdf;base64,{resume_b64}" if resume_b64 else "/app/static/new_resume.pdf"
 
 # --- CUSTOM STYLES ---
 # Styles loaded from static/style.css
@@ -198,7 +210,7 @@ st.markdown("</div>", unsafe_allow_html=True) # End of Home section
 # --- STYLE FOR CONTACT BUTTONS ---
 # Styles loaded from static/style.css
 
-buttons_html = """
+buttons_html = f"""
 <div class="button-row">
   <label for="modal-resume" class="contact-button">
     <img src="https://img.icons8.com/?size=100&id=32541&format=png&color=FFFFFF" class="contact-icon">Resume
@@ -219,9 +231,9 @@ buttons_html = """
   <div class="cert-modal-overlay">
     <label for="modal-resume" class="cert-modal-backdrop-close"></label>
     <div class="resume-modal-content">
-      <iframe src="/app/static/new_resume.pdf#view=FitH" class="resume-iframe"></iframe>
+      <iframe src="{resume_src}#view=FitH" class="resume-iframe"></iframe>
       <div class="resume-actions">
-        <a href="/app/static/new_resume.pdf" download="Suhas_Resume.pdf" class="cert-modal-close-btn" style="background-color: #10B981; border-color: #10B981; color: white !important;">Download PDF</a>
+        <a href="{resume_src}" download="Suhas_Resume.pdf" class="cert-modal-close-btn" style="background-color: #10B981; border-color: #10B981; color: white !important;">Download PDF</a>
         <label for="modal-resume" class="cert-modal-close-btn">Close Viewer</label>
       </div>
     </div>
