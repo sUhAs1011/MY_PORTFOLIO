@@ -1023,7 +1023,7 @@ h3 a { color: var(--text-color) !important; font-weight: 700; }
     width: 100vw;
     height: 100vh;
     background-color: rgba(10, 15, 30, 0.93);
-    z-index: 999999;
+    z-index: 1000005;
     justify-content: center;
     align-items: center;
     backdrop-filter: blur(8px);
@@ -1531,3 +1531,355 @@ h3 a { color: var(--text-color) !important; font-weight: 700; }
 .main .block-container {
     padding-bottom: 3rem !important;
 }
+
+/* =========================================================
+   PROJECTS GRID & CARDS
+   ========================================================= */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    margin-top: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.project-card {
+    background: linear-gradient(145deg, #111827, #1f2937);
+    border: 1px solid rgba(0, 198, 251, 0.1);
+    border-radius: 16px;
+    padding: 25px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-decoration: none !important;
+    color: inherit !important;
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #005BEA, #00C6FB);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4), 0 0 15px rgba(0, 198, 251, 0.2);
+    border-color: rgba(0, 198, 251, 0.4);
+}
+
+.project-card:hover::before {
+    transform: scaleX(1);
+}
+
+.project-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.project-icon-wrapper {
+    width: 45px;
+    height: 45px;
+    background: rgba(0, 198, 251, 0.1);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.project-card:hover .project-icon-wrapper {
+    background: rgba(0, 198, 251, 0.2);
+    transform: scale(1.1);
+}
+
+.project-icon {
+    width: 25px;
+    height: 25px;
+}
+
+.project-title-text {
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: #fff;
+    line-height: 1.3;
+}
+
+.project-description-text {
+    color: #b0bfd8;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    flex-grow: 1;
+    margin-bottom: 15px;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.project-tag {
+    background: rgba(0, 198, 251, 0.08);
+    color: #00C6FB;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border: 1px solid rgba(0, 198, 251, 0.15);
+}
+
+.project-link {
+    color: #00C6FB !important;
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: transform 0.2s ease;
+}
+
+.project-card:hover .project-link {
+    transform: translateX(4px);
+}
+
+/* Light & Dark Scheme overrides for Project Cards */
+@media (prefers-color-scheme: light) {
+    .project-card {
+        background: #ffffff !important;
+        border: 1px solid rgba(0, 0, 0, 0.15) !important;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+    .project-card:hover {
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1), 0 0 15px rgba(0, 91, 234, 0.15);
+        border-color: rgba(0, 91, 234, 0.3) !important;
+    }
+    .project-title-text {
+        color: #111827 !important;
+    }
+    .project-description-text {
+        color: #4b5563 !important;
+    }
+    .project-tag {
+        background: rgba(0, 91, 234, 0.08) !important;
+        color: #005BEA !important;
+        border: 1px solid rgba(0, 91, 234, 0.15) !important;
+    }
+    .project-link {
+        color: #005BEA !important;
+    }
+}
+
+/* =========================================================
+   PROJECT DETAILS MODALS
+   ========================================================= */
+.project-modal-toggle {
+    display: none;
+}
+
+.project-modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(10, 15, 30, 0.93);
+    z-index: 999999;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(8px);
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.project-modal-toggle:checked + .project-modal-overlay {
+    display: flex;
+}
+
+.project-modal-backdrop-close {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: default;
+    z-index: 1;
+}
+
+.project-modal-content {
+    display: flex;
+    flex-direction: row;
+    background-color: #0f172a;
+    border: 2px solid rgba(0, 198, 251, 0.3);
+    box-shadow: 0 0 40px rgba(0, 198, 251, 0.25);
+    border-radius: 16px;
+    width: 95vw;
+    max-width: 1050px;
+    max-height: 90vh;
+    overflow-y: auto;
+    z-index: 2;
+    padding: 30px;
+    gap: 30px;
+    box-sizing: border-box;
+}
+
+@media screen and (max-width: 768px) {
+    .project-modal-content {
+        flex-direction: column;
+        padding: 20px;
+        gap: 20px;
+        max-height: 95vh;
+    }
+}
+
+.project-modal-left {
+    flex: 1.2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-modal-right {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    color: #e5e7eb;
+}
+
+.project-modal-img {
+    width: 100%;
+    border-radius: 12px;
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    object-fit: cover;
+    cursor: zoom-in;
+    transition: transform 0.3s ease;
+}
+.project-modal-img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.project-modal-title {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.project-modal-desc {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.project-modal-desc ul {
+    margin-top: 8px;
+    padding-left: 20px;
+}
+
+.project-modal-desc li {
+    margin-bottom: 8px;
+    list-style-type: disc;
+    color: #d1d5db;
+}
+
+.project-modal-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 25px;
+}
+
+.project-modal-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: auto;
+}
+
+.project-modal-btn {
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none !important;
+    text-align: center;
+    transition: all 0.3s ease;
+    user-select: none;
+    display: inline-block;
+}
+
+.project-modal-btn-primary {
+    background: linear-gradient(90deg, #005BEA, #00C6FB);
+    color: white !important;
+    border: none;
+}
+.project-modal-btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 198, 251, 0.4);
+}
+
+.project-modal-btn-secondary {
+    background-color: #111827;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    color: #e5e7eb !important;
+}
+.project-modal-btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-2px);
+}
+
+/* Light & Dark Scheme overrides for Project Modals */
+@media (prefers-color-scheme: light) {
+    .project-modal-content {
+        background-color: #ffffff;
+        color: #111827;
+        border: 2px solid rgba(0, 91, 234, 0.2);
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    }
+    .project-modal-right {
+        color: #111827;
+    }
+    .project-modal-title {
+        color: #111827;
+    }
+    .project-modal-desc li {
+        color: #4b5563;
+    }
+    .project-modal-btn-secondary {
+        background-color: #f3f4f6;
+        border-color: rgba(0, 0, 0, 0.2);
+        color: #111827 !important;
+    }
+    .project-modal-btn-secondary:hover {
+        background-color: rgba(0, 0, 0, 0.05);
+        border-color: rgba(0, 0, 0, 0.4);
+    }
+}
+
+
