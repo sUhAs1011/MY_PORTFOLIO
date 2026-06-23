@@ -658,338 +658,240 @@ st.markdown("<div id='projects' class='content-section'>", unsafe_allow_html=Tru
 st.markdown("   ")
 st.header("🚀 Projects")
 
+projects_data = [
+    {
+        "id": "healthcare",
+        "title": "Blockchain-Powered AI Healthcare Insights",
+        "icon": "https://img.icons8.com/?size=100&id=51845&format=png&color=000000",
+        "url": "https://github.com/sUhAs1011/BLOCKCHAIN_POWERED_AI_HEALTHCARE_INSIGHTS",
+        "desc": "Designed and developed a secure, scalable system to extract actionable insights from Electronic Health Records (EHRs) using IPFS, multi-chain blockchain, and Gemini API OCR.",
+        "image_path": "projects/healthcare.jpg",
+        "tech": ["Python", "Flask", "Streamlit", "IPFS", "Blockchain", "Ollama", "Gemini API"],
+        "features": [
+            "Integrated <strong>IPFS + multi-chain blockchain</strong> to store prescriptions with unique CIDs, ensuring data integrity, traceability, and decentralized access.",
+            "Built an OCR pipeline using <strong>Gemini API</strong> to extract drug names and dosages from prescriptions for structured analysis.",
+            "Implemented <strong>LLM-based drug interaction analysis</strong> to detect adverse drug-drug interactions and suggest safer alternatives.",
+            "Developed an end-to-end system with <strong>Flask backend + Streamlit UI</strong> enabling upload, analysis, and real-time clinical insights."
+        ]
+    },
+    {
+        "id": "arduino",
+        "title": "IoT-Enabled Intruder Detection System",
+        "icon": "https://img.icons8.com/?size=100&id=8thlDCUHuqaK&format=png&color=000000",
+        "url": "https://github.com/sUhAs1011/UE22CS251B-IOT_ENABLED_ARDUINO_BASED_INTRUDER_DETECTION_AND_ALERT_SYSTEM",
+        "desc": "Engineered a real-time intrusion detection and alert system using Arduino, GSM communication modules, buzzer deterrents, and ultrasonic sensors (<100ms latency).",
+        "image_path": "projects/arduino.jpg",
+        "tech": ["C++", "Arduino", "Ultrasonic Sensor", "GSM Module", "SoftwareSerial.h"],
+        "features": [
+            "Utilized an <strong>ultrasonic sensor</strong> to detect unauthorized entry, triggering a red LED, buzzer alarm, and <strong>GSM-based alert notifications</strong>.",
+            "Programmed using <strong>C++</strong> with SoftwareSerial.h to manage GSM module communication.",
+            "Configured the Arduino IDE and implemented serial communication to ensure seamless performance and real-time responsiveness.",
+            "Achieved near-instant detection <strong>&lt; 100 ms</strong> with real-time serial communication, ensuring quick & reliable security alerts."
+        ]
+    },
+    {
+        "id": "chatbot",
+        "title": "LegalBot: Mining Intelligence Bot",
+        "icon": "https://img.icons8.com/?size=100&id=vkfmsvBD0PPO&format=png&color=000000",
+        "url": "https://github.com/sUhAs1011/UE22CS342B_AI_POWERED_REGULATORY_MINING_INTELLIGENCE_BOT",
+        "desc": "Developed an AI chatbot parsing regulatory documents into MongoDB, querying relevant laws using SentenceTransformer semantic search, and performing risk assessment.",
+        "image_path": "projects/chatbot.jpg",
+        "tech": ["Python", "SentenceTransformers", "MongoDB", "NLP", "Streamlit"],
+        "features": [
+            "Built an NLP pipeline to preprocess and store mining law documents in MongoDB for efficient retrieval and semantic search.",
+            "Implemented <strong>SentenceTransformer-based semantic search</strong> to fetch relevant legal sections based on user queries.",
+            "Developed a conflict detection system to identify contradictions across regulations and suggest alternative compliant actions.",
+            "Created an interactive chatbot interface using Streamlit for real-time querying, risk assessment, and regulatory insights."
+        ]
+    },
+    {
+        "id": "udp",
+        "title": "Cloud File Transfer System using UDP",
+        "icon": "https://img.icons8.com/?size=100&id=NIaxM8D5w6rv&format=png&color=FFFFFF",
+        "url": "https://github.com/sUhAs1011/UE22CS252B_CLOUD_FILE_TRANSFER_SYSTEM_USING_UDP",
+        "desc": "Built a secure client-server socket programming architecture enabling directory actions, file upload/downloads, and remote command execution using UDP and SSL.",
+        "image_path": "projects/udp.jpg",
+        "tech": ["Python", "UDP", "Socket Programming", "SSL", "File Handling"],
+        "features": [
+            "Developed a <strong>client-server architecture</strong> using Python <strong>socket programming</strong> for file upload, download, and listing operations.",
+            "Integrated <strong>SSL certificates</strong> for secure communication between client and server.",
+            "Implemented <strong>dynamic IP handling</strong> to support both localhost and distributed multi-system deployments.",
+            "Enabled execution of remote shell commands and ensured seamless file transfers across networked devices."
+        ]
+    },
+    {
+        "id": "kalpana",
+        "title": "Kalpana AI – Peer Support Platform",
+        "icon": "https://img.icons8.com/?size=100&id=2QfCaN1Zfmqf&format=png&color=000000",
+        "url": "https://github.com/sUhAs1011",
+        "desc": "Developed a voice-enabled peer support chat app leveraging a Listener AI for empathy, clinical mapping for risk analysis, and vector search matching for lived experiences.",
+        "image_path": "projects/kalpana.jpg",
+        "tech": ["Python", "FastAPI", "React", "Ollama", "Pinecone"],
+        "features": [
+            "Dual-agent architecture with a Listener AI for empathetic conversations and a Clinical Mapper for emotional risk analysis.",
+            "Voice-enabled interaction supporting multilingual speech-to-text and text-to-speech communication.",
+            "Peer matchmaking system using semantic embeddings and vector search to connect users with similar lived experiences.",
+            "Crisis safety layer that detects high-risk conversations and redirects users to emergency resources."
+        ]
+    },
+    {
+        "id": "career",
+        "title": "AI-Powered Career Skill Gap Copilot",
+        "icon": "https://img.icons8.com/?size=100&id=fLrxgaxCrjaZ&format=png&color=FFFFFF",
+        "url": "https://github.com/sUhAs1011/AI_POWERED_SKILL_GAP_ANALYSIS_RESKILLING_FOR_EMPLOYMENT_TRENDS",
+        "desc": "Analyzed job trends, parsed resumes with OCR, and mapped missing skills using a PyTorch DSSM model to generate learning roadmaps grounded in Ollama LLaMA-3.",
+        "image_path": "projects/career.jpg",
+        "tech": ["Python", "PyTorch", "ChromaDB", "DSSM", "Streamlit", "Ollama", "Tesseract OCR"],
+        "features": [
+            "Parsed resumes with <strong>Tesseract OCR</strong> and matched skills to job requirements using <strong>ChromaDB</strong> embeddings.",
+            "Engineered a <strong>PyTorch DSSM</strong> to map semantic relationships and prioritize high-demand missing skills.",
+            "Built an interactive <strong>Streamlit</strong> dashboard for skill gap analysis and learning-style-adapted course recommendations.",
+            "Integrated <strong>Ollama (LLaMA 3)</strong> to generate course rationales and mapped learning roadmaps via interactive graphs."
+        ]
+    },
+    {
+        "id": "node_simulator",
+        "title": "Distributed Systems Cluster Simulator",
+        "icon": "https://img.icons8.com/?size=100&id=7pFfikEfVGOV&format=png&color=000000",
+        "url": "https://github.com/sUhAs1011/UE22CS351B_DISTRIBUTED_SYSTEMS_CLUSTER_SIMULATION_FRAMEWORK",
+        "desc": "Designed a simulation framework modeling pod scheduling, node heartbeats, resource utilization constraints, and distributed heartbeat checks, fully dockerized.",
+        "image_path": "projects/node_simulator.jpg",
+        "tech": ["Python", "Streamlit", "Docker", "Node.js", "RestAPI", "FastAPI", "JSON"],
+        "features": [
+            "API Server: A centralized control unit for node management, pod scheduling, and health monitoring.",
+            "Cluster Nodes: Virtualized computing units that periodically send heartbeat signals to the <strong>API-Server</strong>.",
+            "Pods: Deployable units simulated on nodes, which require specific CPU resources.",
+            "Dockerized for portability and easy deployment and Real-time cluster health and pod scheduling visualization via Streamlit."
+        ]
+    },
+    {
+        "id": "cctv",
+        "title": "CCTV Replay Attack Detection And Mitigation",
+        "icon": "https://img.icons8.com/?size=100&id=3wl52ZDVBgG0&format=png&color=000000",
+        "url": "https://github.com/sUhAs1011/DETECTION_AND_MITIGATION_OF_REPLAY_ATTACK_IN_CCTV_SYSTEMS",
+        "desc": "Built a temporal CCTV anomaly mitigation engine utilizing optical flow, Hierarchical Temporal Memory (HTM), and SHA-256 integrity hash verification.",
+        "image_path": "projects/cctv.jpg",
+        "tech": ["Python", "HTM", "Optical Flow", "SDR", "SHA-256", "Streamlit", "FastAPI", "SQLite"],
+        "features": [
+            "<strong>Optical flow–based motion analysis</strong> with <strong>SDR</strong> encoding to capture temporal motion patterns in a compact and interpretable form.",
+            "<strong>Hierarchical Temporal Memory (HTM)</strong> model for lightweight, real-time anomaly detection of unusual motion sequences.",
+            "<strong>SHA‑256</strong> frame hashing and verification to ensure tamper-evident, forensic reliability of CCTV footage.",
+            "Decision engine with dashboard interface that fuses anomaly scores and integrity checks, providing real-time alerts, visualization, and forensic reporting."
+        ]
+    },
+    {
+        "id": "ai_personal_assistant",
+        "title": "Personal Booking Agent using LangGraph",
+        "icon": "https://img.icons8.com/?size=100&id=nkGDoqzPxYM3&format=png&color=000000",
+        "url": "https://github.com/sUhAs1011/AI_PERSONAL_ASSISTANT",
+        "desc": "Built an LLM agent calendar workflow orchestrator utilizing LangGraph for reasoning loops, calendar API integrations, cache querying, and HITL overrides.",
+        "image_path": "projects/ai_personal_assistant.jpg",
+        "tech": ["Python", "FastAPI", "LangGraph", "LangChain", "Groq", "React", "SQLite", "MCP"],
+        "features": [
+            "Designed a LangGraph-based agent enabling dynamic tool-calling and multi-step reasoning for booking and queries.",
+            "Integrated MCP-based calendar services with conflict detection and Human-in-the-Loop (HITL) resolution.",
+            "Implemented cache-first queries for fast retrieval of event details like duration, location, and availability.",
+            "Developed a React + FastAPI system with real-time chat and robust backend validation."
+        ]
+    },
+    {
+        "id": "traceops",
+        "title": "TraceOps - AI Incident Response Agent",
+        "icon": "https://img.icons8.com/?size=100&id=M16ic8QWK8x6&format=png&color=000000",
+        "url": "https://github.com/sUhAs1011/TRACEOPS",
+        "desc": "TraceOps is a multi-agent incident investigation system that automates root-cause analysis by correlating logs, configurations, and codebase context.",
+        "image_path": "projects/traceops.jpg",
+        "tech": ["Python", "MCP", "LangGraph", "Ollama", "Streamlit"],
+        "features": [
+            "Multi-agent reasoning pipeline for log ingestion, contextual analysis, and incident investigation.",
+            "Context-aware root-cause detection using configuration and codebase grounding.",
+            "Automated fix-plan generation with explainable, evidence-backed recommendations.",
+            "Decision dashboard providing incident summaries, traceability, and actionable alerts."
+        ]
+    }
+]
 
-# --- Blockchain Healthcare Project with Image ---
-col1, col2 = st.columns([2, 1])
+# Generate Projects Grid HTML and Modals
+projects_html = '<div class="projects-grid">'
 
-with col1:
-    st.markdown(
-        """<h3>
-        <img src='https://img.icons8.com/?size=100&id=51845&format=png&color=000000' 
-                 style='width:30px; height:30px; vertical-align:middle; margin-right:8px;'/>
-        <a href='https://github.com/sUhAs1011/BLOCKCHAIN_POWERED_AI_HEALTHCARE_INSIGHTS' 
-               target='_blank' style='text-decoration: none; color: inherit;'>
-               Blockchain-Powered AI Healthcare Insights
-        </a>
-        </h3>""",
-        unsafe_allow_html=True
-    )
+for proj in projects_data:
+    tag_pills = "".join([f'<span class="project-tag">{tech}</span>' for tech in proj["tech"]])
+    # Project card is now a label that toggles the project modal checkbox
+    projects_html += f'<label for="modal-project-{proj["id"]}" class="project-card">'
+    projects_html += f'<div class="project-header">'
+    projects_html += f'<div class="project-icon-wrapper">'
+    projects_html += f'<img src="{proj["icon"]}" class="project-icon" alt="icon" />'
+    projects_html += f'</div>'
+    projects_html += f'<div class="project-title-text">{proj["title"]}</div>'
+    projects_html += f'</div>'
+    projects_html += f'<div class="project-description-text">{proj["desc"]}</div>'
+    projects_html += f'<div class="project-tags">{tag_pills}</div>'
+    projects_html += f'<div class="project-link">View Details &rarr;</div>'
+    projects_html += f'</label>'
 
-    st.write("""
-Designed and developed a secure, scalable system to extract actionable insights from **Electronic Health Records (EHRs)**.
+projects_html += '</div>'
 
-Key features include:
-- Integrated **IPFS + multi-chain blockchain** to store prescriptions with unique CIDs, ensuring data integrity, traceability, and decentralized access.
-- Built an OCR pipeline using **Gemini API** to extract drug names and dosages from prescriptions for structured analysis.
-- Implemented **LLM-based drug interaction analysis** to detect adverse drug-drug interactions and suggest safer alternatives.
-- Developed an end-to-end system with **Flask backend + Streamlit UI** enabling upload, analysis, and real-time clinical insights.
-
-**Tech Stack**: Python · Flask · Streamlit · IPFS · Blockchain · Ollama · Gemini API
-""")
-
-with col2:
-    st.image("projects/healthcare.jpg", caption="Blockchain Powered AI Healthcare System", use_container_width=True)
-
-
-# Alarm Burglar System with image on the left and content on the right
-st.markdown("---")
-col_left, col_right = st.columns([1, 2])
-
-with col_left:
-    st.image("projects/arduino.jpg", caption="IoT-Enabled Arduino-Based Security System", use_container_width=True)
-
-with col_right:
-    st.markdown(
-        """
-        <h3>
-            <img src="https://img.icons8.com/?size=100&id=8thlDCUHuqaK&format=png&color=000000" 
-                 width="35" style="vertical-align:middle; margin-right:10px;">
-            <a href='https://github.com/sUhAs1011/UE22CS251B-IOT_ENABLED_ARDUINO_BASED_INTRUDER_DETECTION_AND_ALERT_SYSTEM' 
-               target='_blank' style='text-decoration: none; color: inherit;'>
-               IoT-Enabled Arduino-Based Intruder Detection and Alert System
-            </a>
-        </h3>
-        """,
-        unsafe_allow_html=True
-    )
-    st.write("""
-    Engineered a **Real-Time Intrusion Detection System** using Arduino, designed to enhance home security through automated alerts and physical deterrents.
-
-    Key features include:
-    - Utilized an **ultrasonic sensor** to detect unauthorized entry, triggering a red LED, buzzer alarm, and **GSM-based alert notifications**.
-    - Programmed using **C++** with SoftwareSerial.h to manage GSM module communication.
-    - Configured the Arduino IDE and implemented serial communication to ensure seamless system performance and real-time responsiveness.
-    - Achieved near-instant detection **< 100 ms** with real-time serial communication, ensuring quick & reliable security alerts.
-
-    **Tech Stack**: C++ · Arduino · Ultrasonic Sensor · GSM Module · SoftwareSerial.h
-    """)
-
-
-# LegalBot with image on the right and content on the left
-st.markdown("---")
-col_left, col_right = st.columns([2, 1])
-
-with col_left:
-    st.markdown(
-        """<h3>
-        <img src='https://img.icons8.com/?size=100&id=vkfmsvBD0PPO&format=png&color=000000' 
-                 style='width:30px; height:30px; vertical-align:middle; margin-right:8px;'/>
-        <a href='https://github.com/sUhAs1011/UE22CS342B_AI_POWERED_REGULATORY_MINING_INTELLIGENCE_BOT' 
-               target='_blank' style='text-decoration: none; color: inherit;'>
-               LegalBot: AI-Powered Regulatory Mining Intelligence Bot 
-        </a>
-        </h3>""",
-        unsafe_allow_html=True
-    )
-    st.write("""
-    Designed and developed an **AI-powered regulatory intelligence bot** to analyze mining laws, detect conflicts, and assist in compliance decision-making.
-
-Key features include:
-- Built an NLP pipeline to preprocess and store mining law documents in MongoDB for efficient retrieval and semantic search.
-- Implemented **SentenceTransformer-based semantic search** to fetch relevant legal sections based on user queries.
-- Developed a conflict detection system to identify contradictions across regulations and suggest alternative compliant actions.
-- Created an interactive chatbot interface using Streamlit for real-time querying, risk assessment, and regulatory insights.
-
-**Tech Stack**: Python · SentenceTransformers · MongoDB · NLP · Streamlit
-""")
-
-with col_right:
-    st.image("projects/chatbot.jpg", caption="LegalBot - AI Chatbot for Mining Compliance", use_container_width=True)
-
-# Cloud File Transfer with image on the left and content on the right
-st.markdown("---")
-col_left, col_right = st.columns([1, 2])
-
-with col_left:
-    st.image("projects/udp.jpg", caption="Cloud File Transfer System using UDP", use_container_width=True)
-
-with col_right:
-    st.markdown(
-        """
-        <h3>
-            <img src='https://img.icons8.com/?size=100&id=NIaxM8D5w6rv&format=png&color=FFFFFF' 
-                 style='width:35px; height:35px; vertical-align:middle; margin-right:8px;'/>
-            <a href='https://github.com/sUhAs1011/UE22CS252B_CLOUD_FILE_TRANSFER_SYSTEM_USING_UDP' 
-               target='_blank' style='text-decoration: none; color: inherit;'>
-               Cloud File Transfer System using UDP
-            </a>
-        </h3>
-        """,
-        unsafe_allow_html=True
-    )
-    st.write("""
-    Built a secure, network-based **Cloud File Transfer System** using **Python** and **UDP** (User Datagram Protocol), 
-    enabling efficient file transfer and command execution across systems.
-
-    Key features include:
-    - Developed a **client-server architecture** using Python **socket programming** for file upload, download, and listing operations.
-    - Integrated **SSL certificates** for secure communication between client and server.
-    - Implemented **dynamic IP handling** to support both localhost and distributed multi-system deployments.
-    - Enabled execution of remote shell commands and ensured seamless file transfers across networked devices.
-
-    **Tech Stack**: Python · UDP · Socket Programming · SSL · File Handling
-    """)
-
-
-# Portfolio Project with image on the right and content on the left
-st.markdown("---")
-col_left, col_right = st.columns([2, 1])
-
-with col_left:
-    st.markdown(
-        """
-        <h3>
-        <img src='https://img.icons8.com/?size=100&id=2QfCaN1Zfmqf&format=png&color=000000' 
-                 style='width:40px; height:40px; vertical-align:middle; margin-right:8px;'/>
-        <a href='https://github.com/sUhAs1011' 
-               target='_blank' style='text-decoration: none; color: inherit;'>
-               Kalpana AI – Mental Health Peer Support Platform
-        </a>
-        </h3>""",
-        unsafe_allow_html=True
-    )
-    st.write("""
-    Developed **Kalpana AI**, an AI-powered platform designed to support individuals experiencing emotional distress through empathetic conversations and peer support.
-
-    Key features include:
-    - Dual-agent architecture with a Listener AI for empathetic conversations and a Clinical Mapper for emotional risk analysis.
-    - Voice-enabled interaction supporting multilingual speech-to-text and text-to-speech communication.
-    - Peer matchmaking system using semantic embeddings and vector search to connect users with similar lived experiences.
-    - Crisis safety layer that detects high-risk conversations and redirects users to emergency resources.
-
-    **Tech Stack**: Python · FastAPI · React · Ollama · Pinecone
-    """)
-
-with col_right:
-    st.image("projects/kalpana.jpg", caption="Kalpana AI – Peer Support Platform", use_container_width=True)
-
-# Analyzing job posting trends, skill gaps, and recommend reskilling programs in  employment sectors
-st.markdown("---")
-col_left, col_right = st.columns([1, 2])
-
-with col_left:
-    st.image("projects/career.jpg", caption="AI-Powered Career Copilot", use_container_width=True)
-
-with col_right:
-    st.markdown(
-        """
-        <h3>
-            <img src='https://img.icons8.com/?size=100&id=fLrxgaxCrjaZ&format=png&color=FFFFFF' 
-                 style='width:30px; height:30px; vertical-align:middle; margin-right:8px;'/>
-            <a href='https://github.com/sUhAs1011/AI_POWERED_SKILL_GAP_ANALYSIS_RESKILLING_FOR_EMPLOYMENT_TRENDS' 
-               target='_blank' style='text-decoration: none; color: inherit;'>
-               AI-Powered Career Skill Gap Analysis and Recommendation
-            </a>
-        </h3>
-        """,
-        unsafe_allow_html=True
-    )
-    st.write("""
-    Analyzing job trends, mapping skill gaps, and recommending targeted reskilling programs across different employment sectors.
-
-    Key features include:
-    - Parsed resumes with **Tesseract OCR** and matched skills to job requirements using **ChromaDB** embeddings.
-    - Engineered a **PyTorch DSSM** to map semantic relationships and prioritize high-demand missing skills.
-    - Built an interactive **Streamlit** dashboard for skill gap analysis and learning-style-adapted course recommendations.
-    - Integrated **Ollama (LLaMA 3)** to generate course rationales and mapped learning roadmaps via interactive graphs.
+# Append checkboxes and modal overlay wrappers for projects
+projects_html += '<div class="cert-modals-container">'
+for proj in projects_data:
+    # Build list of feature bullets
+    bullets_html = "".join([f'<li>{bullet}</li>' for bullet in proj["features"]])
+    tag_pills_modal = "".join([f'<span class="project-tag">{tech}</span>' for tech in proj["tech"]])
     
-    **Tech Stack**: Python · PyTorch · Sentence Transformers · ChromaDB · DSSM · Streamlit · Ollama · Tesseract OCR
-    """)
-
-# Distributed Cluster Simulator
-st.markdown("---")
-col_left, col_right = st.columns([2, 1])
-
-with col_left:
-    st.markdown(
-        """
-        <h3>
-        <img src='https://img.icons8.com/?size=100&id=7pFfikEfVGOV&format=png&color=000000' 
-                 style='width:35px; height:35px; vertical-align:middle; margin-right:8px;'/>
-         <a href='https://github.com/sUhAs1011/UE22CS351B_DISTRIBUTED_SYSTEMS_CLUSTER_SIMULATION_FRAMEWORK' 
-               target='_blank' style='text-decoration: none; color: inherit;'>
-               Distributed Systems Cluster Simulator Framework
-        </a>
-        </h3>""",
-        unsafe_allow_html=True
-    )
-    st.write("""
-    Designed and implemented a distributed systems simulation framework using **Docker** and **API-server**
-
-    Key features include:
-    - API Server: A centralized control unit for node management, pod scheduling, and health monitoring.
-    - Cluster Nodes: Virtualized computing units that periodically send heartbeat signals to the **API-Server**.
-    - Pods: Deployable units simulated on nodes, which require specific CPU resources.
-    - Dockerized for portability and easy deployment and Real-time cluster health and pod scheduling visualization via Streamlit.
-
-
-    **Tech Stack**: Python · Streamlit · Docker · Node.js · RestAPI · FastAPI · JSON
-    """)
-
-with col_right:
-    st.image("projects/node_simulator.jpg", caption="Distributed Systems Cluster Simulator", use_container_width=True)
-
-
-# Detection And Mitigation Of Replay Attack in CCTV systems
-st.markdown("---")
-col_left, col_right = st.columns([1, 2])
-
-with col_left:
-    st.image("projects/cctv.jpg", caption="Replay Attack Detection And Mitigation in CCTV Systems", use_container_width=True)
-
-with col_right:
-    st.markdown(
-        """
-        <h3>
-            <img src='https://img.icons8.com/?size=100&id=3wl52ZDVBgG0&format=png&color=000000' 
-                 style='width:28px; height:26px; vertical-align:middle; margin-right:8px;'/>
-            <a href='https://github.com/sUhAs1011/DETECTION_AND_MITIGATION_OF_REPLAY_ATTACK_IN_CCTV_SYSTEMS' 
-               target='_blank' style='text-decoration: none; color: inherit;'>
-               Detection and Mitigation of Replay Attack in CCTV Systems
-            </a>
-        </h3>
-        """,
-        unsafe_allow_html=True
-    )
-    st.write("""
-    Replay attacks on CCTV systems exploit vulnerabilities by retransmitting recorded footage to bypass live monitoring
-
-    Key features include:
-    - **Optical flow–based motion analysis** with **SDR** encoding to capture temporal motion patterns in a compact and interpretable form.
-    - **Hierarchical Temporal Memory (HTM)** model for lightweight, real-time anomaly detection of unusual motion sequences.
-    - **SHA‑256** frame hashing and verification to ensure tamper-evident, forensic reliability of CCTV footage.
-    - Decision engine with dashboard interface that fuses anomaly scores and integrity checks, providing real-time alerts, visualization, and forensic reporting.
-
-    **Tech Stack**: Python · HTM · Optical Flow · SDR · SHA-256 · Streamlit · FastAPI · SQLite
-    """)
-
-# Distributed Rate Limiter
-st.markdown("---")
-col_left, col_right = st.columns([2, 1])
-
-with col_left:
-    st.markdown(
-        """<h3>
-        <img src='https://img.icons8.com/?size=100&id=nkGDoqzPxYM3&format=png&color=000000' 
-                 style='width:30px; height:30px; vertical-align:middle; margin-right:8px;'/>
-        <a href='https://github.com/sUhAs1011/AI_PERSONAL_ASSISTANT' 
-               target='_blank' style='text-decoration: none; color: inherit;'>
-               AI Powered Personal Booking Agent Using LangGraph
-        </a>
-        </h3>""",
-        unsafe_allow_html=True
-    )
-    st.write("""
-Built an **Intelligent Personal Assistant**, an LLM-powered conversational system for scheduling and calendar automation.
-
-Key features include:
-- Designed a LangGraph-based agent enabling dynamic tool-calling and multi-step reasoning for booking and queries.
-- Integrated MCP-based calendar services with conflict detection and Human-in-the-Loop (HITL) resolution.
-- Implemented cache-first queries for fast retrieval of event details like duration, location, and availability.
-- Developed a React + FastAPI system with real-time chat and robust backend validation.
-
-**Tech Stack**: Python · FastAPI · LangGraph · LangChain · Groq · React · SQLite · MCP
-""")
-
-with col_right:
-    st.image(
-        "projects/ai_personal_assistant.jpg",
-        caption="Personal Booking System Using LangGraph",
-        use_container_width=True
-    )
-
-# TraceOps
-st.markdown("---")
-col_left, col_right = st.columns([1, 2])
-
-with col_left:
-    st.image("projects/traceops.jpg", caption="TraceOps - AI Incident Response Agent", use_container_width=True)
-
-with col_right:
-    st.markdown(
-        """
-        <h3>
-            <img src='https://img.icons8.com/?size=100&id=M16ic8QWK8x6&format=png&color=000000' 
-                 style='width:28px; height:26px; vertical-align:middle; margin-right:8px;'/>
-            <a href='https://github.com/sUhAs1011/TRACEOPS' 
-               target='_blank' style='text-decoration: none; color: inherit;'>
-               TraceOps - AI Incident Response Agent
-            </a>
-        </h3>
-        """,
-        unsafe_allow_html=True
-    )
-    st.write("""
-    TraceOps is a multi-agent incident investigation system that automates root-cause analysis by correlating logs, configurations, and repository context to speed up production incident resolution.
+    # Load project image as base64
+    img_b64 = ""
+    img_path = os.path.join(SCRIPT_DIR, proj["image_path"])
+    if os.path.exists(img_path):
+        img_b64 = load_and_base64_image(img_path)
     
-    Key features include:
-    - Multi-agent reasoning pipeline for log ingestion, contextual analysis, and incident investigation.
-    - Context-aware root-cause detection using configuration and codebase grounding.
-    - Automated fix-plan generation with explainable, evidence-backed recommendations.
-    - Decision dashboard providing incident summaries, traceability, and actionable alerts.
+    img_src = f"data:image/png;base64,{img_b64}" if img_b64 else proj["image_path"]
     
-    **Tech Stack**: Python · MCP · LangGraph · Ollama · Streamlit
-    """)
+    projects_html += f'<input type="checkbox" id="modal-project-{proj["id"]}" class="project-modal-toggle" />'
+    projects_html += f'<div class="project-modal-overlay">'
+    projects_html += f'<label for="modal-project-{proj["id"]}" class="project-modal-backdrop-close"></label>'
+    projects_html += f'<div class="project-modal-content">'
+    
+    # Left column: Image
+    projects_html += f'<div class="project-modal-left">'
+    projects_html += f'<label for="modal-project-img-{proj["id"]}">'
+    projects_html += f'<img src="{img_src}" class="project-modal-img" alt="{proj["title"]}" />'
+    projects_html += f'</label>'
+    projects_html += f'</div>'
+    
+    # Right column: Details and Actions
+    projects_html += f'<div class="project-modal-right">'
+    projects_html += f'<div class="project-modal-title">'
+    projects_html += f'<img src="{proj["icon"]}" style="width:30px; height:30px; vertical-align:middle;" /> '
+    projects_html += f'{proj["title"]}'
+    projects_html += f'</div>'
+    projects_html += f'<div class="project-modal-desc">'
+    projects_html += f'{proj["desc"]}'
+    projects_html += f'<ul>{bullets_html}</ul>'
+    projects_html += f'</div>'
+    projects_html += f'<div class="project-modal-tech">{tag_pills_modal}</div>'
+    projects_html += f'<div class="project-modal-actions">'
+    projects_html += f'<a href="{proj["url"]}" target="_blank" class="project-modal-btn project-modal-btn-primary">View GitHub Repo</a>'
+    projects_html += f'<label for="modal-project-{proj["id"]}" class="project-modal-btn project-modal-btn-secondary">Close</label>'
+    projects_html += f'</div>'
+    projects_html += f'</div>' # End project-modal-right
+    
+    projects_html += f'</div>' # End project-modal-content
+    projects_html += f'</div>' # End project-modal-overlay
+    
+    # Zoom Modal for Project Image (uses cert-modal classes for design/behavior)
+    projects_html += f'<input type="checkbox" id="modal-project-img-{proj["id"]}" class="cert-modal-toggle" />'
+    projects_html += f'<div class="cert-modal-overlay">'
+    projects_html += f'<label for="modal-project-img-{proj["id"]}" class="cert-modal-backdrop-close"></label>'
+    projects_html += f'<div class="cert-modal-content">'
+    projects_html += f'<img src="{img_src}" class="cert-modal-img" alt="{proj["title"]} Zoomed" />'
+    projects_html += f'<label for="modal-project-img-{proj["id"]}" class="cert-modal-close-btn">Close Image</label>'
+    projects_html += f'</div>'
+    projects_html += f'</div>'
+    
+projects_html += '</div>' # End cert-modals-container
+
+st.markdown(projects_html, unsafe_allow_html=True)
+st.markdown("</div>", unsafe_allow_html=True)
 
 # --- Custom Footer with Styling ---
 st.markdown("""
