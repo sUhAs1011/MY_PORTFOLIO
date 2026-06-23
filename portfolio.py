@@ -157,36 +157,10 @@ def load_and_base64_pdf(file_path):
 
 img_b64 = load_and_base64_image(os.path.join(SCRIPT_DIR, "profile.jpg"))
 
-# PDF and PNG generation/loading helpers
+# PDF generation/loading helpers
 resume_pdf_path = os.path.join(SCRIPT_DIR, "new_resume.pdf")
-resume_img_path = os.path.join(static_dir, "resume_page.png")
-
-# Auto-generate resume image if PDF is updated or image doesn't exist
-if os.path.exists(resume_pdf_path):
-    needs_gen = not os.path.exists(resume_img_path)
-    if not needs_gen:
-        needs_gen = os.path.getmtime(resume_pdf_path) > os.path.getmtime(resume_img_path)
-    
-    if needs_gen:
-        try:
-            import fitz  # PyMuPDF
-            doc = fitz.open(resume_pdf_path)
-            page = doc.load_page(0)
-            pix = page.get_pixmap(dpi=150)
-            pix.save(resume_img_path)
-        except Exception:
-            pass
-
 resume_b64 = load_and_base64_pdf(resume_pdf_path)
 resume_download_href = f"data:application/pdf;base64,{resume_b64}" if resume_b64 else "/app/static/new_resume.pdf"
-
-resume_img_b64 = ""
-if os.path.exists(resume_img_path):
-    try:
-        with open(resume_img_path, "rb") as f:
-            resume_img_b64 = base64.b64encode(f.read()).decode()
-    except Exception:
-        pass
 
 # --- CUSTOM STYLES ---
 # Styles loaded from static/style.css
@@ -239,32 +213,11 @@ st.markdown("</div>", unsafe_allow_html=True) # End of Home section
 # --- STYLE FOR CONTACT BUTTONS ---
 # Styles loaded from static/style.css
 
-if resume_img_b64:
-    resume_preview_html = f"""
-    <div class="resume-img-container" style="width: 100%; height: 75vh; overflow-y: auto; border: 2px solid rgba(0, 198, 251, 0.4); border-radius: 8px; box-shadow: 0 0 30px rgba(0, 198, 251, 0.25); background-color: #fff; margin-bottom: 15px; display: flex; justify-content: center; align-items: flex-start; padding: 10px; box-sizing: border-box;">
-        <img src="data:image/png;base64,{resume_img_b64}" style="max-width: 100%; height: auto; border-radius: 4px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);" />
-    </div>
-    """
-else:
-    resume_preview_html = """
-    <div class="resume-fallback-container" style="width: 100%; height: 75vh; border: 2px solid rgba(0, 198, 251, 0.4); border-radius: 8px; box-shadow: 0 0 30px rgba(0, 198, 251, 0.25); background-color: #0f172a; margin-bottom: 15px; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 20px; box-sizing: border-box; text-align: center; color: #fff;">
-        <div style="font-size: 3rem; margin-bottom: 15px;">📄</div>
-        <div style="font-size: 1.25rem; font-weight: bold; margin-bottom: 10px; color: #fff;">Resume Preview Setup</div>
-        <div style="font-size: 0.95rem; color: #b0bfd8; margin-bottom: 20px; max-width: 400px; line-height: 1.5;">
-            To render your resume directly on this page as an image, please run the following command in your terminal:
-        </div>
-        <code style="background-color: #1e293b; color: #38bdf8; padding: 10px 20px; border-radius: 6px; font-family: monospace; font-size: 0.95rem; border: 1px solid rgba(56, 189, 248, 0.2); margin-bottom: 20px; display: inline-block;">pip install pymupdf</code>
-        <div style="font-size: 0.9rem; color: #9ca3af; line-height: 1.5;">
-            (Or click <strong>Download PDF</strong> below to view it instantly!)
-        </div>
-    </div>
-    """
-
 buttons_html = f"""
 <div class="button-row">
-  <label for="modal-resume" class="contact-button">
+  <a href="{resume_download_href}" download="Suhas_Resume.pdf" class="contact-button">
     <img src="https://img.icons8.com/?size=100&id=32541&format=png&color=FFFFFF" class="contact-icon">Resume
-  </label>
+  </a>
   <a href="mailto:suhas.karamalaputti@gmail.com" class="contact-button">
     <img src="https://img.icons8.com/?size=100&id=qyRpAggnV0zH&format=png&color=FFFFFF" class="contact-icon">Email
   </a>
@@ -274,20 +227,6 @@ buttons_html = f"""
   <a href="https://github.com/sUhAs1011" target="_blank" class="contact-button">
     <img src="https://img.icons8.com/?size=100&id=SzgQDfObXUbA&format=png&color=000000" class="contact-icon">GitHub
   </a>
-</div>
-
-<div class="cert-modals-container">
-  <input type="checkbox" id="modal-resume" class="cert-modal-toggle">
-  <div class="cert-modal-overlay">
-    <label for="modal-resume" class="cert-modal-backdrop-close"></label>
-    <div class="resume-modal-content">
-      {resume_preview_html}
-      <div class="resume-actions">
-        <a href="{resume_download_href}" download="Suhas_Resume.pdf" class="cert-modal-close-btn" style="background-color: #10B981; border-color: #10B981; color: white !important;">Download PDF</a>
-        <label for="modal-resume" class="cert-modal-close-btn">Close Viewer</label>
-      </div>
-    </div>
-  </div>
 </div>
 """
 st.markdown(buttons_html, unsafe_allow_html=True)
