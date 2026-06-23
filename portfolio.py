@@ -219,9 +219,9 @@ buttons_html = """
   <div class="cert-modal-overlay">
     <label for="modal-resume" class="cert-modal-backdrop-close"></label>
     <div class="resume-modal-content">
-      <iframe src="/static/new_resume.pdf#view=FitH" class="resume-iframe"></iframe>
+      <iframe src="/app/static/new_resume.pdf#view=FitH" class="resume-iframe"></iframe>
       <div class="resume-actions">
-        <a href="/static/new_resume.pdf" download="Suhas_Resume.pdf" class="cert-modal-close-btn" style="background-color: #10B981; border-color: #10B981; color: white !important;">Download PDF</a>
+        <a href="/app/static/new_resume.pdf" download="Suhas_Resume.pdf" class="cert-modal-close-btn" style="background-color: #10B981; border-color: #10B981; color: white !important;">Download PDF</a>
         <label for="modal-resume" class="cert-modal-close-btn">Close Viewer</label>
       </div>
     </div>
