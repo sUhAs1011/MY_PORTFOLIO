@@ -894,66 +894,59 @@ projects_html += '</div>' # End cert-modals-container
 st.markdown(projects_html, unsafe_allow_html=True)
 st.markdown("</div>", unsafe_allow_html=True)
 
-# --- Custom Footer with Styling ---
+# --- Custom Footer, Back-to-Top, and Scroll Progress Bar (Merged to minimize DOM wrappers) ---
 st.markdown("""
     <div style='text-align: center; padding-top: 20px; font-size: 25px; font-weight: 500; color: #ffffff;'>
         Made by Suhas Venkata Karamalaputti with ❤️
     </div>
-    <div style='text-align: center; padding-top: 0px; font-size: 20px; font-weight: 500; color: #ffffff;'>
+    <div style='text-align: center; padding-top: 5px; font-size: 20px; font-weight: 500; color: #ffffff; margin-bottom: 10px;'>
         Using Streamlit and Python
     </div>
-""", unsafe_allow_html=True)
+    
+    <a href="#home" class="back-to-top">↑</a>
+    
+    <div id="scroll-progress-bar" style="
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 4px;
+        background: linear-gradient(90deg, #005BEA, #00C6FB);
+        z-index: 10001;
+        box-shadow: 0 0 10px rgba(0, 198, 251, 0.8), 0 0 5px rgba(0, 91, 234, 0.5);
+        transition: width 0.08s ease-out;
+    "></div>
 
+    <script>
+    (function() {
+        function initProgressBar() {
+            const progressBar = document.getElementById('scroll-progress-bar');
+            const scrollContainer = document.querySelector('[data-testid="stAppViewContainer"]') || window;
+            
+            if (!scrollContainer) {
+                setTimeout(initProgressBar, 200);
+                return;
+            }
 
+            const target = scrollContainer === window ? document.documentElement : scrollContainer;
 
-# Custom bottom overrides loaded from static/style.css
-
-st.markdown('<a href="#home" class="back-to-top">↑</a>', unsafe_allow_html=True)
-
-# --- SCROLL PROGRESS BAR ---
-st.markdown("""
-<div id="scroll-progress-bar" style="
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 0%;
-    height: 4px;
-    background: linear-gradient(90deg, #005BEA, #00C6FB);
-    z-index: 10001;
-    box-shadow: 0 0 10px rgba(0, 198, 251, 0.8), 0 0 5px rgba(0, 91, 234, 0.5);
-    transition: width 0.08s ease-out;
-"></div>
-
-<script>
-(function() {
-    function initProgressBar() {
-        const progressBar = document.getElementById('scroll-progress-bar');
-        const scrollContainer = document.querySelector('[data-testid="stAppViewContainer"]') || window;
-        
-        if (!scrollContainer) {
-            setTimeout(initProgressBar, 200);
-            return;
+            scrollContainer.addEventListener('scroll', () => {
+                const scrollTop = target.scrollTop !== undefined ? target.scrollTop : window.pageYOffset;
+                const scrollHeight = target.scrollHeight !== undefined ? target.scrollHeight : document.documentElement.scrollHeight;
+                const clientHeight = target.clientHeight !== undefined ? target.clientHeight : window.innerHeight;
+                
+                const totalScroll = scrollHeight - clientHeight;
+                const scrollPercentage = totalScroll > 0 ? (scrollTop / totalScroll) * 100 : 0;
+                
+                progressBar.style.width = scrollPercentage + '%';
+            });
         }
 
-        const target = scrollContainer === window ? document.documentElement : scrollContainer;
-
-        scrollContainer.addEventListener('scroll', () => {
-            const scrollTop = target.scrollTop !== undefined ? target.scrollTop : window.pageYOffset;
-            const scrollHeight = target.scrollHeight !== undefined ? target.scrollHeight : document.documentElement.scrollHeight;
-            const clientHeight = target.clientHeight !== undefined ? target.clientHeight : window.innerHeight;
-            
-            const totalScroll = scrollHeight - clientHeight;
-            const scrollPercentage = totalScroll > 0 ? (scrollTop / totalScroll) * 100 : 0;
-            
-            progressBar.style.width = scrollPercentage + '%';
-        });
-    }
-
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initProgressBar);
-    } else {
-        initProgressBar();
-    }
-})();
-</script>
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initProgressBar);
+        } else {
+            initProgressBar();
+        }
+    })();
+    </script>
 """, unsafe_allow_html=True)
