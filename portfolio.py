@@ -267,7 +267,6 @@ st.markdown("</div>", unsafe_allow_html=True)
 
 # --- Skills Section ---
 st.markdown("<div id='skills' class='content-section'>", unsafe_allow_html=True)
-st.markdown("   ")
 st.markdown("## 🛠️ Skills")
 
 # --- Programming Languages Sub-section ---
@@ -419,7 +418,6 @@ for i, os_val in enumerate(os_list):
 
 # --- EXPERIENCE SECTION ---
 st.markdown("<div id='experience' class='content-section'>", unsafe_allow_html=True)
-st.markdown("    ")
 st.header("💼 Experience")
 
 experience_data = [
@@ -477,7 +475,6 @@ st.markdown("</div>", unsafe_allow_html=True)
 
 # --- MY JOURNEY SECTION ---
 st.markdown("<div id='journey' class='content-section'>", unsafe_allow_html=True)
-st.markdown("    ")
 st.markdown("<h2 style='text-align:center;'>🚶‍♂ My Journey</h2>", unsafe_allow_html=True)
 
 st.markdown("""
@@ -519,7 +516,6 @@ st.markdown("""
 
 # --- ACHIEVEMENTS SECTION ---
 st.markdown("<div id='achievements' class='content-section'>", unsafe_allow_html=True)
-st.markdown("   ")
 st.header("🏆 Achievements")
 
 achievements = [
@@ -656,7 +652,6 @@ st.markdown("</div>", unsafe_allow_html=True)
 
 # --- PROJECTS SECTION ---
 st.markdown("<div id='projects' class='content-section'>", unsafe_allow_html=True)
-st.markdown("   ")
 st.header("🚀 Projects")
 
 projects_data = [
