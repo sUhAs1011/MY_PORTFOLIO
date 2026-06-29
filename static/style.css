@@ -1570,7 +1570,7 @@ p {
 }
 
 .content-section {
-    scroll-margin-top: calc(var(--nav-h-dyn, var(--nav-h)) + 8px) !important;
+    scroll-margin-top: calc(var(--nav-h-dyn, var(--nav-h)) - 10px) !important;
 }
 
 @media (max-width: 768px) {
@@ -1579,7 +1579,7 @@ p {
     }
 
     .content-section {
-        scroll-margin-top: calc(var(--nav-h-dyn, var(--nav-h)) + 5px) !important;
+        scroll-margin-top: calc(var(--nav-h-dyn, var(--nav-h)) - 10px) !important;
     }
 }
 
@@ -1710,7 +1710,7 @@ p {
     padding-bottom: 3rem !important;
 }
 
-div[data-testid="stVerticalBlock"] > div:last-child {
+div[data-testid="stVerticalBlock"]>div:last-child {
     margin-bottom: 0px !important;
     padding-bottom: 0px !important;
 }
