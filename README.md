@@ -21,6 +21,12 @@
    streamlit run portfolio.py
    ```
 
+or
+
+```shell
+python -m streamlit run portfolio.py
+```
+
 ### Web Interface of My Portfolio
 <img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/c48b828c-7565-42c3-a80f-2dc53379f228" />
 
