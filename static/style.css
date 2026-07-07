@@ -887,6 +887,11 @@ h3 a {
     border-radius: 12px !important;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25) !important;
     transition: all 0.3s ease !important;
+    width: 100% !important;
+    height: auto !important;
+    max-width: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
 }
 
 #about img:hover {
@@ -907,6 +912,51 @@ h3 a {
     line-height: 1.6 !important;
     text-align: left !important;
     margin-bottom: 15px !important;
+}
+
+/* About Me Responsiveness & Proportions */
+@media screen and (min-width: 769px) {
+    #about [data-testid="stHorizontalBlock"] {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        align-items: center !important;
+        gap: 50px !important; /* Spacing between image and text */
+    }
+
+    #about [data-testid="stHorizontalBlock"] > div[data-testid="stColumn"]:first-child {
+        flex: 0 0 32% !important; /* Image column percentage width */
+        width: 32% !important;
+        min-width: 290px !important; /* Prevent excessive shrinking on smaller/scaled laptop viewports */
+        max-width: 380px !important; /* Limit maximum size on large screens */
+    }
+
+    #about [data-testid="stHorizontalBlock"] > div[data-testid="stColumn"]:last-child {
+        flex: 1 1 68% !important; /* Text column occupies the rest of the flex container */
+        width: 68% !important;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #about [data-testid="stHorizontalBlock"] {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 25px !important;
+    }
+
+    #about [data-testid="stHorizontalBlock"] > div[data-testid="stColumn"]:first-child,
+    #about [data-testid="stHorizontalBlock"] > div[data-testid="stColumn"]:last-child {
+        flex: 0 0 100% !important;
+        width: 100% !important;
+        min-width: unset !important;
+        max-width: unset !important;
+    }
+
+    #about img {
+        margin: 0 auto !important;
+        max-width: 280px !important; /* Keeps image nicely proportioned on mobile devices */
+    }
 }
 
 /* Skills section box styles */
