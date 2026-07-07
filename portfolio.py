@@ -234,33 +234,33 @@ st.markdown(buttons_html, unsafe_allow_html=True)
 
 
 # --- ABOUT ME ---
-st.markdown("<div id='about' class='content-section'>", unsafe_allow_html=True)
+img_about = load_and_process_about_image(os.path.join(SCRIPT_DIR, "linked.jpg"))
+buffered_about = BytesIO()
+img_about.save(buffered_about, format="PNG", quality=95)
+about_img_b64 = base64.b64encode(buffered_about.getvalue()).decode()
 
-# Inject custom CSS styles for the About Me section to match margins, rounded corners, and hover effects
-# Styles loaded from static/style.css
-
-col1, col2 = st.columns([1.25, 2])
-
-with col1:
-    img = load_and_process_about_image(os.path.join(SCRIPT_DIR, "linked.jpg"))
-
-    st.image(img, use_container_width=True)  # ensures correct rendering for local file
-
-with col2:
-    st.markdown("""
-    <h2 class="about-header">👨‍💼 About Me</h2>
-    <div class="about-paragraph">
-       I’m Suhas Venkata Karamalaputti, a final-year Computer Science & Engineering student at PES University, currently working as a Software Engineer Intern at Epsilon. I have a strong interest in Machine Learning, Deep Learning, and Natural Language Processing, and I enjoy building AI systems that solve real-world problems and create meaningful impact.
-    </div>    
-    <div class="about-paragraph">
-        Previously, I worked as a Software Engineering Intern at Elfonze Technologies, where I developed AI-driven and full-stack enterprise applications, including a semantic document retrieval system, a travel expense management platform, and a scalable ticketing workflow system.
-    </div>    
-    <div class="about-paragraph">
-       I’m always excited to explore new technologies, take on challenging problems, and collaborate across domains. If you're working on AI-driven or ML/NLP-focused projects, I’d love to connect and build something impactful together.
-    </div>    
-    """, unsafe_allow_html=True)
-
-st.markdown("</div>", unsafe_allow_html=True)
+about_html = f"""
+<div id="about" class="content-section">
+    <div class="about-container">
+        <div class="about-image-col">
+            <img src="data:image/png;base64,{about_img_b64}" class="about-image" alt="Suhas Venkata Karamalaputti" />
+        </div>
+        <div class="about-text-col">
+            <h2 class="about-header">👨‍💼 About Me</h2>
+            <div class="about-paragraph">
+               I’m Suhas Venkata Karamalaputti, a final-year Computer Science & Engineering student at PES University, currently working as a Software Engineer Intern at Epsilon. I have a strong interest in Machine Learning, Deep Learning, and Natural Language Processing, and I enjoy building AI systems that solve real-world problems and create meaningful impact.
+            </div>    
+            <div class="about-paragraph">
+                Previously, I worked as a Software Engineering Intern at Elfonze Technologies, where I developed AI-driven and full-stack enterprise applications, including a semantic document retrieval system, a travel expense management platform, and a scalable ticketing workflow system.
+            </div>    
+            <div class="about-paragraph">
+               I’m always excited to explore new technologies, take on challenging problems, and collaborate across domains. If you're working on AI-driven or ML/NLP-focused projects, I’d love to connect and build something impactful together.
+            </div>    
+        </div>
+    </div>
+</div>
+"""
+st.markdown(about_html, unsafe_allow_html=True)
 
 # --- Skills Section ---
 # Styles loaded from static/style.css
