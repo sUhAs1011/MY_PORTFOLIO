@@ -815,20 +815,22 @@ for item in projects_list:
 <label for="modal-{item['id']}" class="project-modal-backdrop-close"></label>
 <div class="project-modal-card">
 <div class="project-modal-image-col">
+<div class="project-modal-img-frame">
 <img src="{img_src}" class="project-modal-img" alt="{item['title']}">
+</div>
 </div>
 <div class="project-modal-content-col">
 <div class="project-modal-header">
-<div class="project-icon-box"><img src="{item['icon']}" alt="icon"></div>
+<div class="project-icon-box" style="width:44px; height:44px;"><img src="{item['icon']}" alt="icon" style="width:24px; height:24px;"></div>
 <div class="project-modal-title">{item['title']}</div>
 </div>
 <div class="project-modal-bullets">
-<p>{item['short_desc']}</p>
+<p style="font-size: 1.02rem; line-height: 1.6; color: var(--text-main); margin-bottom: 14px;">{item['short_desc']}</p>
 {bullets_clean}
 </div>
-<div class="project-pills-row" style="margin-bottom: 20px;">{pills_html}</div>
+<div class="project-pills-row" style="margin-bottom: 22px;">{pills_html}</div>
 <div class="project-modal-actions">
-<a href="{item['url']}" target="_blank" class="btn-github-repo">View GitHub Repo &nearr;</a>
+<a href="{item['url']}" target="_blank" class="btn-github-repo"><img src="https://img.icons8.com/?size=100&id=SzgQDfObXUbA&format=png&color=FFFFFF" style="width:18px; height:18px; vertical-align:middle; margin-right:6px;" alt="GitHub">View GitHub Repo &nearr;</a>
 <label for="modal-{item['id']}" class="btn-modal-close">Close</label>
 </div>
 </div>
