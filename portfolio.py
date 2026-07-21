@@ -26,7 +26,7 @@ projects_dir = os.path.join(SCRIPT_DIR, "projects")
 if not os.path.exists(projects_dir):
     os.makedirs(projects_dir)
 
-# Parent projects folder in case they are located in the parent directory (workspace root)
+# Parent projects folder in case they are located in the parent directory
 parent_dir = os.path.dirname(SCRIPT_DIR)
 parent_projects_dir = os.path.join(parent_dir, "projects")
 
@@ -46,7 +46,6 @@ project_images = [
 for img in project_images:
     dest_path = os.path.join(projects_dir, img)
     if not os.path.exists(dest_path):
-        # 1. Try to find in parent projects directory (if moved outside by mistake)
         src_parent = os.path.join(parent_projects_dir, img)
         if os.path.exists(src_parent):
             try:
@@ -54,7 +53,6 @@ for img in project_images:
             except Exception:
                 pass
         else:
-            # 2. Try to find in script directory
             src_root = os.path.join(SCRIPT_DIR, img)
             if os.path.exists(src_root):
                 try:
@@ -62,79 +60,47 @@ for img in project_images:
                 except Exception:
                     pass
 
-# Wrap st.image to automatically resolve paths inside projects_dir (CWD agnostic)
-_original_st_image = st.image
-def robust_st_image(image, *args, **kwargs):
-    if isinstance(image, str) and (image.startswith("projects/") or image.startswith("projects\\")):
-        filename = os.path.basename(image)
-        resolved_path = os.path.join(projects_dir, filename)
-        if os.path.exists(resolved_path):
-            image = resolved_path
-    return _original_st_image(image, *args, **kwargs)
-st.image = robust_st_image
-
 # --- PAGE CONFIG ---
 favicon_path = os.path.join(SCRIPT_DIR, "suhas.jpg")
-st.set_page_config(page_title="Suhas Venkata Karamalaputti · Portfolio", page_icon=favicon_path if os.path.exists(favicon_path) else "suhas.jpg", layout="wide")
+st.set_page_config(
+    page_title="Suhas Venkata Karamalaputti · AI & Software Engineer", 
+    page_icon=favicon_path if os.path.exists(favicon_path) else "⚡", 
+    layout="wide"
+)
 
-# Add viewport meta tag for mobile responsiveness
+# Viewport meta tag
 st.markdown("""
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 """, unsafe_allow_html=True)
 
-# Load consolidated styling
+# Load consolidated CSS styles from static/style.css
 css_path = os.path.join(SCRIPT_DIR, "static", "style.css")
 if os.path.exists(css_path):
     with open(css_path, "r", encoding="utf-8") as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
-# --- LOAD IMAGE ---
+# --- IMAGE & FILE HELPERS ---
 @st.cache_data
 def load_and_base64_image(file_path):
     try:
         img = Image.open(file_path)
-        
-        # Enhance the profile image with better quality while keeping original size
         if "profile.jpg" in file_path:
-            # Apply subtle image enhancements without resizing
-            
-            # Very subtle sharpness enhancement
             img = ImageEnhance.Sharpness(img).enhance(1.05)
-            
-            # Very subtle contrast enhancement
             img = ImageEnhance.Contrast(img).enhance(1.03)
-            
-            # Very subtle brightness enhancement
             img = ImageEnhance.Brightness(img).enhance(1.01)
-            
-            # Very subtle color enhancement
             img = ImageEnhance.Color(img).enhance(1.02)
-        
-        # Enhance the LinkedIn image with better quality while keeping original size
         elif "linked.jpg" in file_path:
-            # Apply professional image enhancements without resizing
-            
-            # Enhance sharpness for professional look
             img = ImageEnhance.Sharpness(img).enhance(1.08)
-            
-            # Enhance contrast for better definition
             img = ImageEnhance.Contrast(img).enhance(1.06)
-            
-            # Slight brightness boost for professional appearance
             img = ImageEnhance.Brightness(img).enhance(1.03)
-            
-            # Enhance color vibrancy
             img = ImageEnhance.Color(img).enhance(1.05)
-            
-            # Apply very subtle smoothing for polished look
             img = img.filter(ImageFilter.SMOOTH)
         
         buffered = BytesIO()
-        img.save(buffered, format="PNG", quality=95) # Use PNG for transparency if needed
+        img.save(buffered, format="PNG", quality=95)
         return base64.b64encode(buffered.getvalue()).decode()
     except FileNotFoundError:
-        st.error(f"Error: {file_path} not found. Please ensure the image is in the correct directory.")
-        return None # Return None if file is not found
+        return None
 
 @st.cache_data
 def load_and_process_about_image(file_path):
@@ -156,123 +122,156 @@ def load_and_base64_pdf(file_path):
     return ""
 
 img_b64 = load_and_base64_image(os.path.join(SCRIPT_DIR, "profile.jpg"))
-
-# PDF generation/loading helpers
 resume_pdf_path = os.path.join(SCRIPT_DIR, "new_resume.pdf")
 resume_b64 = load_and_base64_pdf(resume_pdf_path)
 resume_download_href = f"data:application/pdf;base64,{resume_b64}" if resume_b64 else "/app/static/new_resume.pdf"
 
-# --- CUSTOM STYLES ---
-# Styles loaded from static/style.css
-
-# --- NAVIGATION BAR ---
-st.markdown("""
-<div class="navbar-custom">
-    <div class="navbar-top">
-        <div class="navbar-name">Suhas Venkata Karamalaputti</div>
-    </div>
-    <div class="navbar-links" id="navbar-links">
-        <a href="#about">👨‍💼 About Me</a>
-        <a href="#skills">🛠️ Skills</a>
-        <a href="#experience">💼 Experience</a>
-        <a href="#journey">🚶‍♂ My Journey</a>
-        <a href="#achievements">🏆 Achievements</a>
-        <a href="#projects">🚀 Projects</a>
-    </div>
+# --- TOP NAVIGATION BAR ---
+st.markdown("""<div class="navbar-custom">
+<div class="navbar-top">
+<a href="#home" class="navbar-brand">
+<span class="navbar-brand-logo">SUHAS.AI</span>
+<span class="navbar-brand-text">// INTELLIGENT SYSTEMS</span>
+</a>
+<div class="navbar-links" id="navbar-links">
+<a href="#home">Home</a>
+<a href="#about">Profile</a>
+<a href="#skills">Stack</a>
+<a href="#experience">Timeline</a>
+<a href="#achievements">Honors</a>
+<a href="#projects">Work</a>
 </div>
-""", unsafe_allow_html=True)
+<a href="mailto:suhas.karamalaputti@gmail.com" class="navbar-talk-btn">GET IN TOUCH ⚡</a>
+</div>
+</div>""", unsafe_allow_html=True)
+
+# --- HEADER TICKER SUB-BAR ---
+st.markdown("""<div class="header-ticker-bar">
+<div class="ticker-item">
+<div class="ticker-pulse"></div>
+<span>⚡ SPECIALIZING IN ML, NLP &amp; AGENTIC SYSTEMS</span>
+</div>
+<div class="ticker-item">
+<span>PES UNIVERSITY · BENGALURU, INDIA</span>
+</div>
+</div>""", unsafe_allow_html=True)
 
 # --- HERO SECTION ---
 st.markdown("<div id='home' class='content-section'>", unsafe_allow_html=True)
 
-# Use responsive columns that stack on mobile
-col1, col2 = st.columns([2, 1])
+col_hero_left, col_hero_right = st.columns([1.25, 1])
 
-with col1:
-    st.markdown("<div class='hero-container'>", unsafe_allow_html=True)
-    st.markdown(
-    "<div class='gradient-text'>"
-    "<span class='letter'>S</span><span class='letter'>u</span><span class='letter'>h</span><span class='letter'>a</span><span class='letter'>s</span> "
-    "<span class='letter'>V</span><span class='letter'>e</span><span class='letter'>n</span><span class='letter'>k</span><span class='letter'>a</span><span class='letter'>t</span><span class='letter'>a</span> "
-    "<span class='letter'>K</span><span class='letter'>a</span><span class='letter'>r</span><span class='letter'>a</span><span class='letter'>m</span><span class='letter'>a</span><span class='letter'>l</span><span class='letter'>a</span><span class='letter'>p</span><span class='letter'>u</span><span class='letter'>t</span><span class='letter'>t</span><span class='letter'>i</span> "
-    "<span class='emoji'>👋</span>"
-    "</div>",
-    unsafe_allow_html=True)
-    st.markdown("<div class='subtitle'>CSE Senior at PES University | Software Engineer Intern at Epsilon</div>", unsafe_allow_html=True)
-    st.markdown("""<p style='font-size:18px; line-height:1.6;'>
-Final-year Computer Science & Engineering student at PES University, currently working as a Software Engineer Intern at Epsilon. Previously worked as a Software Engineering Intern at Elfonze Technologies and as a Summer Research Intern at C3I, contributing to end-to-end AI and software solutions. Passionate about Machine Learning, Natural Language Processing, and applied AI, with hands-on experience building ML systems and solving real-world problems through software engineering and research-driven projects.
-</p>
-""", unsafe_allow_html=True)
-    st.markdown("</div>", unsafe_allow_html=True)
-
-with col2:
-    if img_b64: 
-        st.markdown(f"<img src='data:image/png;base64,{img_b64}' class='profile-pic'/>", unsafe_allow_html=True)
-st.markdown("</div>", unsafe_allow_html=True) # End of Home section
-
-# --- STYLE FOR CONTACT BUTTONS ---
-# Styles loaded from static/style.css
-
-buttons_html = f"""
-<div class="button-row">
-  <a href="{resume_download_href}" download="Suhas_Resume.pdf" class="contact-button">
-    <img src="https://img.icons8.com/?size=100&id=32541&format=png&color=FFFFFF" class="contact-icon">Resume
-  </a>
-  <a href="mailto:suhas.karamalaputti@gmail.com" class="contact-button">
-    <img src="https://img.icons8.com/?size=100&id=qyRpAggnV0zH&format=png&color=FFFFFF" class="contact-icon">Email
-  </a>
-  <a href="https://www.linkedin.com/in/suhas-venkata-karamalaputti/" target="_blank" class="contact-button">
-    <img src="https://img.icons8.com/?size=100&id=13930&format=png&color=FFFFFF" class="contact-icon">LinkedIn
-  </a>
-  <a href="https://github.com/sUhAs1011" target="_blank" class="contact-button">
-    <img src="https://img.icons8.com/?size=100&id=SzgQDfObXUbA&format=png&color=000000" class="contact-icon">GitHub
-  </a>
+with col_hero_left:
+    st.markdown("""<div class="hero-container">
+<div class="hero-tag">INITIALIZING SYSTEM // AI &amp; SOFTWARE ENGINEER</div>
+<h1 class="hero-name">Suhas Venkata Karamalaputti<span class="hero-name-dot">.</span></h1>
+<div class="hero-title">Machine Learning &amp; Software Engineer</div>
+<p class="hero-bio">I design and build intelligent AI systems, vector search pipelines, and enterprise software solutions — solving real-world challenges through research-driven engineering and platform thinking.</p>
+</div>""", unsafe_allow_html=True)
+    
+    # Action buttons row
+    buttons_html = f"""<div class="button-row">
+<a href="#projects" class="btn-primary-gradient">Explore Selected Work ⚡</a>
+<a href="{resume_download_href}" download="Suhas_Resume.pdf" class="contact-button">Download résumé &darr;</a>
+<a href="https://www.linkedin.com/in/suhas-venkata-karamalaputti/" target="_blank" class="contact-button">LinkedIn &nearr;</a>
+<a href="https://github.com/sUhAs1011" target="_blank" class="contact-button">GitHub &nearr;</a>
+</div>"""
+    st.markdown(buttons_html, unsafe_allow_html=True)
+    
+    # Currently Status pill
+    if img_b64:
+        status_html = f"""<div class="hero-status-bar">
+<img src="data:image/png;base64,{img_b64}" class="status-avatar" alt="Avatar" />
+<div class="status-text">
+<div class="status-label">CURRENTLY</div>
+<div class="status-company">Software Engineer Intern @ Epsilon</div>
 </div>
-"""
-st.markdown(buttons_html, unsafe_allow_html=True)
+</div>"""
+        st.markdown(status_html, unsafe_allow_html=True)
 
+with col_hero_right:
+    # Custom SUHAS.CORE Intelligence Matrix HUD Widget
+    hud_html = """<div class="core-hud-widget">
+<div class="hud-header">
+<div class="hud-title-tag">SUHAS.CORE // SYSTEM MATRIX</div>
+<div class="hud-signal-badge"><span class="ticker-pulse"></span> LIVE SIGNAL 99.4%</div>
+</div>
+<div class="hud-matrix-grid">
+<div class="hud-node-card">
+<div class="node-index">[01] DOMAIN</div>
+<div class="node-label">ML &amp; Deep Learning</div>
+<div class="node-sub">PyTorch · DSSM · Annoy</div>
+</div>
+<div class="hud-node-card">
+<div class="node-index">[02] DOMAIN</div>
+<div class="node-label">NLP &amp; LLM Architecture</div>
+<div class="node-sub">LangGraph · Transformers · Ollama</div>
+</div>
+<div class="hud-node-card">
+<div class="node-index">[03] DOMAIN</div>
+<div class="node-label">Agentic AI &amp; MCP</div>
+<div class="node-sub">Multi-Agent · Vector Search</div>
+</div>
+<div class="hud-node-card">
+<div class="node-index">[04] DOMAIN</div>
+<div class="node-label">Full-Stack Enterprise</div>
+<div class="node-sub">FastAPI · React · Streamlit</div>
+</div>
+</div>
+<div class="hud-metrics-bar">
+<div class="metric-box">
+<div class="metric-value">10+</div>
+<div class="metric-label">Projects Built</div>
+</div>
+<div class="metric-box">
+<div class="metric-value">128D</div>
+<div class="metric-label">Vector Space</div>
+</div>
+<div class="metric-box">
+<div class="metric-value">&lt;100ms</div>
+<div class="metric-label">Latency Speed</div>
+</div>
+</div>
+</div>"""
+    st.markdown(hud_html, unsafe_allow_html=True)
 
+st.markdown("</div>", unsafe_allow_html=True) # End of Hero section
 
-# --- ABOUT ME ---
-st.markdown("<div id='about' class='content-section'>", unsafe_allow_html=True)
+# --- ABOUT ME SECTION ---
+img_about = load_and_process_about_image(os.path.join(SCRIPT_DIR, "linked.jpg"))
+buffered_about = BytesIO()
+img_about.save(buffered_about, format="PNG", quality=95)
+about_img_b64 = base64.b64encode(buffered_about.getvalue()).decode()
 
-# Inject custom CSS styles for the About Me section to match margins, rounded corners, and hover effects
-# Styles loaded from static/style.css
+about_html = f"""<div id="about" class="content-section">
+<h2 class="section-heading"><span class="section-tag">[01] PROFILE</span> 👨‍💼 About Me</h2>
+<div class="about-card">
+<div class="about-image-wrapper">
+<img src="data:image/png;base64,{about_img_b64}" class="about-image" alt="Suhas Venkata Karamalaputti" />
+</div>
+<div class="about-content">
+<div class="about-intro-heading">Software &amp; Applied AI Engineer based in Bengaluru, India</div>
+<div class="about-paragraph">I’m <strong>Suhas Venkata Karamalaputti</strong>, a final-year Computer Science &amp; Engineering student at <span class="highlight-cyan">PES University</span>, currently working as a <span class="highlight-purple">Software Engineer Intern at Epsilon</span>. I specialize in Machine Learning, Deep Learning, and Natural Language Processing, building intelligent systems that convert complex data into real-world impact.</div>
+<div class="about-paragraph">Previously, I worked as a Software Engineering Intern at <span class="highlight-cyan">Elfonze Technologies</span>, where I developed AI-driven and full-stack enterprise platforms — including semantic document retrieval systems, travel expense platforms, and scalable ticketing workflows.</div>
+<div class="about-paragraph">I thrive at the intersection of AI research and production engineering — building vector search engines, RAG pipelines, and multi-agent systems.</div>
+<div class="about-meta-grid">
+<div class="about-meta-item"><span class="meta-label">CURRENT ROLE</span><span class="meta-val">SWE Intern @ Epsilon</span></div>
+<div class="about-meta-item"><span class="meta-label">EDUCATION</span><span class="meta-val">B.Tech CSE @ PES University</span></div>
+<div class="about-meta-item"><span class="meta-label">LOCATION</span><span class="meta-val">Bengaluru, KA, India</span></div>
+<div class="about-meta-item"><span class="meta-label">CORE FOCUS</span><span class="meta-val">Applied AI, NLP &amp; RAG</span></div>
+</div>
+</div>
+</div>
+</div>"""
+st.markdown(about_html, unsafe_allow_html=True)
 
-col1, col2 = st.columns([1.25, 2])
-
-with col1:
-    img = load_and_process_about_image(os.path.join(SCRIPT_DIR, "linked.jpg"))
-
-    st.image(img, use_container_width=True)  # ensures correct rendering for local file
-
-with col2:
-    st.markdown("""
-    <h2 class="about-header">👨‍💼 About Me</h2>
-    <div class="about-paragraph">
-       I’m Suhas Venkata Karamalaputti, a final-year Computer Science & Engineering student at PES University, currently working as a Software Engineer Intern at Epsilon. I have a strong interest in Machine Learning, Deep Learning, and Natural Language Processing, and I enjoy building AI systems that solve real-world problems and create meaningful impact.
-    </div>    
-    <div class="about-paragraph">
-        Previously, I worked as a Software Engineering Intern at Elfonze Technologies, where I developed AI-driven and full-stack enterprise applications, including a semantic document retrieval system, a travel expense management platform, and a scalable ticketing workflow system.
-    </div>    
-    <div class="about-paragraph">
-       I’m always excited to explore new technologies, take on challenging problems, and collaborate across domains. If you're working on AI-driven or ML/NLP-focused projects, I’d love to connect and build something impactful together.
-    </div>    
-    """, unsafe_allow_html=True)
-
-st.markdown("</div>", unsafe_allow_html=True)
-
-# --- Skills Section ---
-# Styles loaded from static/style.css
-
-# --- Skills Section ---
+# --- SKILLS SECTION ---
 st.markdown("<div id='skills' class='content-section'>", unsafe_allow_html=True)
-st.markdown("## 🛠️ Skills")
+st.markdown("""<h2 class="section-heading"><span class="section-tag">[02] TECH STACK</span> 🛠️ Skills &amp; Technologies</h2>""", unsafe_allow_html=True)
 
-# --- Programming Languages Sub-section ---
-st.markdown("#### 👨‍💻 Programming Languages")
+# --- Programming Languages ---
+st.markdown("<div class='skill-category-title'>👨‍💻 Programming Languages</div>", unsafe_allow_html=True)
 
-# Icon URLs (you can expand for other languages similarly)
 icon_map = {
     "Python": "https://img.icons8.com/color/48/000000/python--v1.png",
     "C": "https://img.icons8.com/color/48/000000/c-programming.png",
@@ -290,16 +289,16 @@ for i, lang in enumerate(prog_langs):
         icon_url = icon_map[lang]
         st.markdown(
             f"""
-            <div class='skill-box' style="text-align:center; padding:10px;">
-                <img src="{icon_url}" alt="{lang} icon" style="width:40px; height:40px; margin-bottom:10px;" />
-                <div class='skill-text' style="font-weight:bold;">{lang}</div>
+            <div class='skill-box'>
+                <img src="{icon_url}" alt="{lang} icon" />
+                <div class='skill-text'>{lang}</div>
             </div>
             """,
             unsafe_allow_html=True
         )
 
-# --- Databases Sub-section ---
-st.markdown("#### 🗄️ Databases") 
+# --- Databases ---
+st.markdown("<div class='skill-category-title'>🗄️ Databases & Vector Stores</div>", unsafe_allow_html=True) 
 
 db_icon_map = {
     "MySQL": "https://img.icons8.com/?size=100&id=9nLaR5KFGjN0&format=png&color=000000",
@@ -316,20 +315,17 @@ for i, tool in enumerate(db_tools):
     with db_cols[i % 3]:
         st.markdown(
             f"""
-            <div class='skill-box' style="text-align:center; padding:10px;">
-                <img src="{db_icon_map[tool]}" alt="{tool} icon" style="width:40px; height:40px; margin-bottom:10px;" />
-                <div class='skill-text' style="font-weight:bold;">{tool}</div>
+            <div class='skill-box'>
+                <img src="{db_icon_map[tool]}" alt="{tool} icon" />
+                <div class='skill-text'>{tool}</div>
             </div>
             """,
             unsafe_allow_html=True
         )
 
+# --- AI/ML ---
+st.markdown("<div class='skill-category-title'>🤖 AI/ML Libraries</div>", unsafe_allow_html=True)
 
-# --- AI/ML Sub-section ---
-st.markdown("#### 🤖 AI/ML Library")
-
-
-# Icon and label
 ml_icon_map = {
     "Scikit-learn": "https://quintagroup.com/cms/python/images/scikit-learn-logo.png",
     "Pandas":        "https://img.icons8.com/?size=100&id=xSkewUSqtErH&format=png&color=000000",
@@ -352,17 +348,16 @@ for i, tool in enumerate(ml_tools):
         icon_url = ml_icon_map.get(tool, "")
         st.markdown(
             f"""
-            <div class='skill-box' style="text-align:center; padding:10px;">
-                <img src="{icon_url}" alt="{tool} icon" style="width:40px; height:40px; margin-bottom:10px;" />
-                <div class='skill-text' style="font-weight:bold;">{tool}</div>
+            <div class='skill-box'>
+                <img src="{icon_url}" alt="{tool} icon" />
+                <div class='skill-text'>{tool}</div>
             </div>
             """,
             unsafe_allow_html=True
         )
 
-
-# --- Tools Sub-section ---
-st.markdown("#### 🧰 Tools & Platforms")
+# --- Tools ---
+st.markdown("<div class='skill-category-title'>🧰 Tools &amp; Platforms</div>", unsafe_allow_html=True)
 
 tool_icon_map = {
     "Git": "https://img.icons8.com/?size=100&id=20906&format=png&color=000000",
@@ -370,7 +365,7 @@ tool_icon_map = {
     "Kubernetes": "https://img.icons8.com/?size=100&id=cvzmaEA4kC0o&format=png&color=000000",
     "VSCode": "https://img.icons8.com/?size=100&id=0OQR1FYCuA9f&format=png&color=000000",
     "CursorAI": "https://img.icons8.com/?size=100&id=DiGZkjCzyZXn&format=png&color=000000",
-    "Jupyter": "https://img.icons8.com/?size=100&id=J0SgMWzAxqFj&format=png&color=000000",  # Using generic Jupyter icon
+    "Jupyter": "https://img.icons8.com/?size=100&id=J0SgMWzAxqFj&format=png&color=000000",
     "Google Colab": "https://img.icons8.com/?size=100&id=lOqoeP2Zy02f&format=png&color=000000",
     "Github": "https://img.icons8.com/?size=100&id=SzgQDfObXUbA&format=png&color=000000",
     "AntiGravity": "https://antigravity.google/assets/image/brand/antigravity-icon__full-color.png"
@@ -383,17 +378,16 @@ for i, tool in enumerate(tools_list):
     with tool_cols[i % 3]:
         st.markdown(
             f"""
-            <div class='skill-box' style="text-align:center; padding:10px;">
-                <img src="{tool_icon_map[tool]}" alt="{tool} icon" style="width:40px; height:40px; margin-bottom:10px;" />
-                <div class='skill-text' style="font-weight:bold;">{tool}</div>
+            <div class='skill-box'>
+                <img src="{tool_icon_map[tool]}" alt="{tool} icon" />
+                <div class='skill-text'>{tool}</div>
             </div>
             """,
             unsafe_allow_html=True
         )
 
-
-# --- Operating Systems Sub-section ---
-st.markdown("#### 🖥️ Operating Systems")
+# --- Operating Systems ---
+st.markdown("<div class='skill-category-title'>🖥️ Operating Systems</div>", unsafe_allow_html=True)
 
 os_icon_map = {
     "Windows": "https://img.icons8.com/?size=100&id=108792&format=png&color=000000",
@@ -408,17 +402,19 @@ for i, os_val in enumerate(os_list):
     with os_cols[i % 3]:
         st.markdown(
             f"""
-            <div class='skill-box' style="text-align:center; padding:10px;">
-                <img src="{os_icon_map[os_val]}" alt="{os_val} icon" style="width:40px; height:40px; margin-bottom:10px;" />
-                <div class='skill-text' style="font-weight:bold;">{os_val}</div>
+            <div class='skill-box'>
+                <img src="{os_icon_map[os_val]}" alt="{os_val} icon" />
+                <div class='skill-text'>{os_val}</div>
             </div>
             """,
             unsafe_allow_html=True
         )
 
+st.markdown("</div>", unsafe_allow_html=True) # End of Skills section
+
 # --- EXPERIENCE SECTION ---
 st.markdown("<div id='experience' class='content-section'>", unsafe_allow_html=True)
-st.header("💼 Experience")
+st.markdown("""<h2 class="section-heading"><span class="section-tag">[03] TIMELINE</span> 💼 Experience</h2>""", unsafe_allow_html=True)
 
 experience_data = [
  {
@@ -431,7 +427,6 @@ experience_data = [
     "Built scalable business platforms including a travel expense management system and an enterprise ticketing workflow solution with role-based access control, SLA tracking, workflow automation, analytics dashboards, and real-time operational monitoring."
   ]
 },
-
   {
     "role": "Summer Research Intern",
     "company": "Centre of Cognitive Computing and Computational Intelligence",
@@ -471,17 +466,15 @@ for exp in experience_data:
 st.markdown(experience_html, unsafe_allow_html=True)
 st.markdown("</div>", unsafe_allow_html=True)
 
-
-
 # --- MY JOURNEY SECTION ---
 st.markdown("<div id='journey' class='content-section'>", unsafe_allow_html=True)
-st.markdown("<h2 style='text-align:center;'>🚶‍♂ My Journey</h2>", unsafe_allow_html=True)
+st.markdown("""<h2 class="section-heading" style="justify-content:center;"><span class="section-tag">[04] EDUCATION</span> 🚶‍♂️ My Journey</h2>""", unsafe_allow_html=True)
 
 st.markdown("""
 <div class="timeline-container">
 
-  <div class="timeline-item">
-    <div class="timeline-content left">
+  <div class="timeline-item left">
+    <div class="timeline-content">
       <h3>B.Tech CSE</h3>
       <p>PES University</p>
       <p>🗓️ 2022 - Present</p>
@@ -489,8 +482,8 @@ st.markdown("""
     </div>
   </div>
 
-  <div class="timeline-item">
-    <div class="timeline-content right">
+  <div class="timeline-item right">
+    <div class="timeline-content">
       <h3>12th CBSE</h3>
       <p>Geetanjali Olympiad School</p>
       <p>🗓️ 2020 - 2022</p>
@@ -498,8 +491,8 @@ st.markdown("""
     </div>
   </div>
 
-  <div class="timeline-item">
-    <div class="timeline-content left">
+  <div class="timeline-item left">
+    <div class="timeline-content">
       <h3>10th CBSE</h3>
       <p>Delhi Public School Bangalore East</p>
       <p>🗓️ 2007 - 2020</p>
@@ -509,14 +502,11 @@ st.markdown("""
 
 </div>
 """, unsafe_allow_html=True)
-
-# --- Custom CSS ---
-# --- Custom CSS ---
-# Styles loaded from static/style.css
+st.markdown("</div>", unsafe_allow_html=True)
 
 # --- ACHIEVEMENTS SECTION ---
 st.markdown("<div id='achievements' class='content-section'>", unsafe_allow_html=True)
-st.header("🏆 Achievements")
+st.markdown("""<h2 class="section-heading"><span class="section-tag">[05] HONORS</span> 🏆 Achievements</h2>""", unsafe_allow_html=True)
 
 achievements = [
    {
@@ -551,7 +541,7 @@ achievements = [
         "id": "healocode",
         "cert_path": "certificates/healocode.jpg"
     },
-        {
+    {
         "title": "Anveshana 2026",
         "icon": "🔍",
         "desc": "Ranked Top 11 out of 170 Capstone Teams for Detecting and Mitigating Replay Attacks in CCTV systems.",
@@ -576,34 +566,28 @@ achievements = [
         "cert_path": "certificates/distinction.jpg"
     },
     {
-    "title": "ICICT 2026",
-    "icon": "📄",
-    "desc": "Published a research paper titled <strong>“Detection and Mitigation of Replay Attacks in CCTV Systems”</strong> at 9th International Conference ICICT.",
-    "tag": "International Research Presentation",
-    "id": "icict",
-    "cert_path": "certificates/ieee_icict.jpg"
+        "title": "ICICT 2026",
+        "icon": "📄",
+        "desc": "Published a research paper titled <strong>“Detection and Mitigation of Replay Attacks in CCTV Systems”</strong> at 9th International Conference ICICT.",
+        "tag": "International Research Presentation",
+        "id": "icict",
+        "cert_path": "certificates/ieee_icict.jpg"
     }
-    
 ]
 
-# Generate Grid HTML
 achievements_html = '<div class="achievements-grid">'
-
 for item in achievements:
-    achievements_html += f"""
-<label for="modal-{item['id']}" class="achievement-card">
-    <div class="achievement-header">
-        <div class="achievement-icon-wrapper">{item['icon']}</div>
-        <div class="achievement-title-text">{item['title']}</div>
-    </div>
-    <div class="achievement-description-text">{item['desc']}</div>
-    <div class="achievement-tag">{item['tag']}</div>
-</label>
-"""
-
+    achievements_html += f"""<label for="modal-{item['id']}" class="achievement-card">
+<div class="achievement-header">
+<div class="achievement-icon-wrapper">{item['icon']}</div>
+<div class="achievement-title-text">{item['title']}</div>
+</div>
+<div class="achievement-description-text">{item['desc']}</div>
+<div class="achievement-tag">{item['tag']}</div>
+</label>"""
 achievements_html += '</div>'
 
-# Append checkboxes and modals at the bottom wrapped in a container block to bypass markdown formatting
+# Modals
 achievements_html += '<div class="cert-modals-container">'
 for item in achievements:
     cert_path = item.get("cert_path")
@@ -613,38 +597,33 @@ for item in achievements:
             cert_b64 = load_and_base64_image(full_cert_path)
             content_html = f'<img src="data:image/png;base64,{cert_b64}" class="cert-modal-img">'
         else:
-            # Fallback if path is set but file not found
-            content_html = f"""
-            <div class="cert-modal-fallback-card">
-                <div class="cert-modal-fallback-badge">{item['icon']}</div>
-                <h2 class="cert-modal-fallback-title">{item['title']}</h2>
-                <div class="cert-modal-fallback-desc">{item['desc']}</div>
-                <div class="cert-modal-fallback-tag">{item['tag']}</div>
-                <div class="cert-modal-fallback-status">✓ Verified Achievement</div>
-            </div>
-            """
+            content_html = f"""<div class="cert-modal-fallback-card">
+<div class="cert-modal-fallback-badge">{item['icon']}</div>
+<h2 class="cert-modal-fallback-title">{item['title']}</h2>
+<div class="cert-modal-fallback-desc">{item['desc']}</div>
+<div class="cert-modal-fallback-tag">{item['tag']}</div>
+<div class="cert-modal-fallback-status">✓ Verified Achievement</div>
+</div>"""
     else:
-        # Fallback card for achievements without certificate images
-        content_html = f"""
-        <div class="cert-modal-fallback-card">
-            <div class="cert-modal-fallback-badge">{item['icon']}</div>
-            <h2 class="cert-modal-fallback-title">{item['title']}</h2>
-            <div class="cert-modal-fallback-desc">{item['desc']}</div>
-            <div class="cert-modal-fallback-tag">{item['tag']}</div>
-            <div class="cert-modal-fallback-status">✓ Verified Achievement</div>
-        </div>
-        """
+        content_html = f"""<div class="cert-modal-fallback-card">
+<div class="cert-modal-fallback-badge">{item['icon']}</div>
+<h2 class="cert-modal-fallback-title">{item['title']}</h2>
+<div class="cert-modal-fallback-desc">{item['desc']}</div>
+<div class="cert-modal-fallback-tag">{item['tag']}</div>
+<div class="cert-modal-fallback-status">✓ Verified Achievement</div>
+</div>"""
 
-    achievements_html += f"""
-<input type="checkbox" id="modal-{item['id']}" class="cert-modal-toggle">
+    content_html_clean = "\n".join([line.strip() for line in content_html.split("\n")])
+
+    achievements_html += f"""<input type="checkbox" id="modal-{item['id']}" class="cert-modal-toggle">
 <div class="cert-modal-overlay">
-    <label for="modal-{item['id']}" class="cert-modal-backdrop-close"></label>
-    <div class="cert-modal-content">
-        {content_html}
-        <label for="modal-{item['id']}" class="cert-modal-close-btn">Close Certificate</label>
-    </div>
+<label for="modal-{item['id']}" class="cert-modal-backdrop-close"></label>
+<div class="cert-modal-content">
+{content_html_clean}
+<label for="modal-{item['id']}" class="cert-modal-close-btn">Close Certificate</label>
 </div>
-"""
+</div>"""
+
 achievements_html += '</div>'
 
 st.markdown(achievements_html, unsafe_allow_html=True)
@@ -652,296 +631,220 @@ st.markdown("</div>", unsafe_allow_html=True)
 
 # --- PROJECTS SECTION ---
 st.markdown("<div id='projects' class='content-section'>", unsafe_allow_html=True)
-st.header("🚀 Projects")
+st.markdown("""<h2 class="section-heading"><span class="section-tag">[06] FEATURED WORK</span> 🚀 Projects</h2>""", unsafe_allow_html=True)
 
-projects_data = [
+projects_list = [
     {
-        "id": "healthcare",
+        "id": "proj-1",
         "title": "Blockchain-Powered AI Healthcare Insights",
         "icon": "https://img.icons8.com/?size=100&id=51845&format=png&color=000000",
         "url": "https://github.com/sUhAs1011/BLOCKCHAIN_POWERED_AI_HEALTHCARE_INSIGHTS",
-        "desc": "Designed and developed a secure, scalable system to extract actionable insights from Electronic Health Records (EHRs) using IPFS, multi-chain blockchain, and Gemini API OCR.",
-        "image_path": "projects/healthcare.jpg",
-        "tech": ["Python", "Flask", "Streamlit", "IPFS", "Blockchain", "Ollama", "Gemini API"],
-        "features": [
-            "Integrated <strong>IPFS + multi-chain blockchain</strong> to store prescriptions with unique CIDs, ensuring data integrity, traceability, and decentralized access.",
-            "Built an OCR pipeline using <strong>Gemini API</strong> to extract drug names and dosages from prescriptions for structured analysis.",
-            "Implemented <strong>LLM-based drug interaction analysis</strong> to detect adverse drug-drug interactions and suggest safer alternatives.",
-            "Developed an end-to-end system with <strong>Flask backend + Streamlit UI</strong> enabling upload, analysis, and real-time clinical insights."
-        ]
+        "image": "healthcare.jpg",
+        "short_desc": "Designed and developed a secure, scalable system to extract actionable insights from Electronic Health Records (EHRs) using IPFS, multi-chain blockchain, and Gemini API OCR.",
+        "pills": ["Python", "Flask", "Streamlit", "IPFS", "Blockchain", "Ollama", "Gemini API"],
+        "bullets": """<ul>
+<li>Integrated <strong>IPFS + multi-chain blockchain</strong> to store prescriptions with unique CIDs, ensuring data integrity, traceability, and decentralized access.</li>
+<li>Built an OCR pipeline using <strong>Gemini API</strong> to extract drug names and dosages from prescriptions for structured analysis.</li>
+<li>Implemented <strong>LLM-based drug interaction analysis</strong> to detect adverse drug-drug interactions and suggest safer alternatives.</li>
+<li>Developed an end-to-end system with <strong>Flask backend + Streamlit UI</strong> enabling upload, analysis, and real-time clinical insights.</li>
+</ul>"""
     },
     {
-        "id": "arduino",
-        "title": "IoT-Enabled Intruder Detection System",
+        "id": "proj-2",
+        "title": "IoT-Enabled Arduino Intruder Detection & Alert System",
         "icon": "https://img.icons8.com/?size=100&id=8thlDCUHuqaK&format=png&color=000000",
         "url": "https://github.com/sUhAs1011/UE22CS251B-IOT_ENABLED_ARDUINO_BASED_INTRUDER_DETECTION_AND_ALERT_SYSTEM",
-        "desc": "Engineered a real-time intrusion detection and alert system using Arduino, GSM communication modules, buzzer deterrents, and ultrasonic sensors (<100ms latency).",
-        "image_path": "projects/arduino.jpg",
-        "tech": ["C++", "Arduino", "Ultrasonic Sensor", "GSM Module", "SoftwareSerial.h"],
-        "features": [
-            "Utilized an <strong>ultrasonic sensor</strong> to detect unauthorized entry, triggering a red LED, buzzer alarm, and <strong>GSM-based alert notifications</strong>.",
-            "Programmed using <strong>C++</strong> with SoftwareSerial.h to manage GSM module communication.",
-            "Configured the Arduino IDE and implemented serial communication to ensure seamless performance and real-time responsiveness.",
-            "Achieved near-instant detection <strong>&lt; 100 ms</strong> with real-time serial communication, ensuring quick & reliable security alerts."
-        ]
+        "image": "arduino.jpg",
+        "short_desc": "Engineered a real-time intrusion detection system using Arduino, designed to enhance home security through ultrasonic sensors, alarms, and automated GSM alert notifications.",
+        "pills": ["C++", "Arduino", "Ultrasonic Sensor", "GSM Module", "SoftwareSerial.h"],
+        "bullets": """<ul>
+<li>Utilized an <strong>ultrasonic sensor</strong> to detect unauthorized entry, triggering a red LED, buzzer alarm, and <strong>GSM-based alert notifications</strong>.</li>
+<li>Programmed using <strong>C++</strong> with SoftwareSerial.h to manage GSM module communication.</li>
+<li>Configured the Arduino IDE and implemented serial communication to ensure seamless system performance and real-time responsiveness.</li>
+<li>Achieved near-instant detection <strong>&lt; 100 ms</strong> with real-time serial communication, ensuring quick &amp; reliable security alerts.</li>
+</ul>"""
     },
     {
-        "id": "chatbot",
-        "title": "LegalBot: Mining Intelligence Bot",
+        "id": "proj-3",
+        "title": "LegalBot: AI-Powered Regulatory Mining Intelligence Bot",
         "icon": "https://img.icons8.com/?size=100&id=vkfmsvBD0PPO&format=png&color=000000",
         "url": "https://github.com/sUhAs1011/UE22CS342B_AI_POWERED_REGULATORY_MINING_INTELLIGENCE_BOT",
-        "desc": "Developed an AI chatbot parsing regulatory documents into MongoDB, querying relevant laws using SentenceTransformer semantic search, and performing risk assessment.",
-        "image_path": "projects/chatbot.jpg",
-        "tech": ["Python", "SentenceTransformers", "MongoDB", "NLP", "Streamlit"],
-        "features": [
-            "Built an NLP pipeline to preprocess and store mining law documents in MongoDB for efficient retrieval and semantic search.",
-            "Implemented <strong>SentenceTransformer-based semantic search</strong> to fetch relevant legal sections based on user queries.",
-            "Developed a conflict detection system to identify contradictions across regulations and suggest alternative compliant actions.",
-            "Created an interactive chatbot interface using Streamlit for real-time querying, risk assessment, and regulatory insights."
-        ]
+        "image": "chatbot.jpg",
+        "short_desc": "Designed and developed an AI-powered regulatory intelligence bot to analyze mining laws, detect conflicts, and assist in compliance decision-making.",
+        "pills": ["Python", "SentenceTransformers", "MongoDB", "NLP", "Streamlit"],
+        "bullets": """<ul>
+<li>Built an NLP pipeline to preprocess and store mining law documents in MongoDB for efficient retrieval and semantic search.</li>
+<li>Implemented <strong>SentenceTransformer-based semantic search</strong> to fetch relevant legal sections based on user queries.</li>
+<li>Developed a conflict detection system to identify contradictions across regulations and suggest alternative compliant actions.</li>
+<li>Created an interactive chatbot interface using Streamlit for real-time querying, risk assessment, and regulatory insights.</li>
+</ul>"""
     },
     {
-        "id": "udp",
+        "id": "proj-4",
         "title": "Cloud File Transfer System using UDP",
         "icon": "https://img.icons8.com/?size=100&id=NIaxM8D5w6rv&format=png&color=FFFFFF",
         "url": "https://github.com/sUhAs1011/UE22CS252B_CLOUD_FILE_TRANSFER_SYSTEM_USING_UDP",
-        "desc": "Built a secure client-server socket programming architecture enabling directory actions, file upload/downloads, and remote command execution using UDP and SSL.",
-        "image_path": "projects/udp.jpg",
-        "tech": ["Python", "UDP", "Socket Programming", "SSL", "File Handling"],
-        "features": [
-            "Developed a <strong>client-server architecture</strong> using Python <strong>socket programming</strong> for file upload, download, and listing operations.",
-            "Integrated <strong>SSL certificates</strong> for secure communication between client and server.",
-            "Implemented <strong>dynamic IP handling</strong> to support both localhost and distributed multi-system deployments.",
-            "Enabled execution of remote shell commands and ensured seamless file transfers across networked devices."
-        ]
+        "image": "udp.jpg",
+        "short_desc": "Built a secure, network-based Cloud File Transfer System using Python and UDP, enabling efficient file transfer, SSL encryption, and command execution across systems.",
+        "pills": ["Python", "UDP", "Socket Programming", "SSL", "File Handling"],
+        "bullets": """<ul>
+<li>Developed a <strong>client-server architecture</strong> using Python <strong>socket programming</strong> for file upload, download, and listing operations.</li>
+<li>Integrated <strong>SSL certificates</strong> for secure communication between client and server.</li>
+<li>Implemented <strong>dynamic IP handling</strong> to support both localhost and distributed multi-system deployments.</li>
+<li>Enabled execution of remote shell commands and ensured seamless file transfers across networked devices.</li>
+</ul>"""
     },
     {
-        "id": "kalpana",
-        "title": "Kalpana AI – Peer Support Platform",
+        "id": "proj-5",
+        "title": "Kalpana AI – Mental Health Peer Support Platform",
         "icon": "https://img.icons8.com/?size=100&id=2QfCaN1Zfmqf&format=png&color=000000",
         "url": "https://github.com/sUhAs1011",
-        "desc": "Developed a voice-enabled peer support chat app leveraging a Listener AI for empathy, clinical mapping for risk analysis, and vector search matching for lived experiences.",
-        "image_path": "projects/kalpana.jpg",
-        "tech": ["Python", "FastAPI", "React", "Ollama", "Pinecone"],
-        "features": [
-            "Dual-agent architecture with a Listener AI for empathetic conversations and a Clinical Mapper for emotional risk analysis.",
-            "Voice-enabled interaction supporting multilingual speech-to-text and text-to-speech communication.",
-            "Peer matchmaking system using semantic embeddings and vector search to connect users with similar lived experiences.",
-            "Crisis safety layer that detects high-risk conversations and redirects users to emergency resources."
-        ]
+        "image": "kalpana.jpg",
+        "short_desc": "Developed Kalpana AI, an AI-powered platform designed to support individuals experiencing emotional distress through empathetic conversations, peer matchmaking, and crisis safety layers.",
+        "pills": ["Python", "FastAPI", "React", "Ollama", "Pinecone"],
+        "bullets": """<ul>
+<li>Dual-agent architecture with a Listener AI for empathetic conversations and a Clinical Mapper for emotional risk analysis.</li>
+<li>Voice-enabled interaction supporting multilingual speech-to-text and text-to-speech communication.</li>
+<li>Peer matchmaking system using semantic embeddings and vector search to connect users with similar lived experiences.</li>
+<li>Crisis safety layer that detects high-risk conversations and redirects users to emergency resources.</li>
+</ul>"""
     },
     {
-        "id": "career",
-        "title": "AI-Powered Career Skill Gap Copilot",
+        "id": "proj-6",
+        "title": "AI-Powered Career Skill Gap Analysis & Recommendation",
         "icon": "https://img.icons8.com/?size=100&id=fLrxgaxCrjaZ&format=png&color=FFFFFF",
         "url": "https://github.com/sUhAs1011/AI_POWERED_SKILL_GAP_ANALYSIS_RESKILLING_FOR_EMPLOYMENT_TRENDS",
-        "desc": "Analyzed job trends, parsed resumes with OCR, and mapped missing skills using a PyTorch DSSM model to generate learning roadmaps grounded in Ollama LLaMA-3.",
-        "image_path": "projects/career.jpg",
-        "tech": ["Python", "PyTorch", "ChromaDB", "DSSM", "Streamlit", "Ollama", "Tesseract OCR"],
-        "features": [
-            "Parsed resumes with <strong>Tesseract OCR</strong> and matched skills to job requirements using <strong>ChromaDB</strong> embeddings.",
-            "Engineered a <strong>PyTorch DSSM</strong> to map semantic relationships and prioritize high-demand missing skills.",
-            "Built an interactive <strong>Streamlit</strong> dashboard for skill gap analysis and learning-style-adapted course recommendations.",
-            "Integrated <strong>Ollama (LLaMA 3)</strong> to generate course rationales and mapped learning roadmaps via interactive graphs."
-        ]
+        "image": "career.jpg",
+        "short_desc": "Analyzing job trends, mapping skill gaps, and recommending targeted reskilling programs across employment sectors using PyTorch DSSM and ChromaDB embeddings.",
+        "pills": ["Python", "PyTorch", "ChromaDB", "DSSM", "Streamlit", "Ollama", "Tesseract OCR"],
+        "bullets": """<ul>
+<li>Parsed resumes with <strong>Tesseract OCR</strong> and matched skills to job requirements using <strong>ChromaDB</strong> embeddings.</li>
+<li>Engineered a <strong>PyTorch DSSM</strong> to map semantic relationships and prioritize high-demand missing skills.</li>
+<li>Built an interactive <strong>Streamlit</strong> dashboard for skill gap analysis and learning-style-adapted course recommendations.</li>
+<li>Integrated <strong>Ollama (LLaMA 3)</strong> to generate course rationales and mapped learning roadmaps via interactive graphs.</li>
+</ul>"""
     },
     {
-        "id": "node_simulator",
-        "title": "Distributed Systems Cluster Simulator",
+        "id": "proj-7",
+        "title": "Distributed Systems Cluster Simulator Framework",
         "icon": "https://img.icons8.com/?size=100&id=7pFfikEfVGOV&format=png&color=000000",
         "url": "https://github.com/sUhAs1011/UE22CS351B_DISTRIBUTED_SYSTEMS_CLUSTER_SIMULATION_FRAMEWORK",
-        "desc": "Designed a simulation framework modeling pod scheduling, node heartbeats, resource utilization constraints, and distributed heartbeat checks, fully dockerized.",
-        "image_path": "projects/node_simulator.jpg",
-        "tech": ["Python", "Streamlit", "Docker", "Node.js", "RestAPI", "FastAPI", "JSON"],
-        "features": [
-            "API Server: A centralized control unit for node management, pod scheduling, and health monitoring.",
-            "Cluster Nodes: Virtualized computing units that periodically send heartbeat signals to the <strong>API-Server</strong>.",
-            "Pods: Deployable units simulated on nodes, which require specific CPU resources.",
-            "Dockerized for portability and easy deployment and Real-time cluster health and pod scheduling visualization via Streamlit."
-        ]
+        "image": "node_simulator.jpg",
+        "short_desc": "Designed a simulation framework modeling pod scheduling, node heartbeats, resource utilization constraints, and distributed heartbeat checks, fully dockerized.",
+        "pills": ["Python", "Streamlit", "Docker", "Node.js", "RestAPI", "FastAPI", "JSON"],
+        "bullets": """<ul>
+<li>API Server: A centralized control unit for node management, pod scheduling, and health monitoring.</li>
+<li>Cluster Nodes: Virtualized computing units that periodically send heartbeat signals to the <strong>API-Server</strong>.</li>
+<li>Pods: Deployable units simulated on nodes, which require specific CPU resources.</li>
+<li>Dockerized for portability and easy deployment and Real-time cluster health and pod scheduling visualization via Streamlit.</li>
+</ul>"""
     },
     {
-        "id": "cctv",
+        "id": "proj-8",
         "title": "CCTV Replay Attack Detection And Mitigation",
         "icon": "https://img.icons8.com/?size=100&id=3wl52ZDVBgG0&format=png&color=000000",
         "url": "https://github.com/sUhAs1011/DETECTION_AND_MITIGATION_OF_REPLAY_ATTACK_IN_CCTV_SYSTEMS",
-        "desc": "Built a temporal CCTV anomaly mitigation engine utilizing optical flow, Hierarchical Temporal Memory (HTM), and SHA-256 integrity hash verification.",
-        "image_path": "projects/cctv.jpg",
-        "tech": ["Python", "HTM", "Optical Flow", "SDR", "SHA-256", "Streamlit", "FastAPI", "SQLite"],
-        "features": [
-            "<strong>Optical flow–based motion analysis</strong> with <strong>SDR</strong> encoding to capture temporal motion patterns in a compact and interpretable form.",
-            "<strong>Hierarchical Temporal Memory (HTM)</strong> model for lightweight, real-time anomaly detection of unusual motion sequences.",
-            "<strong>SHA‑256</strong> frame hashing and verification to ensure tamper-evident, forensic reliability of CCTV footage.",
-            "Decision engine with dashboard interface that fuses anomaly scores and integrity checks, providing real-time alerts, visualization, and forensic reporting."
-        ]
+        "image": "cctv.jpg",
+        "short_desc": "Built a temporal CCTV anomaly mitigation engine utilizing optical flow, Hierarchical Temporal Memory (HTM), and SHA-256 integrity hash verification.",
+        "pills": ["Python", "HTM", "Optical Flow", "SDR", "SHA-256", "Streamlit", "FastAPI", "SQLite"],
+        "bullets": """<ul>
+<li><strong>Optical flow–based motion analysis</strong> with <strong>SDR</strong> encoding to capture temporal motion patterns in a compact and interpretable form.</li>
+<li><strong>Hierarchical Temporal Memory (HTM)</strong> model for lightweight, real-time anomaly detection of unusual motion sequences.</li>
+<li><strong>SHA‑256</strong> frame hashing and verification to ensure tamper-evident, forensic reliability of CCTV footage.</li>
+<li>Decision engine with dashboard interface that fuses anomaly scores and integrity checks, providing real-time alerts, visualization, and forensic reporting.</li>
+</ul>"""
     },
     {
-        "id": "ai_personal_assistant",
+        "id": "proj-9",
         "title": "Personal Booking Agent using LangGraph",
         "icon": "https://img.icons8.com/?size=100&id=nkGDoqzPxYM3&format=png&color=000000",
         "url": "https://github.com/sUhAs1011/AI_PERSONAL_ASSISTANT",
-        "desc": "Built an LLM agent calendar workflow orchestrator utilizing LangGraph for reasoning loops, calendar API integrations, cache querying, and HITL overrides.",
-        "image_path": "projects/ai_personal_assistant.jpg",
-        "tech": ["Python", "FastAPI", "LangGraph", "LangChain", "Groq", "React", "SQLite", "MCP"],
-        "features": [
-            "Designed a LangGraph-based agent enabling dynamic tool-calling and multi-step reasoning for booking and queries.",
-            "Integrated MCP-based calendar services with conflict detection and Human-in-the-Loop (HITL) resolution.",
-            "Implemented cache-first queries for fast retrieval of event details like duration, location, and availability.",
-            "Developed a React + FastAPI system with real-time chat and robust backend validation."
-        ]
+        "image": "ai_personal_assistant.jpg",
+        "short_desc": "Built an LLM agent calendar workflow orchestrator utilizing LangGraph for reasoning loops, calendar API integrations, cache querying, and HITL overrides.",
+        "pills": ["Python", "FastAPI", "LangGraph", "LangChain", "Groq", "React", "SQLite", "MCP"],
+        "bullets": """<ul>
+<li>Designed a LangGraph-based agent enabling dynamic tool-calling and multi-step reasoning for booking and queries.</li>
+<li>Integrated MCP-based calendar services with conflict detection and Human-in-the-Loop (HITL) resolution.</li>
+<li>Implemented cache-first queries for fast retrieval of event details like duration, location, and availability.</li>
+<li>Developed a React + FastAPI system with real-time chat and robust backend validation.</li>
+</ul>"""
     },
     {
-        "id": "traceops",
+        "id": "proj-10",
         "title": "TraceOps - AI Incident Response Agent",
         "icon": "https://img.icons8.com/?size=100&id=M16ic8QWK8x6&format=png&color=000000",
         "url": "https://github.com/sUhAs1011/TRACEOPS",
-        "desc": "TraceOps is a multi-agent incident investigation system that automates root-cause analysis by correlating logs, configurations, and codebase context.",
-        "image_path": "projects/traceops.jpg",
-        "tech": ["Python", "MCP", "LangGraph", "Ollama", "Streamlit"],
-        "features": [
-            "Multi-agent reasoning pipeline for log ingestion, contextual analysis, and incident investigation.",
-            "Context-aware root-cause detection using configuration and codebase grounding.",
-            "Automated fix-plan generation with explainable, evidence-backed recommendations.",
-            "Decision dashboard providing incident summaries, traceability, and actionable alerts."
-        ]
+        "image": "traceops.jpg",
+        "short_desc": "TraceOps is a multi-agent incident investigation system that automates root-cause analysis by correlating logs, configurations, and codebase context.",
+        "pills": ["Python", "MCP", "LangGraph", "Ollama", "Streamlit"],
+        "bullets": """<ul>
+<li>Multi-agent reasoning pipeline for log ingestion, contextual analysis, and incident investigation.</li>
+<li>Context-aware root-cause detection using configuration and codebase grounding.</li>
+<li>Automated fix-plan generation with explainable, evidence-backed recommendations.</li>
+<li>Decision dashboard providing incident summaries, traceability, and actionable alerts.</li>
+</ul>"""
     }
 ]
 
-# Generate Projects Grid HTML and Modals
+# Generate 2-Column Compact Grid Cards
 projects_html = '<div class="projects-grid">'
-
-for proj in projects_data:
-    tag_pills = "".join([f'<span class="project-tag">{tech}</span>' for tech in proj["tech"]])
-    # Project card is now a label that toggles the project modal checkbox
-    projects_html += f'<label for="modal-project-{proj["id"]}" class="project-card">'
-    projects_html += f'<div class="project-header">'
-    projects_html += f'<div class="project-icon-wrapper">'
-    projects_html += f'<img src="{proj["icon"]}" class="project-icon" alt="icon" />'
-    projects_html += f'</div>'
-    projects_html += f'<div class="project-title-text">{proj["title"]}</div>'
-    projects_html += f'</div>'
-    projects_html += f'<div class="project-description-text">{proj["desc"]}</div>'
-    projects_html += f'<div class="project-tags">{tag_pills}</div>'
-    projects_html += f'<div class="project-link">View Details &rarr;</div>'
-    projects_html += f'</label>'
-
+for item in projects_list:
+    pills_html = "".join([f'<span class="tech-pill">{pill}</span>' for pill in item['pills']])
+    projects_html += f"""<div class="project-compact-card">
+<div class="project-header-row">
+<div class="project-icon-box"><img src="{item['icon']}" alt="icon"></div>
+<div class="project-title-text">{item['title']}</div>
+</div>
+<div class="project-short-desc">{item['short_desc']}</div>
+<div class="project-pills-row">{pills_html}</div>
+<label for="modal-{item['id']}" class="project-view-details-btn">View Details &rarr;</label>
+</div>"""
 projects_html += '</div>'
 
-# Append checkboxes and modal overlay wrappers for projects
-projects_html += '<div class="cert-modals-container">'
-for proj in projects_data:
-    # Build list of feature bullets
-    bullets_html = "".join([f'<li>{bullet}</li>' for bullet in proj["features"]])
-    tag_pills_modal = "".join([f'<span class="project-tag">{tech}</span>' for tech in proj["tech"]])
-    
-    # Load project image as base64
-    img_b64 = ""
-    img_path = os.path.join(SCRIPT_DIR, proj["image_path"])
-    if os.path.exists(img_path):
-        img_b64 = load_and_base64_image(img_path)
-    
-    img_src = f"data:image/png;base64,{img_b64}" if img_b64 else proj["image_path"]
-    
-    projects_html += f'<input type="checkbox" id="modal-project-{proj["id"]}" class="project-modal-toggle" />'
-    projects_html += f'<div class="project-modal-overlay">'
-    projects_html += f'<label for="modal-project-{proj["id"]}" class="project-modal-backdrop-close"></label>'
-    projects_html += f'<div class="project-modal-content">'
-    
-    # Left column: Image
-    projects_html += f'<div class="project-modal-left">'
-    projects_html += f'<label for="modal-project-img-{proj["id"]}">'
-    projects_html += f'<img src="{img_src}" class="project-modal-img" alt="{proj["title"]}" />'
-    projects_html += f'</label>'
-    projects_html += f'</div>'
-    
-    # Right column: Details and Actions
-    projects_html += f'<div class="project-modal-right">'
-    projects_html += f'<div class="project-modal-title">'
-    projects_html += f'<img src="{proj["icon"]}" style="width:30px; height:30px; vertical-align:middle;" /> '
-    projects_html += f'{proj["title"]}'
-    projects_html += f'</div>'
-    projects_html += f'<div class="project-modal-desc">'
-    projects_html += f'{proj["desc"]}'
-    projects_html += f'<ul>{bullets_html}</ul>'
-    projects_html += f'</div>'
-    projects_html += f'<div class="project-modal-tech">{tag_pills_modal}</div>'
-    projects_html += f'<div class="project-modal-actions">'
-    projects_html += f'<a href="{proj["url"]}" target="_blank" class="project-modal-btn project-modal-btn-primary">View GitHub Repo</a>'
-    projects_html += f'<label for="modal-project-{proj["id"]}" class="project-modal-btn project-modal-btn-secondary">Close</label>'
-    projects_html += f'</div>'
-    projects_html += f'</div>' # End project-modal-right
-    
-    projects_html += f'</div>' # End project-modal-content
-    projects_html += f'</div>' # End project-modal-overlay
-    
-    # Zoom Modal for Project Image (uses cert-modal classes for design/behavior)
-    projects_html += f'<input type="checkbox" id="modal-project-img-{proj["id"]}" class="cert-modal-toggle" />'
-    projects_html += f'<div class="cert-modal-overlay">'
-    projects_html += f'<label for="modal-project-img-{proj["id"]}" class="cert-modal-backdrop-close"></label>'
-    projects_html += f'<div class="cert-modal-content">'
-    projects_html += f'<img src="{img_src}" class="cert-modal-img" alt="{proj["title"]} Zoomed" />'
-    projects_html += f'<label for="modal-project-img-{proj["id"]}" class="cert-modal-close-btn">Close Image</label>'
-    projects_html += f'</div>'
-    projects_html += f'</div>'
-    
-projects_html += '</div>' # End cert-modals-container
+# Generate Full-Screen Project Detail Modals
+projects_html += '<div class="project-modals-container">'
+for item in projects_list:
+    img_path = os.path.join(projects_dir, item["image"])
+    img_b64 = load_and_base64_image(img_path)
+    img_src = f"data:image/png;base64,{img_b64}" if img_b64 else ""
+    pills_html = "".join([f'<span class="tech-pill">{pill}</span>' for pill in item['pills']])
+    bullets_clean = "\n".join([line.strip() for line in item['bullets'].split("\n")])
 
+    projects_html += f"""<input type="checkbox" id="modal-{item['id']}" class="project-modal-toggle">
+<div class="project-modal-overlay">
+<label for="modal-{item['id']}" class="project-modal-backdrop-close"></label>
+<div class="project-modal-card">
+<div class="project-modal-image-col">
+<img src="{img_src}" class="project-modal-img" alt="{item['title']}">
+</div>
+<div class="project-modal-content-col">
+<div class="project-modal-header">
+<div class="project-icon-box"><img src="{item['icon']}" alt="icon"></div>
+<div class="project-modal-title">{item['title']}</div>
+</div>
+<div class="project-modal-bullets">
+<p>{item['short_desc']}</p>
+{bullets_clean}
+</div>
+<div class="project-pills-row" style="margin-bottom: 20px;">{pills_html}</div>
+<div class="project-modal-actions">
+<a href="{item['url']}" target="_blank" class="btn-github-repo">View GitHub Repo &nearr;</a>
+<label for="modal-{item['id']}" class="btn-modal-close">Close</label>
+</div>
+</div>
+</div>
+</div>"""
+
+projects_html += '</div>'
 st.markdown(projects_html, unsafe_allow_html=True)
-st.markdown("</div>", unsafe_allow_html=True)
 
-# --- Custom Footer, Back-to-Top, and Scroll Progress Bar (Merged to minimize DOM wrappers) ---
+st.markdown("</div>", unsafe_allow_html=True) # End of Projects section
+
+# --- FOOTER & BACK TO TOP ---
 st.markdown("""
-    <div style='text-align: center; padding-top: 20px; font-size: 25px; font-weight: 500; color: #ffffff;'>
-        Made by Suhas Venkata Karamalaputti with ❤️
-    </div>
-    <div style='text-align: center; padding-top: 5px; font-size: 20px; font-weight: 500; color: #ffffff; margin-bottom: 10px;'>
-        Using Streamlit and Python
-    </div>
-    
-    <a href="#home" class="back-to-top">↑</a>
-    
-    <div id="scroll-progress-bar" style="
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 0%;
-        height: 4px;
-        background: linear-gradient(90deg, #005BEA, #00C6FB);
-        z-index: 10001;
-        box-shadow: 0 0 10px rgba(0, 198, 251, 0.8), 0 0 5px rgba(0, 91, 234, 0.5);
-        transition: width 0.08s ease-out;
-    "></div>
-
-    <script>
-    (function() {
-        function initProgressBar() {
-            const progressBar = document.getElementById('scroll-progress-bar');
-            const scrollContainer = document.querySelector('[data-testid="stAppViewContainer"]') || window;
-            
-            if (!scrollContainer) {
-                setTimeout(initProgressBar, 200);
-                return;
-            }
-
-            const target = scrollContainer === window ? document.documentElement : scrollContainer;
-
-            scrollContainer.addEventListener('scroll', () => {
-                const scrollTop = target.scrollTop !== undefined ? target.scrollTop : window.pageYOffset;
-                const scrollHeight = target.scrollHeight !== undefined ? target.scrollHeight : document.documentElement.scrollHeight;
-                const clientHeight = target.clientHeight !== undefined ? target.clientHeight : window.innerHeight;
-                
-                const totalScroll = scrollHeight - clientHeight;
-                const scrollPercentage = totalScroll > 0 ? (scrollTop / totalScroll) * 100 : 0;
-                
-                progressBar.style.width = scrollPercentage + '%';
-            });
-        }
-
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', initProgressBar);
-        } else {
-            initProgressBar();
-        }
-    })();
-    </script>
+<div style="text-align: center; padding: 40px 0 20px 0; font-family: var(--font-mono); font-size: 0.88rem; color: var(--text-dim); border-top: 1px dashed var(--bg-card-border); margin-top: 40px;">
+    Crafted by <strong style="color: var(--cyan-electric);">Suhas Venkata Karamalaputti</strong> with ⚡ using Python &amp; Streamlit
+</div>
 """, unsafe_allow_html=True)
+
+st.markdown('<a href="#home" class="back-to-top">&uarr;</a>', unsafe_allow_html=True)
