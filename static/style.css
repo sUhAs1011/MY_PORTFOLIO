@@ -687,6 +687,10 @@ h2,
   letter-spacing: 1px;
 }
 
+.skill-category-title img {
+  filter: drop-shadow(0 0 4px var(--cyan-glow));
+}
+
 .skill-box {
   background: var(--bg-card) !important;
   border: 1px solid var(--bg-card-border) !important;
