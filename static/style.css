@@ -42,11 +42,13 @@ html {
   scroll-behavior: smooth;
 }
 
-body, [data-testid="stAppViewContainer"], .main {
+body,
+[data-testid="stAppViewContainer"],
+.main {
   background-color: var(--bg-dark) !important;
   color: var(--text-main) !important;
   font-family: var(--font-sans);
-  background-image: 
+  background-image:
     radial-gradient(circle at 50% 0%, rgba(168, 85, 247, 0.08) 0%, transparent 60%),
     radial-gradient(circle at 85% 30%, rgba(0, 210, 255, 0.05) 0%, transparent 50%),
     linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
@@ -59,6 +61,14 @@ body, [data-testid="stAppViewContainer"], .main {
   padding-top: 100px !important;
   padding-bottom: 0.5rem !important;
   max-width: 1300px !important;
+}
+
+/* Disable default link underlines globally in Streamlit markdown blocks */
+div[data-testid="stMarkdownContainer"] a,
+div[data-testid="stMarkdownContainer"] a:hover {
+  text-decoration: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
 }
 
 /* ==========================================================================
@@ -88,11 +98,21 @@ body, [data-testid="stAppViewContainer"], .main {
   margin: 0 auto;
 }
 
+.navbar-brand,
+.navbar-brand:hover,
+.navbar-brand:focus,
+.navbar-brand:active,
+.navbar-brand *,
+.navbar-brand *:hover {
+  text-decoration: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+
 .navbar-brand {
   display: flex;
   align-items: center;
   gap: 10px;
-  text-decoration: none;
 }
 
 .navbar-brand-logo {
@@ -188,8 +208,17 @@ body, [data-testid="stAppViewContainer"], .main {
 }
 
 @keyframes pulse-glow {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.4; transform: scale(0.85); }
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.4;
+    transform: scale(0.85);
+  }
 }
 
 /* ==========================================================================
@@ -254,6 +283,8 @@ body, [data-testid="stAppViewContainer"], .main {
   gap: 10px;
   flex-wrap: nowrap;
   margin-bottom: 35px;
+  padding: 4px 2px; /* Prevent clipping of border/shadows */
+  overflow: visible !important;
 }
 
 .btn-primary-gradient {
@@ -302,7 +333,9 @@ body, [data-testid="stAppViewContainer"], .main {
     flex-wrap: wrap;
     gap: 10px;
   }
-  .btn-primary-gradient, .contact-button {
+
+  .btn-primary-gradient,
+  .contact-button {
     flex-grow: 1;
     text-align: center;
     justify-content: center;
@@ -380,7 +413,7 @@ body, [data-testid="stAppViewContainer"], .main {
   border: 1px solid var(--bg-card-border);
   border-radius: 16px;
   padding: 24px;
-  box-shadow: 0 20px 45px rgba(0,0,0,0.6), 0 0 35px rgba(0, 210, 255, 0.06);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6), 0 0 35px rgba(0, 210, 255, 0.06);
   font-family: var(--font-mono);
   position: relative;
   overflow: hidden;
@@ -498,7 +531,8 @@ body, [data-testid="stAppViewContainer"], .main {
    SECTION HEADERS & GENERAL CARD STYLES
    ========================================================================== */
 
-h2, .section-heading {
+h2,
+.section-heading {
   font-family: var(--font-sans);
   font-size: clamp(1.8rem, 3vw, 2.4rem) !important;
   font-weight: 800 !important;
@@ -533,7 +567,7 @@ h2, .section-heading {
   gap: 35px;
   align-items: stretch;
   transition: all 0.3s ease;
-  box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
 }
 
 .about-card:hover {
@@ -547,7 +581,7 @@ h2, .section-heading {
   border-radius: 12px;
   overflow: hidden;
   border: 1px solid var(--bg-card-border);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -745,10 +779,12 @@ h2, .section-heading {
 }
 
 .exp-list li::before {
-  content: '⚡';
+  content: '•';
   position: absolute;
   left: 0;
-  font-size: 0.8rem;
+  font-size: 1.2rem;
+  color: var(--cyan-electric);
+  top: -2px;
 }
 
 /* ==========================================================================
@@ -779,8 +815,13 @@ h2, .section-heading {
   box-sizing: border-box;
 }
 
-.timeline-item.left { left: 0; }
-.timeline-item.right { left: 50%; }
+.timeline-item.left {
+  left: 0;
+}
+
+.timeline-item.right {
+  left: 50%;
+}
 
 .timeline-content {
   padding: 20px;
@@ -838,7 +879,7 @@ h2, .section-heading {
 .achievement-card:hover {
   transform: translateY(-4px);
   border-color: var(--cyan-electric);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.4), 0 0 20px var(--cyan-glow);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4), 0 0 20px var(--cyan-glow);
 }
 
 .achievement-header {
@@ -915,7 +956,7 @@ h2, .section-heading {
   box-sizing: border-box;
 }
 
-.cert-modal-toggle:checked + .cert-modal-overlay {
+.cert-modal-toggle:checked+.cert-modal-overlay {
   display: flex !important;
 }
 
@@ -1233,7 +1274,7 @@ h2, .section-heading {
   box-sizing: border-box;
 }
 
-.project-modal-toggle:checked + .project-modal-overlay {
+.project-modal-toggle:checked+.project-modal-overlay {
   display: flex !important;
 }
 
@@ -1256,7 +1297,7 @@ h2, .section-heading {
   width: 92%;
   position: relative;
   z-index: 2;
-  box-shadow: 0 25px 60px rgba(0,0,0,0.85), 0 0 35px rgba(0, 210, 255, 0.08);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85), 0 0 35px rgba(0, 210, 255, 0.08);
   display: flex;
   gap: 35px;
   align-items: center;
@@ -1283,7 +1324,7 @@ h2, .section-heading {
   border-radius: 12px;
   overflow: hidden;
   border: 1px solid var(--bg-card-border);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
   background: #080c14;
 }
 
@@ -1401,11 +1442,14 @@ h2, .section-heading {
   .projects-grid {
     grid-template-columns: 1fr;
   }
+
   .project-modal-card {
     flex-direction: column;
     padding: 20px;
   }
-  .project-modal-image-col, .project-modal-content-col {
+
+  .project-modal-image-col,
+  .project-modal-content-col {
     width: 100%;
     flex: 0 0 100%;
   }
@@ -1445,17 +1489,22 @@ h2, .section-heading {
   .achievements-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
   .about-card {
     flex-direction: column;
   }
+
   .about-image {
     width: 100%;
     height: auto;
   }
+
   .project-card {
     flex-direction: column !important;
   }
-  .project-image-col, .project-content-col {
+
+  .project-image-col,
+  .project-content-col {
     width: 100% !important;
     flex: 0 0 100% !important;
   }
@@ -1465,25 +1514,31 @@ h2, .section-heading {
   .hero-name {
     white-space: normal;
   }
+
   .navbar-links {
     display: none;
   }
+
   .header-ticker-bar {
     flex-direction: column;
     gap: 8px;
     align-items: flex-start;
   }
+
   .achievements-grid {
     grid-template-columns: 1fr;
   }
+
   .timeline-container::after {
     left: 20px;
   }
+
   .timeline-item {
     width: 100%;
     padding-left: 50px;
     padding-right: 10px;
   }
+
   .timeline-item.right {
     left: 0;
   }
