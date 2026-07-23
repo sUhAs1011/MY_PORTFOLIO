@@ -270,7 +270,7 @@ st.markdown("<div id='skills' class='content-section'>", unsafe_allow_html=True)
 st.markdown("""<h2 class="section-heading"><span class="section-tag" style="font-size: 0.9rem; padding: 5px 14px; letter-spacing: 1px;">[02] TECH STACK</span></h2>""", unsafe_allow_html=True)
 
 # --- Programming Languages ---
-st.markdown("<div class='skill-category-title'>👨‍💻 Programming Languages</div>", unsafe_allow_html=True)
+st.markdown("<div class='skill-category-title'><img src='https://img.icons8.com/?size=100&id=20431&format=png&color=00d2ff' style='width:18px; height:18px;' alt='icon'>Programming Languages</div>", unsafe_allow_html=True)
 
 icon_map = {
     "Python": "https://img.icons8.com/color/48/000000/python--v1.png",
@@ -298,7 +298,7 @@ for i, lang in enumerate(prog_langs):
         )
 
 # --- Databases ---
-st.markdown("<div class='skill-category-title'>🗄️ Databases & Vector Stores</div>", unsafe_allow_html=True) 
+st.markdown("<div class='skill-category-title'><img src='https://img.icons8.com/?size=100&id=11894&format=png&color=00d2ff' style='width:18px; height:18px;' alt='icon'>Databases &amp; Vector Stores</div>", unsafe_allow_html=True) 
 
 db_icon_map = {
     "MySQL": "https://img.icons8.com/?size=100&id=9nLaR5KFGjN0&format=png&color=000000",
@@ -324,7 +324,7 @@ for i, tool in enumerate(db_tools):
         )
 
 # --- AI/ML ---
-st.markdown("<div class='skill-category-title'>🤖 AI/ML Libraries</div>", unsafe_allow_html=True)
+st.markdown("<div class='skill-category-title'><img src='https://img.icons8.com/?size=100&id=59858&format=png&color=00d2ff' style='width:18px; height:18px;' alt='icon'>AI/ML Libraries</div>", unsafe_allow_html=True)
 
 ml_icon_map = {
     "Scikit-learn": "https://quintagroup.com/cms/python/images/scikit-learn-logo.png",
@@ -357,7 +357,7 @@ for i, tool in enumerate(ml_tools):
         )
 
 # --- Tools ---
-st.markdown("<div class='skill-category-title'>🧰 Tools &amp; Platforms</div>", unsafe_allow_html=True)
+st.markdown("<div class='skill-category-title'><img src='https://img.icons8.com/?size=100&id=7859&format=png&color=00d2ff' style='width:18px; height:18px;' alt='icon'>Tools &amp; Platforms</div>", unsafe_allow_html=True)
 
 tool_icon_map = {
     "Git": "https://img.icons8.com/?size=100&id=20906&format=png&color=000000",
