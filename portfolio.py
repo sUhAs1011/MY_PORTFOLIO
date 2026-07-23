@@ -89,7 +89,7 @@ def load_and_base64_image(file_path):
             img = ImageEnhance.Contrast(img).enhance(1.03)
             img = ImageEnhance.Brightness(img).enhance(1.01)
             img = ImageEnhance.Color(img).enhance(1.02)
-        elif "linked.jpeg" in file_path:
+        elif "linked1.jpg" in file_path:
             img = ImageEnhance.Sharpness(img).enhance(1.08)
             img = ImageEnhance.Contrast(img).enhance(1.06)
             img = ImageEnhance.Brightness(img).enhance(1.03)
@@ -239,7 +239,7 @@ with col_hero_right:
 st.markdown("</div>", unsafe_allow_html=True) # End of Hero section
 
 # --- ABOUT ME SECTION ---
-img_about = load_and_process_about_image(os.path.join(SCRIPT_DIR, "linked.jpeg"))
+img_about = load_and_process_about_image(os.path.join(SCRIPT_DIR, "linked1.jpg"))
 buffered_about = BytesIO()
 img_about.save(buffered_about, format="PNG", quality=95)
 about_img_b64 = base64.b64encode(buffered_about.getvalue()).decode()
