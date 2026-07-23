@@ -173,9 +173,9 @@ with col_hero_left:
     # Action buttons row
     buttons_html = f"""<div class="button-row">
 <a href="#projects" class="btn-primary-gradient">Explore Selected Work ⚡</a>
-<a href="{resume_download_href}" download="Suhas_Resume.pdf" class="contact-button">Download résumé &darr;</a>
-<a href="https://www.linkedin.com/in/suhas-venkata-karamalaputti/" target="_blank" class="contact-button">LinkedIn &nearr;</a>
-<a href="https://github.com/sUhAs1011" target="_blank" class="contact-button">GitHub &nearr;</a>
+<a href="{resume_download_href}" download="Suhas_Resume.pdf" class="contact-button"><img src="https://img.icons8.com/?size=100&id=84020&format=png&color=FFFFFF" style="width:15px; height:15px; vertical-align:middle; margin-right:6px;" alt="Resume">Download résumé</a>
+<a href="https://www.linkedin.com/in/suhas-venkata-karamalaputti/" target="_blank" class="contact-button"><img src="https://img.icons8.com/?size=100&id=8808&format=png&color=0077b5" style="width:15px; height:15px; vertical-align:middle; margin-right:6px;" alt="LinkedIn">LinkedIn</a>
+<a href="https://github.com/sUhAs1011" target="_blank" class="contact-button"><img src="https://img.icons8.com/?size=100&id=SzgQDfObXUbA&format=png&color=FFFFFF" style="width:15px; height:15px; vertical-align:middle; margin-right:6px;" alt="GitHub">GitHub</a>
 </div>"""
     st.markdown(buttons_html, unsafe_allow_html=True)
     
