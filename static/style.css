@@ -370,7 +370,7 @@ body, [data-testid="stAppViewContainer"], .main {
 }
 
 .status-company {
-  color: var(--text-main);
+  color: var(--cyan-electric);
   font-weight: 600;
 }
 
