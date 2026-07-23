@@ -89,12 +89,6 @@ def load_and_base64_image(file_path):
             img = ImageEnhance.Contrast(img).enhance(1.03)
             img = ImageEnhance.Brightness(img).enhance(1.01)
             img = ImageEnhance.Color(img).enhance(1.02)
-        elif "linked1.jpg" in file_path:
-            img = ImageEnhance.Sharpness(img).enhance(1.08)
-            img = ImageEnhance.Contrast(img).enhance(1.06)
-            img = ImageEnhance.Brightness(img).enhance(1.03)
-            img = ImageEnhance.Color(img).enhance(1.05)
-            img = img.filter(ImageFilter.SMOOTH)
         
         buffered = BytesIO()
         img.save(buffered, format="PNG", quality=95)
@@ -104,12 +98,7 @@ def load_and_base64_image(file_path):
 
 @st.cache_data
 def load_and_process_about_image(file_path):
-    img = Image.open(file_path)
-    img = ImageEnhance.Sharpness(img).enhance(1.8)
-    img = ImageEnhance.Contrast(img).enhance(1.4)
-    img = ImageEnhance.Color(img).enhance(1.2)
-    img = img.filter(ImageFilter.SHARPEN)
-    return img
+    return Image.open(file_path)
 
 @st.cache_data
 def load_and_base64_pdf(file_path):
