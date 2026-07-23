@@ -817,6 +817,7 @@ for item in projects_list:
 <div class="project-modal-overlay">
 <label for="modal-{item['id']}" class="project-modal-backdrop-close"></label>
 <div class="project-modal-card">
+<label for="modal-{item['id']}" class="project-modal-close-icon">&times;</label>
 <div class="project-modal-image-col">
 <div class="project-modal-img-frame">
 <img src="{img_src}" class="project-modal-img" alt="{item['title']}">
@@ -841,14 +842,13 @@ for item in projects_list:
 
 projects_html += '</div>'
 
-# Footer integrated into projects_html to avoid Streamlit inter-block spacing
+# Footer and closing div and back-to-top integrated into projects_html to avoid multiple Streamlit block wrappers
 projects_html += """
-<div style="text-align: center; padding: 15px 0 10px 0; font-family: var(--font-mono); font-size: 0.88rem; color: var(--text-dim); border-top: 1px dashed var(--bg-card-border); margin-top: 25px;">
+<div style="text-align: center; padding: 15px 0 10px 0; font-family: var(--font-mono); font-size: 0.88rem; color: var(--text-dim); border-top: 1px dashed var(--bg-card-border); margin-top: 25px; margin-bottom: -15px;">
     Crafted by <strong style="color: var(--cyan-electric);">Suhas Venkata Karamalaputti</strong> with ⚡ using Python &amp; Streamlit
 </div>
+</div>
+<a href="#home" class="back-to-top">&uarr;</a>
 """
 
 st.markdown(projects_html, unsafe_allow_html=True)
-st.markdown("</div>", unsafe_allow_html=True) # End of Projects section
-
-st.markdown('<a href="#home" class="back-to-top">&uarr;</a>', unsafe_allow_html=True)
