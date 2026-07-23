@@ -59,8 +59,13 @@ body,
 /* Streamlit container padding overrides */
 .main .block-container {
   padding-top: 100px !important;
-  padding-bottom: 0.5rem !important;
+  padding-bottom: 0px !important;
   max-width: 1300px !important;
+}
+
+.stApp, .main, div[data-testid="stVerticalBlock"] {
+  padding-bottom: 0px !important;
+  margin-bottom: 0px !important;
 }
 
 /* Disable default link underlines globally in Streamlit markdown blocks */
@@ -1317,6 +1322,24 @@ h2,
   overflow: hidden;
 }
 
+.project-modal-close-icon {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 26px;
+  color: var(--text-dim);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  line-height: 1;
+  z-index: 10;
+  user-select: none;
+}
+
+.project-modal-close-icon:hover {
+  color: var(--cyan-electric);
+  transform: scale(1.15);
+}
+
 .project-modal-card::before {
   content: '';
   position: absolute;
@@ -1406,8 +1429,10 @@ h2,
 .project-modal-actions {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   gap: 14px;
-  margin-top: 15px;
+  margin-top: auto;
+  padding-top: 15px;
 }
 
 .btn-github-repo {
