@@ -1129,6 +1129,15 @@ h2, .section-heading {
   white-space: nowrap;
 }
 
+/* Project card footer & direct links */
+.project-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  width: 100%;
+}
+
 /* View Details Button */
 .project-view-details-btn {
   font-family: var(--font-mono);
@@ -1142,12 +1151,34 @@ h2, .section-heading {
   transition: all 0.2s ease;
   user-select: none;
   width: fit-content;
-  margin-top: auto;
 }
 
 .project-view-details-btn:hover {
   color: #ffffff !important;
   transform: translateX(4px);
+}
+
+.btn-github-repo-mini {
+  background: var(--grad-cyan-purple) !important;
+  color: #ffffff !important;
+  font-family: var(--font-mono) !important;
+  font-size: 0.74rem !important;
+  font-weight: 700 !important;
+  padding: 6px 14px !important;
+  border-radius: 6px !important;
+  text-decoration: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  transition: all 0.25s ease !important;
+  box-shadow: 0 0 15px rgba(168, 85, 247, 0.25) !important;
+  border: none !important;
+  user-select: none;
+}
+
+.btn-github-repo-mini:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 0 22px rgba(168, 85, 247, 0.45) !important;
 }
 
 /* PROJECT DETAIL MODALS */
@@ -1357,7 +1388,7 @@ h2, .section-heading {
 /* Back to Top Floating Button */
 .back-to-top {
   position: fixed;
-  bottom: 75px;
+  bottom: 25px;
   right: 30px;
   width: 44px;
   height: 44px;
