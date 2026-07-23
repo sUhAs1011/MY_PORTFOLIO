@@ -167,7 +167,7 @@ with col_hero_left:
 <div class="hero-tag">INITIALIZING SYSTEM // AI &amp; SOFTWARE ENGINEER</div>
 <h1 class="hero-name">Suhas Venkata Karamalaputti<span class="hero-name-dot">.</span></h1>
 <div class="hero-title">Machine Learning &amp; Software Engineer</div>
-<p class="hero-bio">I design and build intelligent AI systems, vector search pipelines, and enterprise software solutions — solving real-world challenges through research-driven engineering and platform thinking.</p>
+<p class="hero-bio">I engineer deep learning recommendation models, semantic vector search systems, and high-throughput enterprise platforms—bridging the gap between complex ML research and scalable production code.</p>
 </div>""", unsafe_allow_html=True)
     
     # Action buttons row
@@ -184,7 +184,7 @@ with col_hero_left:
         status_html = f"""<div class="hero-status-bar">
 <img src="data:image/png;base64,{img_b64}" class="status-avatar" alt="Avatar" />
 <div class="status-text">
-<div class="status-label">CURRENTLY</div>
+<div class="status-label">CURRENT ROLE</div>
 <div class="status-company">Software Engineer Intern @ Epsilon</div>
 </div>
 </div>"""
@@ -245,7 +245,7 @@ img_about.save(buffered_about, format="PNG", quality=95)
 about_img_b64 = base64.b64encode(buffered_about.getvalue()).decode()
 
 about_html = f"""<div id="about" class="content-section">
-<h2 class="section-heading"><span class="section-tag">[01] PROFILE</span> 👨‍💼 About Me</h2>
+<h2 class="section-heading"><span class="section-tag" style="font-size: 0.9rem; padding: 5px 14px; letter-spacing: 1px;">[01] PROFILE</span></h2>
 <div class="about-card">
 <div class="about-image-wrapper">
 <img src="data:image/png;base64,{about_img_b64}" class="about-image" alt="Suhas Venkata Karamalaputti" />
@@ -267,7 +267,7 @@ st.markdown(about_html, unsafe_allow_html=True)
 
 # --- SKILLS SECTION ---
 st.markdown("<div id='skills' class='content-section'>", unsafe_allow_html=True)
-st.markdown("""<h2 class="section-heading"><span class="section-tag">[02] TECH STACK</span> 🛠️ Skills &amp; Technologies</h2>""", unsafe_allow_html=True)
+st.markdown("""<h2 class="section-heading"><span class="section-tag" style="font-size: 0.9rem; padding: 5px 14px; letter-spacing: 1px;">[02] TECH STACK</span></h2>""", unsafe_allow_html=True)
 
 # --- Programming Languages ---
 st.markdown("<div class='skill-category-title'>👨‍💻 Programming Languages</div>", unsafe_allow_html=True)
@@ -414,7 +414,7 @@ st.markdown("</div>", unsafe_allow_html=True) # End of Skills section
 
 # --- EXPERIENCE SECTION ---
 st.markdown("<div id='experience' class='content-section'>", unsafe_allow_html=True)
-st.markdown("""<h2 class="section-heading"><span class="section-tag">[03] TIMELINE</span> 💼 Experience</h2>""", unsafe_allow_html=True)
+st.markdown("""<h2 class="section-heading"><span class="section-tag" style="font-size: 0.9rem; padding: 5px 14px; letter-spacing: 1px;">[03] TIMELINE</span></h2>""", unsafe_allow_html=True)
 
 experience_data = [
  {
@@ -468,7 +468,7 @@ st.markdown("</div>", unsafe_allow_html=True)
 
 # --- MY JOURNEY SECTION ---
 st.markdown("<div id='journey' class='content-section'>", unsafe_allow_html=True)
-st.markdown("""<h2 class="section-heading" style="justify-content:center;"><span class="section-tag">[04] EDUCATION</span> 🚶‍♂️ My Journey</h2>""", unsafe_allow_html=True)
+st.markdown("""<h2 class="section-heading" style="justify-content:center;"><span class="section-tag" style="font-size: 0.9rem; padding: 5px 14px; letter-spacing: 1px;">[04] EDUCATION</span></h2>""", unsafe_allow_html=True)
 
 st.markdown("""
 <div class="timeline-container">
@@ -506,7 +506,7 @@ st.markdown("</div>", unsafe_allow_html=True)
 
 # --- ACHIEVEMENTS SECTION ---
 st.markdown("<div id='achievements' class='content-section'>", unsafe_allow_html=True)
-st.markdown("""<h2 class="section-heading"><span class="section-tag">[05] HONORS</span> 🏆 Achievements</h2>""", unsafe_allow_html=True)
+st.markdown("""<h2 class="section-heading"><span class="section-tag" style="font-size: 0.9rem; padding: 5px 14px; letter-spacing: 1px;">[05] HONORS</span></h2>""", unsafe_allow_html=True)
 
 achievements = [
    {
@@ -631,7 +631,7 @@ st.markdown("</div>", unsafe_allow_html=True)
 
 # --- PROJECTS SECTION ---
 st.markdown("<div id='projects' class='content-section'>", unsafe_allow_html=True)
-st.markdown("""<h2 class="section-heading"><span class="section-tag">[06] FEATURED WORK</span> 🚀 Projects</h2>""", unsafe_allow_html=True)
+st.markdown("""<h2 class="section-heading"><span class="section-tag" style="font-size: 0.9rem; padding: 5px 14px; letter-spacing: 1px;">[06] FEATURED WORK</span></h2>""", unsafe_allow_html=True)
 
 projects_list = [
     {
