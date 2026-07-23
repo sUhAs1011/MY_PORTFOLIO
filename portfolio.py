@@ -138,6 +138,7 @@ st.markdown("""<div class="navbar-custom">
 <a href="#about">Profile</a>
 <a href="#skills">Stack</a>
 <a href="#experience">Timeline</a>
+<a href="#journey">Journey</a>
 <a href="#achievements">Honors</a>
 <a href="#projects">Work</a>
 </div>
@@ -797,7 +798,10 @@ for item in projects_list:
 </div>
 <div class="project-short-desc">{item['short_desc']}</div>
 <div class="project-pills-row">{pills_html}</div>
+<div class="project-card-footer">
 <label for="modal-{item['id']}" class="project-view-details-btn">View Details &rarr;</label>
+<a href="{item['url']}" target="_blank" class="btn-github-repo-mini"><img src="https://img.icons8.com/?size=100&id=SzgQDfObXUbA&format=png&color=FFFFFF" style="width:14px; height:14px; vertical-align:middle; margin-right:4px;" alt="GitHub">GitHub &nearr;</a>
+</div>
 </div>"""
 projects_html += '</div>'
 
@@ -838,15 +842,15 @@ for item in projects_list:
 </div>"""
 
 projects_html += '</div>'
-st.markdown(projects_html, unsafe_allow_html=True)
 
-st.markdown("</div>", unsafe_allow_html=True) # End of Projects section
-
-# --- FOOTER & BACK TO TOP ---
-st.markdown("""
-<div style="text-align: center; padding: 40px 0 20px 0; font-family: var(--font-mono); font-size: 0.88rem; color: var(--text-dim); border-top: 1px dashed var(--bg-card-border); margin-top: 40px;">
+# Footer integrated into projects_html to avoid Streamlit inter-block spacing
+projects_html += """
+<div style="text-align: center; padding: 15px 0 10px 0; font-family: var(--font-mono); font-size: 0.88rem; color: var(--text-dim); border-top: 1px dashed var(--bg-card-border); margin-top: 25px;">
     Crafted by <strong style="color: var(--cyan-electric);">Suhas Venkata Karamalaputti</strong> with ⚡ using Python &amp; Streamlit
 </div>
-""", unsafe_allow_html=True)
+"""
+
+st.markdown(projects_html, unsafe_allow_html=True)
+st.markdown("</div>", unsafe_allow_html=True) # End of Projects section
 
 st.markdown('<a href="#home" class="back-to-top">&uarr;</a>', unsafe_allow_html=True)
