@@ -251,8 +251,7 @@ about_html = f"""<div id="about" class="content-section">
 <img src="data:image/png;base64,{about_img_b64}" class="about-image" alt="Suhas Venkata Karamalaputti" />
 </div>
 <div class="about-content">
-<div class="about-intro-heading">Software &amp; Applied AI Engineer based in Bengaluru, India</div>
-<div class="about-paragraph">I’m <strong>Suhas Venkata Karamalaputti</strong>, a final-year Computer Science &amp; Engineering student at <span class="highlight-cyan">PES University</span>, currently working as a <span class="highlight-purple">Software Engineer Intern at Epsilon</span>. I specialize in Machine Learning, Deep Learning, and Natural Language Processing, building intelligent systems that convert complex data into real-world impact.</div>
+<div class="about-paragraph">I’m <strong>Suhas Venkata Karamalaputti</strong>, a final-year Computer Science &amp; Engineering student at <span class="highlight-cyan">PES University</span>, currently working as a <span class="highlight-cyan">Software Engineer Intern at Epsilon</span>. I specialize in Machine Learning, Deep Learning, and Natural Language Processing, building intelligent systems that convert complex data into real-world impact.</div>
 <div class="about-paragraph">Previously, I worked as a Software Engineering Intern at <span class="highlight-cyan">Elfonze Technologies</span>, where I developed AI-driven and full-stack enterprise platforms — including semantic document retrieval systems, travel expense platforms, and scalable ticketing workflows.</div>
 <div class="about-paragraph">I thrive at the intersection of AI research and production engineering — building vector search engines, RAG pipelines, and multi-agent systems.</div>
 <div class="about-meta-grid">
@@ -834,7 +833,6 @@ for item in projects_list:
 </div>
 <div class="project-pills-row" style="margin-bottom: 22px;">{pills_html}</div>
 <div class="project-modal-actions">
-<a href="{item['url']}" target="_blank" class="btn-github-repo"><img src="https://img.icons8.com/?size=100&id=SzgQDfObXUbA&format=png&color=FFFFFF" style="width:18px; height:18px; vertical-align:middle; margin-right:6px;" alt="GitHub">View GitHub Repo &nearr;</a>
 <label for="modal-{item['id']}" class="btn-modal-close">Close</label>
 </div>
 </div>
