@@ -251,8 +251,8 @@ body, [data-testid="stAppViewContainer"], .main {
 .button-row {
   display: flex;
   align-items: center;
-  gap: 14px;
-  flex-wrap: wrap;
+  gap: 10px;
+  flex-wrap: nowrap;
   margin-bottom: 35px;
 }
 
@@ -260,17 +260,18 @@ body, [data-testid="stAppViewContainer"], .main {
   background: var(--grad-cyan-purple) !important;
   color: #ffffff !important;
   font-family: var(--font-mono) !important;
-  font-size: 0.88rem !important;
+  font-size: 0.82rem !important;
   font-weight: 700 !important;
-  padding: 12px 24px !important;
+  padding: 10px 18px !important;
   border-radius: 8px !important;
   text-decoration: none !important;
   display: inline-flex !important;
   align-items: center !important;
-  gap: 8px !important;
+  gap: 6px !important;
   transition: all 0.25s ease !important;
   box-shadow: 0 0 20px var(--purple-glow) !important;
   border: none !important;
+  white-space: nowrap !important;
 }
 
 .btn-primary-gradient:hover {
@@ -282,17 +283,30 @@ body, [data-testid="stAppViewContainer"], .main {
   background: var(--bg-card) !important;
   color: var(--text-main) !important;
   font-family: var(--font-mono) !important;
-  font-size: 0.85rem !important;
+  font-size: 0.8rem !important;
   font-weight: 600 !important;
-  padding: 12px 20px !important;
+  padding: 10px 14px !important;
   border-radius: 8px !important;
   border: 1px solid var(--bg-card-border) !important;
   text-decoration: none !important;
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  gap: 8px !important;
+  gap: 6px !important;
   transition: all 0.25s ease !important;
+  white-space: nowrap !important;
+}
+
+@media screen and (max-width: 768px) {
+  .button-row {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .btn-primary-gradient, .contact-button {
+    flex-grow: 1;
+    text-align: center;
+    justify-content: center;
+  }
 }
 
 .contact-button:hover {
@@ -301,6 +315,18 @@ body, [data-testid="stAppViewContainer"], .main {
   box-shadow: 0 0 15px var(--cyan-glow) !important;
   transform: translateY(-2px) !important;
   background: rgba(0, 210, 255, 0.08) !important;
+}
+
+.contact-button img {
+  width: 15px;
+  height: 15px;
+  object-fit: contain;
+  vertical-align: middle;
+  transition: all 0.25s ease;
+}
+
+.contact-button:hover img {
+  transform: scale(1.08);
 }
 
 .contact-icon {
