@@ -484,7 +484,7 @@ st.markdown("""
     <div class="timeline-content left">
       <h3>B.Tech CSE</h3>
       <p>PES University</p>
-      <p>🗓️ 2022 - Present</p>
+      <p>🗓️ 2022 - 2026</p>
       <p>CGPA : 8.20</p>
     </div>
   </div>
