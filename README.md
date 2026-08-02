@@ -67,7 +67,7 @@ Once the application starts, open the local URL displayed in your terminal (typi
 ### Portfolio Interface
 
 <p align="center">
-  <img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/3762dbed-a12b-447f-88d7-3640261de278" />
+  <img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/6c0334fe-2912-43d5-a4b5-036c890daf37" />
 </p>
 
 ## 📬 Feedback
