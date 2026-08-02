@@ -70,14 +70,6 @@ Once the application starts, open the local URL displayed in your terminal (typi
   <img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/6c0334fe-2912-43d5-a4b5-036c890daf37" />
 </p>
 
-## 📬 Feedback
-
-If you have any suggestions, feedback, or ideas for improvement, feel free to open an issue or connect with me. I'm always happy to learn and improve!
-
-⭐ If you like this project, consider giving the repository a star!
-
-
-
 
 
 
