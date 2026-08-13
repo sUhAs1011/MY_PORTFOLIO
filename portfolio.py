@@ -573,7 +573,7 @@ achievements = [
         "desc": "Received <strong>Distinction Scholarship</strong> of ₹ 2000 for achieving SGPA above <strong>7.75</strong> in <strong>Semesters 2–6</strong> at <strong>PES University</strong>.",
         "tag": "Consistent Academic Performance",
         "id": "distinction",
-        "cert_path": "certificates/distinction.jpg"
+        "cert_path": "certificates/distinction.png"
     },
     {
     "title": "ICICT 2026",
