@@ -541,7 +541,7 @@ achievements = [
         "desc": "Achieved 2nd place for building a multi-agent Agentic AI incident investigation system using <strong>MCP</strong> and <strong>Ollama</strong>.",
         "tag": "Hackathon Runner-Up",
         "id": "encode",
-        "cert_path": "certificates/encode.jpg"
+        "cert_path": "certificates/encode.png"
     },
     {
         "title": "Heal-O-Code Hackathon",
