@@ -557,7 +557,7 @@ achievements = [
         "desc": "Ranked Top 11 out of 170 Capstone Teams for Detecting and Mitigating Replay Attacks in CCTV systems.",
         "tag": "Top 11 Finish",
         "id": "anveshana",
-        "cert_path": "certificates/anveshana.jpg"
+        "cert_path": "certificates/anveshana.png"
     },
     {
         "title": "MRD Scholarship",
