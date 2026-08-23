@@ -249,13 +249,13 @@ with col2:
     st.markdown("""
     <h2 class="about-header">👨‍💼 About Me</h2>
     <div class="about-paragraph">
-       I’m Suhas Venkata Karamalaputti, a final-year Computer Science & Engineering student at PES University, currently working as a Software Engineer Intern at Epsilon. I have a strong interest in Machine Learning, Deep Learning, and Natural Language Processing, and I enjoy building AI systems that solve real-world problems and create meaningful impact.
+       I’m Suhas Venkata Karamalaputti, a Computer Science & Engineering graduate from PES University, currently working as an Associate Software Engineer at Epsilon. I’m passionate about Machine Learning, Deep Learning, Natural Language Processing, and Applied AI, with a strong interest in building intelligent systems that solve real-world problems and create meaningful impact.
     </div>    
     <div class="about-paragraph">
-        Previously, I worked as a Software Engineering Intern at Elfonze Technologies, where I developed AI-driven and full-stack enterprise applications, including a semantic document retrieval system, a travel expense management platform, and a scalable ticketing workflow system.
+        Previously, I worked as a Software Engineering Intern at Elfonze Technologies, where I developed AI-driven and full-stack enterprise applications, including a semantic document retrieval system, a travel expense management platform, and a scalable ticketing and workflow management system.
     </div>    
     <div class="about-paragraph">
-       I’m always excited to explore new technologies, take on challenging problems, and collaborate across domains. If you're working on AI-driven or ML/NLP-focused projects, I’d love to connect and build something impactful together.
+       I enjoy exploring emerging technologies, tackling challenging problems, and collaborating across domains to turn ideas into practical solutions. I’m always open to connecting with people working on AI, ML, NLP, and software engineering and exploring opportunities to build something impactful together.
     </div>    
     """, unsafe_allow_html=True)
 
