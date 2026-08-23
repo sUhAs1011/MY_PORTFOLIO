@@ -421,6 +421,16 @@ st.markdown("<div id='experience' class='content-section'>", unsafe_allow_html=T
 st.header("💼 Experience")
 
 experience_data = [
+{
+  "role": "Software Engineering Intern",
+  "company": "Epsilon",
+  "date": "May 2026 - August 2026",
+  "location": "Bengaluru, Karnataka",
+  "description": [
+    "Built hands-on experience in AWS Cloud, Generative AI, C#, and .NET, while strengthening application development and problem-solving skills.",
+    "Gained exposure to Loyalty Programs, Epsilon CDP, and Business System Analysis, while developing communication, teamwork, and business understanding."
+  ]
+},
  {
   "role": "Software Engineering Intern",
   "company": "Elfonze Technologies Pvt. Ltd.",
