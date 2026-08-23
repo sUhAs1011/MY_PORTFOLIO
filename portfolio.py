@@ -198,7 +198,7 @@ with col1:
     "<span class='emoji'>👋</span>"
     "</div>",
     unsafe_allow_html=True)
-    st.markdown("<div class='subtitle'>CSE Senior at PES University | Software Engineer Intern at Epsilon</div>", unsafe_allow_html=True)
+    st.markdown("<div class='subtitle'>CSE Graduate at PES University | Associate Software Engineer at Epsilon</div>", unsafe_allow_html=True)
     st.markdown("""<p style='font-size:18px; line-height:1.6;'>
 Computer Science graduate from PES University, currently working as an Associate Software Engineer at Epsilon. Previously worked as a Software Engineering Intern at Elfonze Technologies and as a Summer Research Intern at C3I, contributing to end-to-end AI and software solutions. Passionate about Machine Learning, Natural Language Processing, and Applied AI, with hands-on experience building intelligent systems and solving real-world problems through software engineering and research-driven projects.
 """, unsafe_allow_html=True)
