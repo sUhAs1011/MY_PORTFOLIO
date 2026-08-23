@@ -427,8 +427,8 @@ experience_data = [
   "date": "May 2026 - August 2026",
   "location": "Bengaluru, Karnataka",
   "description": [
-    "Built hands-on experience in AWS Cloud, Generative AI, C#, and .NET, while strengthening application development and problem-solving skills.",
-    "Gained exposure to Loyalty Programs, Epsilon CDP, and Business System Analysis, while developing communication, teamwork, and business understanding."
+    "Built hands-on expertise in AWS Cloud, Generative AI, C#, and .NET, applying industry-standard technologies to understand application development practices, cloud-based solutions, and modern AI-driven development workflows.",
+    "Gained exposure to Loyalty Programs, Epsilon CDP, and Business System Analysis, developing an understanding of business processes and how technology solutions support organizational objectives, while strengthening problem-solving, communication, teamwork, and analytical skills."
   ]
 },
  {
