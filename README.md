@@ -32,8 +32,8 @@ https://suhas-venkata-karamalaputti.streamlit.app/
 ### Clone the repository
 
 ```bash
-git clone <repository-url>
-cd <repository-folder>
+git clone https://github.com/sUhAs1011/MY_PORTFOLIO.git
+cd MY_PORTFOLIO
 ```
 
 ### Install the dependencies
