@@ -1738,7 +1738,7 @@ div[data-testid="stVerticalBlock"]>div:last-child {
     padding: 25px;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     position: relative;
-    overflow: hidden;
+    overflow: visible;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -1775,6 +1775,40 @@ div[data-testid="stVerticalBlock"]>div:last-child {
     align-items: center;
     gap: 15px;
     margin-bottom: 15px;
+}
+
+.project-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    gap: 10px;
+}
+
+.project-github-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: linear-gradient(90deg, #005BEA, #00C6FB);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    text-decoration: none !important;
+    color: white !important;
+    font-weight: 600;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+.project-github-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 198, 251, 0.6);
+}
+
+.project-github-link img {
+    width: 18px;
+    height: 18px;
 }
 
 .project-icon-wrapper {
@@ -1930,6 +1964,7 @@ div[data-testid="stVerticalBlock"]>div:last-child {
     padding: 30px;
     gap: 30px;
     box-sizing: border-box;
+    position: relative;
 }
 
 @media screen and (max-width: 768px) {
@@ -2008,6 +2043,13 @@ div[data-testid="stVerticalBlock"]>div:last-child {
     display: flex;
     gap: 15px;
     margin-top: auto;
+}
+
+.project-modal-github-link {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 10;
 }
 
 .project-modal-btn {
