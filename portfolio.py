@@ -831,7 +831,14 @@ for proj in projects_data:
     projects_html += f'</div>'
     projects_html += f'<div class="project-description-text">{proj["desc"]}</div>'
     projects_html += f'<div class="project-tags">{tag_pills}</div>'
+    # Footer with View Details and GitHub link
+    projects_html += f'<div class="project-card-footer">'
     projects_html += f'<div class="project-link">View Details &rarr;</div>'
+    projects_html += f'<a href="{proj["url"]}" target="_blank" class="project-github-link" onclick="event.stopPropagation();">'
+    projects_html += f'<img src="https://img.icons8.com/?size=100&id=SzgQDfObXUbA&format=png&color=FFFFFF" alt="GitHub" />'
+    projects_html += f'GitHub'
+    projects_html += f'</a>'
+    projects_html += f'</div>'
     projects_html += f'</label>'
 
 projects_html += '</div>'
@@ -875,7 +882,6 @@ for proj in projects_data:
     projects_html += f'</div>'
     projects_html += f'<div class="project-modal-tech">{tag_pills_modal}</div>'
     projects_html += f'<div class="project-modal-actions">'
-    projects_html += f'<a href="{proj["url"]}" target="_blank" class="project-modal-btn project-modal-btn-primary">View GitHub Repo</a>'
     projects_html += f'<label for="modal-project-{proj["id"]}" class="project-modal-btn project-modal-btn-secondary">Close</label>'
     projects_html += f'</div>'
     projects_html += f'</div>' # End project-modal-right
