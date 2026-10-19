@@ -200,7 +200,7 @@ with col1:
     unsafe_allow_html=True)
     st.markdown("<div class='subtitle'>Associate Software Engineer at Epsilon</div>", unsafe_allow_html=True)
     st.markdown("""<p style='font-size:18px; line-height:1.6;'>
-Computer Science graduate from PES University, currently working as an Associate Software Engineer at Epsilon. Previously worked as a Software Engineering Intern at Elfonze Technologies and as a Summer Research Intern at C3I, contributing to end-to-end AI and software solutions. Passionate about Machine Learning, Natural Language Processing, and Applied AI, with hands-on experience building intelligent systems and solving real-world problems through software engineering and research-driven projects.
+Computer Science graduate from PES University, currently working as an Associate Software Engineer at Epsilon. Passionate about Machine Learning, NLP, and Applied AI, with experience building intelligent systems across software engineering and research internships at Elfonze Technologies and C3I.
 """, unsafe_allow_html=True)
     st.markdown("</div>", unsafe_allow_html=True)
 
