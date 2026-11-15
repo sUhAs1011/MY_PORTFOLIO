@@ -582,7 +582,7 @@ achievements = [
      "desc": "Proud moment for Team ParchaPay AI! Out of 250+ teams that registered for the Paytm Build for India Hackathon, our team was shortlisted among the Top 20 teams! Our project, ParchaPay AI, focuses on solving a real-world challenge faced by India's neighborhood merchants — the lack of transparency and automation in wholesale procurement.",
      "tag": "Top 20 Teams – Hackathon Shortlist",
      "id": "paytm-hackathon",
-     "cert_path": certificates/paytm.jpg
+     "cert_path": certificates/paytm.jpg"
     },
     {
     "title": "ICICT 2026",
