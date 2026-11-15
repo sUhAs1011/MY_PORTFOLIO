@@ -577,7 +577,7 @@ achievements = [
         "cert_path": "certificates/mrd.jpg"
     },
     {
-     "title": "Paytm Build for India Hackathon",
+     "title": "Paytm-India Hackathon",
      "icon": "💳",
      "desc": "Shortlisted among the Top 20 teams out of 250+ registrations at the Paytm Hackathon with ParchaPay AI, addressing transparency and automation challenges in wholesale procurement for merchants.",
      "tag": "Top 20 Teams – Hackathon Shortlist",
